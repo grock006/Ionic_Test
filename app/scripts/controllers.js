@@ -41,14 +41,14 @@ angular.module('starter.controllers', [])
   $scope.doLogin = function() {
         // console.log($scope.loginData.username)
         // console.log($scope.loginData.password)
-    $http.post("http://castifi-app-staging.herokuapp.com/auth/local",
-          {email: "ionic@test.com", password: "password"})
-         .success(function(data){
-            console.log(data)
-         })
-         .error(function(err){
-            console.log(err)
-         })
+    // $http.post("http://castifi-app-staging.herokuapp.com/auth/local",
+    //       {email: "ionic@test.com", password: "password"})
+    //      .success(function(data){
+    //         console.log(data)
+    //      })
+    //      .error(function(err){
+    //         console.log(err)
+    //      })
     // console.log('Doing login', $scope.loginData);
     // Simulate a login delay. Remove this and replace with your login
     // code if using a login system
@@ -87,14 +87,113 @@ angular.module('starter.controllers', [])
 
 .controller('PlaylistsCtrl', function($scope) {
   $scope.playlists = [
-    { title: 'Reggae', id: 1 },
+    { title: 'Reggae Yo', id: 1 },
     { title: 'Chill', id: 2 },
     { title: 'Dubstep', id: 3 },
     { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
+    { title: 'Rap Yo', id: 5 },
     { title: 'Cowbell', id: 6 }
   ];
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
+})
+
+.controller('PhotoCtrl', function($scope, $stateParams, $cordovaCamera) {
+
+        console.log("running controller")
+        var colorThief = new ColorThief();
+    //     var test = document.getElementById("test");
+    //     console.log(test)
+    //     $scope.palette = colorThief.getPalette(test, 8);
+    //     console.log($scope.palette)
+
+
+
+     $scope.takePhoto = function () {
+                  var options = {
+                    quality: 75,
+                    destinationType: Camera.DestinationType.DATA_URL, // FILE_URI
+                    sourceType: Camera.PictureSourceType.CAMERA,
+                    allowEdit: true,
+                    encodingType: Camera.EncodingType.JPEG,
+                    targetWidth: 300,
+                    targetHeight: 300,
+                    popoverOptions: CameraPopoverOptions,
+                    saveToPhotoAlbum: false
+                };
+   
+                    $cordovaCamera.getPicture(options).then(function (imageData) {
+                        $scope.imgURI = "data:image/jpeg;base64," + imageData;
+                        console.log("hey hey")
+                        console.log(options)
+                        console.log(imageData)
+                        console.log($scope.imgURI)
+                 
+                        var img = document.getElementById("image");
+                        console.log(img)
+                        $scope.palette = colorThief.getPalette(img, 8);
+                        console.log($scope.palette)
+                     
+                    }, function (err) {
+                        // An error occured. Show a message to the user
+                    });
+                }
+                
+                $scope.choosePhoto = function () {
+                  var options = {
+                    quality: 75,
+                    destinationType: Camera.DestinationType.FILE_URI,
+                    sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+                    allowEdit: true,
+                    encodingType: Camera.EncodingType.JPEG,
+                    targetWidth: 300,
+                    targetHeight: 300,
+                    popoverOptions: CameraPopoverOptions,
+                    saveToPhotoAlbum: false
+                };
+   
+                    $cordovaCamera.getPicture(options).then(function (imageData) {
+                        $scope.imgURI = imageData;
+                         console.log("hey hey")
+                         console.log(options)
+                         console.log(imageData)
+                         console.log($scope.imgURI)
+                   
+                        var img = document.getElementById("image");
+                        console.log(img)
+                        $scope.palette = colorThief.getPalette(img, 8);
+                        console.log($scope.palette)
+                    
+                    }, function (err) {
+                        // An error occured. Show a message to the user
+                    });
+                }
+
+      $scope.testApi = function (){
+          //$http.get("http://api.imagga.com/v1/colors")
+          //image path
+          //headers
+          var img = document.getElementById("image");
+          console.log(img)
+          $scope.dominant = colorThief.getColor(img)                  
+          $scope.palette = colorThief.getPalette(img, 10);
+          // console.log( $scope.dominant[0])
+          // console.log($scope.palette[0][0])
+          // create class
+          var thing = "rgb(103, 79, 62)"
+          var color = "rgb(" + $scope.dominant[0] + ", " + $scope.dominant[1] + ", " + $scope.dominant[2] + ")"
+          var one = "rgb(" + $scope.palette[1][0] + ", " + $scope.palette[1][1] + ", " + $scope.palette[1][2] + ")"
+          var two = "rgb(" + $scope.palette[2][0] + ", " + $scope.palette[2][1] + ", " + $scope.palette[2][2] + ")"
+          var three = "rgb(" + $scope.palette[3][0] + ", " + $scope.palette[3][1] + ", " + $scope.palette[3][2] + ")"
+          document.getElementById('dominant').style.backgroundColor = color
+          document.getElementById('one').style.backgroundColor = one
+          document.getElementById('two').style.backgroundColor = two
+          document.getElementById('three').style.backgroundColor = three
+          // use hex code
+          // console.log( "rgb(" + $scope.palette[0][0] + ", " + $scope.palette[0][1] + ", " + $scope.palette[0][2] + ")" )
+        }
+
+ 
+
 });

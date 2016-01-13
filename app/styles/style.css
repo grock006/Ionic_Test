@@ -11,3 +11,10 @@
 .bar.bar-stable .title {
      color: white; 
 }
+
+.box{
+	width:50px;
+	height:50px;
+	background-color: black;
+	display: inline-block;
+}
