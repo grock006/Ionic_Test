@@ -29,58 +29,33 @@ angular.module('starter.controllers', [])
     $scope.modal.show();
   };
 
-  // $http.get("http://www.omdbapi.com/?t=star+wars&y=&plot=short&r=json")
-  //     .success(function(data){
-  //         console.log(data)
-  //         $scope.test = data;
-  //     })
+})
 
+.controller('IntroCtrl', function($scope, $ionicSlideBoxDelegate, $state) {
 
-
-  // Perform the login action when the user submits the login form
-  $scope.doLogin = function() {
-        // console.log($scope.loginData.username)
-        // console.log($scope.loginData.password)
-    // $http.post("http://castifi-app-staging.herokuapp.com/auth/local",
-    //       {email: "ionic@test.com", password: "password"})
-    //      .success(function(data){
-    //         console.log(data)
-    //      })
-    //      .error(function(err){
-    //         console.log(err)
-    //      })
-    // console.log('Doing login', $scope.loginData);
-    // Simulate a login delay. Remove this and replace with your login
-    // code if using a login system
-    // $timeout(function() {
-    //   $scope.closeLogin();
-    // }, 1000);
+  $scope.startApp = function () {
+    $state.go('app.search');
+    // $localstorage.set('firstTime', 'true');
   };
 
-  // login: function(user, callback) {
-  //       var cb = callback || angular.noop;
-  //       var deferred = $q.defer();
+  $scope.next = function () {
+    $ionicSlideBoxDelegate.next();
+  };
 
-  //       $http.post('/auth/local', {
-  //         email: user.email,
-  //         password: user.password,
-  //       }).
-  //       success(function(data) {
-  //         $cookieStore.put('token', data.token);
-  //         currentUser = User.get();
-  //         deferred.resolve(data);
-  //         return cb();
-  //       }).
-  //       error(function(err) {
-  //         this.logout();
-  //         deferred.reject(err);
-  //         return cb(err);
-  //       }.bind(this));
+  $scope.previous = function () {
+    $ionicSlideBoxDelegate.previous();
+  };
 
-  //       return deferred.promise;
-  //     },
+  $scope.disableSwipe = function() {
+    $ionicSlideBoxDelegate.enableSlide(false);
+  };
 
+  // Called each time the slide changes
+  $scope.slideChanged = function (index) {
+    $scope.slideIndex = index;
+  };
 
+  // $scope.currentSlide = IntroSlideService.index;
 
 
 })
@@ -94,9 +69,6 @@ angular.module('starter.controllers', [])
     { title: 'Rap Yo', id: 5 },
     { title: 'Cowbell', id: 6 }
   ];
-})
-
-.controller('PlaylistCtrl', function($scope, $stateParams) {
 })
 
 .controller('PhotoCtrl', function($scope, $stateParams, $cordovaCamera) {
@@ -170,10 +142,22 @@ angular.module('starter.controllers', [])
                     });
                 }
 
+      function componentToHex(c) {
+          var hex = c.toString(16);
+          return hex.length == 1 ? "0" + hex : hex;
+      }
+
+      function rgbToHex(r, g, b) {
+          return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+      }
+
+      // alert( rgbToHex(0, 51, 255) ); // #0033ff          
+
       $scope.testApi = function (){
           //$http.get("http://api.imagga.com/v1/colors")
           //image path
           //headers
+          console.log(rgbToHex(0, 51, 255))
           var img = document.getElementById("image");
           console.log(img)
           $scope.dominant = colorThief.getColor(img)                  

@@ -25,6 +25,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
+    .state('intro', {
+    url: '/',
+    templateUrl: 'templates/intro.html',
+    controller: 'IntroCtrl'
+  })
+
     .state('app', {
     url: '/app',
     abstract: true,
@@ -70,5 +76,5 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/app/search');
 });
