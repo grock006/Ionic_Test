@@ -60,6 +60,11 @@ angular.module('starter.controllers', [])
 
 })
 
+.controller('PhotosCtrl', function($scope) {
+    $scope.message = "yo yo"
+
+})
+
 .controller('PlaylistsCtrl', function($scope) {
   $scope.playlists = [
     { title: 'Reggae Yo', id: 1 },
@@ -71,7 +76,7 @@ angular.module('starter.controllers', [])
   ];
 })
 
-.controller('PhotoCtrl', function($scope, $stateParams, $cordovaCamera) {
+.controller('SearchCtrl', function($scope, $stateParams, $cordovaCamera) {
 
         console.log("running controller")
         var colorThief = new ColorThief();

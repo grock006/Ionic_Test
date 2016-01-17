@@ -25,13 +25,31 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
-    .state('intro', {
-    url: '/',
+  .state('logo', {
+      url: '/',
+      templateUrl: 'templates/logo.html',
+      // controller: 'IntroCtrl'
+    })
+
+  .state('intro', {
+    url: '/intro',
     templateUrl: 'templates/intro.html',
     controller: 'IntroCtrl'
   })
 
-    .state('app', {
+  .state('capture', {
+    url: '/capture',
+    templateUrl: 'templates/capture.html',
+    controller: 'CaptureCtrl'
+  })
+
+  .state('photo', {
+    url: '/photo',
+    templateUrl: 'templates/photo.html',
+    controller: 'PhotoCtrl'
+  })
+
+  .state('app', {
     url: '/app',
     abstract: true,
     templateUrl: 'templates/menu.html',
@@ -43,7 +61,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
     views: {
       'menuContent': {
         templateUrl: 'templates/search.html',
-        controller: 'PhotoCtrl'
+        controller: 'SearchCtrl'
       }
     }
   })
@@ -76,5 +94,5 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/search');
+  $urlRouterProvider.otherwise('/capture');
 });
