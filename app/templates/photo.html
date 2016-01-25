@@ -1,34 +1,94 @@
-<ion-header-bar class="bar-stable">
-    <a href="#/capture"><button class="button-clear"> <i class="ion-chevron-left"></i>back</button></a>
-    <h1 class="title" style="color:black">Photo</h1>
+<!-- header -->
+<ion-header-bar class="bar-dark text-center" style="z-index:100">
+  <div class="row">
+  <div class="col-25">
+     <a href="#/capture">
+      <button class="button-clear"> 
+        <i class="ion-chevron-left"></i> back
+      </button>
+    </a>
+  </div>
+  <div class="col col-12"></div>
+  <div class="col col-25 text-center">
+    <div class="main-box-color" id="main-color"></div>
+  </div>
+  <div class="col col-12"></div>
+  <div class="col-25">
+     <a href="#">
+      <button class="button-clear"> 
+         next <i class="ion-chevron-right"></i> 
+      </button>
+    </a>
+  </div>
+</div>
 </ion-header-bar>
+<!-- end header -->
+
+
+
+<!-- subheader -->
+<div class="bar bar-subhead text-center" style="display:grid">
+  <div class="row">
+    <div class="col-33">zoom &amp; crop</div>
+    <div class="col-33">
+    </div>
+    <div class="col-33">view color details</div>
+  </div>
+</div>
+<!-- end subheader -->
 
 <ion-view view-title="Photo">
+<!-- <ion-content class="has-subheader"> -->
     <br>
     <br>
     <br>
-    <img id="photo" ng-src="{{imgURI}}" style="width:100%;height:300px">
 
-   <!-- <img id="photo" ng-src="{{photourl}}" style="width:100%;height:300px"> -->
+ <div class="row">
+  <div class="col">
+       <img id="photo" ng-src="{{imgURI}}" style="width:300px;height:300px">
+   <!-- <img id="photo" src="images/hot-blonde-04.jpg" style="width:300px;height:300px"> -->
+ </div>
+ </div>
 
-    <div class="row row-center text-center">  
-      <div class="col-20 box-color" id="one"></div>
-      <div class="col-20 box-color" id="two"></div>
-      <div class="col-20 box-color" id="three"></div>
-      <div class="col-20 box-color" id="four"></div>
-      <div class="col-20 box-color" id="five"></div>
+  <div style="position: absolute; bottom: 0px; width: 100%">
+    <div class="row row-center text-center no-pad-lr">  
+      <div class="col-20 box-color" id="one" ng-click="selectColor('one');">
+        <i ng-show="showCheck === 'one'" class="ion-checkmark"></i>
+      </div>
+      <div class="col-20 box-color" id="two" ng-click="selectColor('two');">
+        <i ng-show="showCheck === 'two'" class="ion-checkmark"></i>
+      </div>
+      <div class="col-20 box-color" id="three" ng-click="selectColor('three');">
+        <i ng-show="showCheck === 'three'" class="ion-checkmark"></i>
+      </div>
+      <div class="col-20 box-color" id="four" ng-click="selectColor('four');">
+        <i ng-show="showCheck === 'four'" class="ion-checkmark"></i>
+      </div>
+      <div class="col-20 box-color" id="five" ng-click="selectColor('five');">
+        <i ng-show="showCheck === 'five'" class="ion-checkmark"></i>
+      </div>
     </div>
-
-    <div class="row row-center text-center">  
-      <div class="col-20 box-color" id="six"></div>
-      <div class="col-20 box-color" id="seven"></div>
-      <div class="col-20 box-color" id="eight"></div>
-      <div class="col-20 box-color" id="nine"></div>
-      <div class="col-20 box-color" id="ten"></div>
+    <div class="row row-center text-center no-pad-lr">  
+      <div class="col-20 box-color" id="six" ng-click="selectColor('six');">
+        <i ng-show="showCheck === 'six'" class="ion-checkmark"></i>
+      </div>
+      <div class="col-20 box-color" id="seven" ng-click="selectColor('seven');">
+        <i ng-show="showCheck === 'seven'" class="ion-checkmark"></i>
+      </div>
+      <div class="col-20 box-color" id="eight" ng-click="selectColor('eight');">
+        <i ng-show="showCheck === 'eight'" class="ion-checkmark"></i>
+      </div>
+      <div class="col-20 box-color" id="nine" ng-click="selectColor('nine');">
+        <i ng-show="showCheck === 'nine'" class="ion-checkmark"></i>
+      </div>
+      <div class="col-20 box-color" id="ten" ng-click="selectColor('ten');">
+        <i ng-show="showCheck === 'ten'" class="ion-checkmark"></i>
+      </div>
     </div>
+  </div>
 
     <br>
     <!-- <button ng-click="test()">test</button> -->
 
-  </ion-content>
+  <!-- </ion-content> -->
 </ion-view>

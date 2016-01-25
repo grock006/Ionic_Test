@@ -2,17 +2,23 @@ angular.module('starter.controllers', [])
   
   .controller('PhotoCtrl', function($scope, $stateParams, $cordovaCamera, $state, $rootScope) {
 
-      console.log($rootScope.imgURI)
+      // console.log($rootScope.imgURI)
       var colorThief = new ColorThief();
-      // var photo = document.getElementById("photo");
-      // $scope.photourl = "images/hot-blonde-04.jpg"
       var photo = document.getElementById("photo");
-      console.log(photo)
+      // console.log(photo)
+
+      $scope.selectColor = function(color){
+         // console.log(color)
+         $scope.showCheck = color
+         var colorSelected = document.getElementById(color).style.backgroundColor 
+         // console.log(colorSelected)
+         document.getElementById('main-color').style.backgroundColor = colorSelected
+      }
 
 
       $scope.$on('$ionicView.afterEnter', function(){
           var palette = colorThief.getPalette(photo, 12);
-          console.log(palette)
+          // console.log(palette)
           var one = "rgb(" + palette[1][0] + ", " + palette[1][1] + ", " + palette[1][2] + ")"
           var two = "rgb(" + palette[2][0] + ", " + palette[2][1] + ", " + palette[2][2] + ")"
           var three = "rgb(" + palette[3][0] + ", " + palette[3][1] + ", " + palette[3][2] + ")"
@@ -39,25 +45,11 @@ angular.module('starter.controllers', [])
       });
      
  
-      // $scope.test = function(){              
-      //   var palette = colorThief.getPalette(photo, 10);
-      //   console.log(palette)
-      //   var one = "rgb(" + palette[1][0] + ", " + palette[1][1] + ", " + palette[1][2] + ")"
-      //   var two = "rgb(" + palette[2][0] + ", " + palette[2][1] + ", " + palette[2][2] + ")"
-      //   var three = "rgb(" + palette[3][0] + ", " + palette[3][1] + ", " + palette[3][2] + ")"
-
-      //   document.getElementById('one').style.backgroundColor = one
-      //   document.getElementById('two').style.backgroundColor = two
-      //   document.getElementById('three').style.backgroundColor = three
-      // }
       
   })
 
   .controller('CaptureCtrl', function($scope, $stateParams, $cordovaCamera, $state, $rootScope) {
 
-  // $scope.message = "hello"
-  // console.log("running controller")
-  // var colorThief = new ColorThief();
 
 
    $scope.takePhoto = function () {
@@ -70,15 +62,12 @@ angular.module('starter.controllers', [])
         targetWidth: 300,
         targetHeight: 300,
         popoverOptions: CameraPopoverOptions,
-        saveToPhotoAlbum: false
+        saveToPhotoAlbum: true
       };
   
         $cordovaCamera.getPicture(options).then(function (imageData) {
             $rootScope.imgURI = "data:image/jpeg;base64," + imageData;
             $state.go('photo');
-            // var img = document.getElementById("image");
-            // $scope.palette = colorThief.getPalette(img, 10);
-            // console.log($scope.palette)
          
         }, function (err) {
             // An error occured. Show a message to the user
@@ -97,16 +86,12 @@ angular.module('starter.controllers', [])
         targetWidth: 300,
         targetHeight: 300,
         popoverOptions: CameraPopoverOptions,
-        saveToPhotoAlbum: false
+        saveToPhotoAlbum: true
       };
 
       $cordovaCamera.getPicture(options).then(function (imageData) {
             $rootScope.imgURI = imageData;
-            $state.go('photo')
-            // var img = document.getElementById("image");
-            // $scope.palette = colorThief.getPalette(img, 10);
-            // console.log($scope.palette)
-        
+            $state.go('photo')        
         }, function (err) {
             // An error occured. Show a message to the user
         });
@@ -120,25 +105,6 @@ angular.module('starter.controllers', [])
     function rgbToHex(r, g, b) {
         return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
     }
-
-    // alert( rgbToHex(0, 51, 255) ); // #0033ff          
-
-    // $scope.testApi = function (){
-    //     console.log(rgbToHex(0, 51, 255))
-    //     var img = document.getElementById("image");
-    //     $scope.dominant = colorThief.getColor(img)                  
-    //     $scope.palette = colorThief.getPalette(img, 10);
-
-    //     var thing = "rgb(103, 79, 62)"
-    //     var color = "rgb(" + $scope.dominant[0] + ", " + $scope.dominant[1] + ", " + $scope.dominant[2] + ")"
-    //     var one = "rgb(" + $scope.palette[1][0] + ", " + $scope.palette[1][1] + ", " + $scope.palette[1][2] + ")"
-    //     var two = "rgb(" + $scope.palette[2][0] + ", " + $scope.palette[2][1] + ", " + $scope.palette[2][2] + ")"
-    //     var three = "rgb(" + $scope.palette[3][0] + ", " + $scope.palette[3][1] + ", " + $scope.palette[3][2] + ")"
-    //     document.getElementById('dominant').style.backgroundColor = color
-    //     document.getElementById('one').style.backgroundColor = one
-    //     document.getElementById('two').style.backgroundColor = two
-    //     document.getElementById('three').style.backgroundColor = three
-    //   }
 
 
 })
