@@ -12,11 +12,16 @@
      color: white; 
 }
 
-.bar-subhead{
-	display:grid;
+.bar-subheader{
+/*	display:grid;
 	top: 44px;
-	height: 44px;
+	height: 44px;*/
 	font-size: 12px;
+}
+
+.bar-subheader a{
+	text-decoration: none;
+	color:black;
 }
 
 .box{
@@ -41,6 +46,11 @@
     top: -5px;
     border-radius: 5px;
     text-align: center;
+}
+
+#detail-box{
+	height: 300px;	
+	border-radius: 5px;
 }
 
 .ion-checkmark{

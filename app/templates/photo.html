@@ -27,12 +27,16 @@
 
 
 <!-- subheader -->
-<div class="bar bar-subhead text-center" style="display:grid">
+<div class="bar bar-subheader text-center" style="display:grid">
   <div class="row">
     <div class="col-33">zoom &amp; crop</div>
     <div class="col-33">
     </div>
-    <div class="col-33">view color details</div>
+    <div class="col-33">
+       <a href="#" ng-click="sendDetails();"> 
+        view color details
+      </a>
+    </div>
   </div>
 </div>
 <!-- end subheader -->
@@ -45,8 +49,8 @@
 
  <div class="row">
   <div class="col">
-       <img id="photo" ng-src="{{imgURI}}" style="width:300px;height:300px">
-   <!-- <img id="photo" src="images/hot-blonde-04.jpg" style="width:300px;height:300px"> -->
+    <!--    <img id="photo" ng-src="{{imgURI}}" style="width:300px;height:300px"> -->
+   <img id="photo" src="images/hot-blonde-04.jpg" style="width:300px;height:300px">
  </div>
  </div>
 

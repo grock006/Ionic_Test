@@ -49,6 +49,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
     controller: 'PhotoCtrl'
   })
 
+  .state('detail', {
+    url: '/detail',
+    templateUrl: 'templates/detail.html',
+    controller: 'DetailCtrl',
+    resolve:{
+      colorSelected: function($rootScope){
+        return $rootScope.colorSelected;
+      }
+    }
+  })
+
   .state('app', {
     url: '/app',
     abstract: true,

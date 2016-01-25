@@ -1,18 +1,42 @@
 angular.module('starter.controllers', [])
+
+  .controller('DetailCtrl', function($scope, $state, $rootScope, colorSelected) {
+        // console.log("DetailCtrl")
+        // console.log($rootScope.colorSelected)
+        var rgb = colorSelected.replace(/[()]/g, "").replace(/rgb/, "").split(",")
+        console.log(rgb)
+        $scope.red = rgb[0]
+        $scope.green = rgb[1]
+        $scope.blue = rgb[2]
+        $scope.alpha = "100"
+        // break down rgb and assign to scope
+        // console.log(colorSelected.slice(4,7))
+        document.getElementById('detail-box').style.backgroundColor = colorSelected
+  })
   
   .controller('PhotoCtrl', function($scope, $stateParams, $cordovaCamera, $state, $rootScope) {
 
       // console.log($rootScope.imgURI)
+      // console.log($rootScope.colorSelected)
       var colorThief = new ColorThief();
       var photo = document.getElementById("photo");
+      $scope.showCheck = false;
       // console.log(photo)
 
       $scope.selectColor = function(color){
          // console.log(color)
+         //need to hide checkmark before loading
          $scope.showCheck = color
          var colorSelected = document.getElementById(color).style.backgroundColor 
-         // console.log(colorSelected)
+       
          document.getElementById('main-color').style.backgroundColor = colorSelected
+      }
+
+      $scope.sendDetails = function(){
+        var colorSelected = document.getElementById('main-color').style.backgroundColor 
+        // console.log(colorSelected)
+        $rootScope.colorSelected = colorSelected
+        $state.go('detail')
       }
 
 
