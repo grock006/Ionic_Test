@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
+angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova', 'directive.ngColorwheel'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -36,6 +36,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
     templateUrl: 'templates/intro.html',
     controller: 'IntroCtrl'
   })
+
+   .state('wheel', {
+    url: '/wheel',
+    templateUrl: 'templates/wheel.html',
+    controller: 'WheelCtrl'
+  })
+
 
   .state('capture', {
     url: '/capture',

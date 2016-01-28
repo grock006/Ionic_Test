@@ -1,17 +1,49 @@
 angular.module('starter.controllers', [])
 
+  .controller('WheelCtrl', function($scope, $state, $rootScope) {
+      console.log("WheelCtrl")
+      console.log($scope.color)
+      // do a watch on color
+      $scope.color = {hex: ""};
+      $scope.test = {words: ""}
+      $scope.$watch('color.hex', function(newValue, oldValue) {
+         rgb = newValue
+         document.getElementById('main').style.backgroundColor = rgb;
+
+        document.getElementById('dark-one').style.backgroundColor = chroma(rgb).darken();
+        document.getElementById('dark-two').style.backgroundColor = chroma(rgb).darken(2);
+        document.getElementById('dark-three').style.backgroundColor = chroma(rgb).darken(3);
+        // console.log(oldValue)
+        // console.log("hello")
+      }, true);
+  })
+
   .controller('DetailCtrl', function($scope, $state, $rootScope, colorSelected) {
         // console.log("DetailCtrl")
         // console.log($rootScope.colorSelected)
         var rgb = colorSelected.replace(/[()]/g, "").replace(/rgb/, "").split(",")
+        // test = "rgb(111, 112, 88)"
+        // var rgb = test.replace(/[()]/g, "").replace(/rgb/, "").split(",")
         console.log(rgb)
         $scope.red = rgb[0]
         $scope.green = rgb[1]
         $scope.blue = rgb[2]
         $scope.alpha = "100"
+        $scope.hex = chroma(rgb).hex();
         // break down rgb and assign to scope
         // console.log(colorSelected.slice(4,7))
         document.getElementById('detail-box').style.backgroundColor = colorSelected
+
+        document.getElementById('main').style.backgroundColor = $scope.hex
+
+        document.getElementById('bright-one').style.backgroundColor = chroma(rgb).brighten();
+        document.getElementById('bright-two').style.backgroundColor = chroma(rgb).brighten(2);
+        document.getElementById('bright-three').style.backgroundColor = chroma(rgb).brighten(3);
+
+
+        document.getElementById('dark-one').style.backgroundColor = chroma(rgb).darken();
+        document.getElementById('dark-two').style.backgroundColor = chroma(rgb).darken(2);
+        document.getElementById('dark-three').style.backgroundColor = chroma(rgb).darken(3);
   })
   
   .controller('PhotoCtrl', function($scope, $stateParams, $cordovaCamera, $state, $rootScope) {
