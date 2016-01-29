@@ -1,23 +1,49 @@
+<ion-header-bar class="bar-stable">
+  <button class="button button-clear ion-chevron-left" ui-sref="capture">
+     back
+  </button>
+  <div class="title">
+    
+  </div>
+  <button class="button button-clear">
+      next <i class="ion-chevron-right"></i> 
+  </button>
+</ion-header-bar>
+
 <ion-view>
   <ion-content>
 	<div class="row row-center text-center">  	
-		<!-- <div class="col col-10"></div> -->
-
 		<div class="col">
-			<div ng-colorwheel="{ size: 300, segments: 120 }" ng-model="color.hex"></div>
-			{{color.hex}}
-			<input type="text" ng-model="test.words">
-			{{test.words}}
+			<div ng-colorwheel="{ size: 300, segments: 40 }" ng-model="color.hex"></div>
 		</div>
-		<!-- <div class="col col-10"></div> -->
 	</div>
-
-	<div class="row">
-		<!-- <div class="box-color" style="background-color:{{color.hex}}"></div> -->
-		<div class="box-color" id="main"></div>
-		<div class="box-color" id="dark-one"></div>
-		<div class="box-color" id="dark-two"></div>
-		<div class="box-color" id="dark-three"></div>
-	</div>
+		<br>
+		<br>
+		<br>
+	 <div style="position: relative; bottom: 0px; width: 100%">
+      <div class="row text-center no-pad-lr">  
+        <div class="col-12 box-detail" id="wheel-bright-three">
+          
+        </div>
+        <div class="col-12 box-detail" id="wheel-bright-two">
+          
+        </div>
+        <div class="col-12 box-detail" id="wheel-bright-one">
+          
+        </div>
+        <div class="col-25 box-detail" id="wheel-main">
+          
+        </div>
+        <div class="col-12 box-detail" id="wheel-dark-one">
+          
+        </div>
+         <div class="col-12 box-detail" id="wheel-dark-two">
+          
+        </div>
+         <div class="col-12 box-detail" id="wheel-dark-three">
+          
+        </div>
+      </div>
+    </div>
 	</ion-content>
 </ion-view>

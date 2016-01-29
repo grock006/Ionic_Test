@@ -8,13 +8,17 @@ angular.module('starter.controllers', [])
       $scope.test = {words: ""}
       $scope.$watch('color.hex', function(newValue, oldValue) {
          rgb = newValue
-         document.getElementById('main').style.backgroundColor = rgb;
+         document.getElementById('wheel-main').style.backgroundColor = rgb;
 
-        document.getElementById('dark-one').style.backgroundColor = chroma(rgb).darken();
-        document.getElementById('dark-two').style.backgroundColor = chroma(rgb).darken(2);
-        document.getElementById('dark-three').style.backgroundColor = chroma(rgb).darken(3);
-        // console.log(oldValue)
-        // console.log("hello")
+        document.getElementById('wheel-bright-one').style.backgroundColor = chroma(rgb).brighten();
+        document.getElementById('wheel-bright-two').style.backgroundColor = chroma(rgb).brighten(2);
+        document.getElementById('wheel-bright-three').style.backgroundColor = chroma(rgb).brighten(3);
+
+
+        document.getElementById('wheel-dark-one').style.backgroundColor = chroma(rgb).darken();
+        document.getElementById('wheel-dark-two').style.backgroundColor = chroma(rgb).darken(2);
+        document.getElementById('wheel-dark-three').style.backgroundColor = chroma(rgb).darken(3);
+     
       }, true);
   })
 
