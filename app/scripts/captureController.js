@@ -1,5 +1,11 @@
 angular.module('starter.controllers', [])
 
+  .controller('ZoomCtrl', function($scope, $state, $rootScope) {
+      // $rootScope.imgURI = "images/test.jpg"
+      console.log("ZoomCtrl")
+      console.log($rootScope.imgURI)
+  })
+
   .controller('WheelCtrl', function($scope, $state, $rootScope) {
       console.log("WheelCtrl")
       console.log($scope.color)
@@ -58,6 +64,7 @@ angular.module('starter.controllers', [])
       var photo = document.getElementById("photo");
       $scope.showCheck = false;
       // console.log(photo)
+      $scope.thing = "images/test.jpg"
 
       $scope.selectColor = function(color){
          // console.log(color)
@@ -73,6 +80,15 @@ angular.module('starter.controllers', [])
         // console.log(colorSelected)
         $rootScope.colorSelected = colorSelected
         $state.go('detail')
+      }
+
+      $scope.getZoom = function(){
+        // var colorSelected = document.getElementById('main-color').style.backgroundColor 
+        // console.log(colorSelected)
+        // $rootScope.imgURI = $rootScope.imgURI
+        // console.log()
+          $rootScope.imgURI = imgURI;
+        $state.go('zoom')
       }
 
 
