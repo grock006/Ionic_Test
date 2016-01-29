@@ -53,7 +53,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova', 'directi
   .state('photo', {
     url: '/photo',
     templateUrl: 'templates/photo.html',
-    controller: 'PhotoCtrl'
+    controller: 'PhotoCtrl',
+    resolve:{
+      imgURI: function($rootScope){
+        return $rootScope.imgURI;
+      }
+    }
   })
 
   .state('detail', {

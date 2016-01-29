@@ -50,9 +50,9 @@ angular.module('starter.controllers', [])
         document.getElementById('dark-three').style.backgroundColor = chroma(rgb).darken(3);
   })
   
-  .controller('PhotoCtrl', function($scope, $stateParams, $cordovaCamera, $state, $rootScope) {
+  .controller('PhotoCtrl', function($scope, $stateParams, $cordovaCamera, $state, $rootScope, imgURI) {
 
-      // console.log($rootScope.imgURI)
+      $rootScope.imgURI = imgURI;
       // console.log($rootScope.colorSelected)
       var colorThief = new ColorThief();
       var photo = document.getElementById("photo");
@@ -74,6 +74,11 @@ angular.module('starter.controllers', [])
         $rootScope.colorSelected = colorSelected
         $state.go('detail')
       }
+
+
+      $scope.$on('$ionicView.beforeEnter', function(){
+         $scope.showCheck = false;
+      })
 
 
       $scope.$on('$ionicView.afterEnter', function(){
