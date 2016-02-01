@@ -77,6 +77,19 @@
 	padding-right: 0px;
 }
 
+.form-hex-rgb {
+	border: 1px solid gray;
+	display:inline-block;
+	padding:5px;
+}
+
+p.has-error{
+	padding-top:5px;
+	padding-bottom:0px;
+	margin-bottom: 0px;
+	color: red;
+}
+
 button.ion-camera:before {
     font-size: 50px !important;
 }

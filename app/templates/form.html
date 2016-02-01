@@ -1,0 +1,232 @@
+<ion-header-bar class="bar-light">
+  <button class="button button-clear ion-chevron-left" ui-sref="photo">
+     back
+  </button>
+  <div class="title">
+  </div>
+</ion-header-bar>
+<ion-view>
+  <ion-content>
+  <!-- form -->
+  <form name="form" ng-submit="sendEmail(form)" novalidate>
+  <!-- contact details -->
+  <div class="row">
+  	<div class="col text-center">
+  		<h4 class="no-pad">Contact Details</h4>
+  	</div>
+  </div>
+  <div class="row no-pad-lr">
+  	<div class="col col-5 no-pad-lr"></div>
+  	<div class="col col-90 no-pad-lr">
+  		<p class="text-right">* required fields</p>
+  		<div class="list list-inset no-pad-lr">
+		  <label class="item item-input">
+		    <input type="text" name="companyname" ng-model="companyName" placeholder="Company Name*" required/>
+		  </label>
+		  <p class="help-block" ng-show="form.companyname.$error.required && submitted" 
+		  	  ng-class="{'has-error': form.companyname.$invalid && submitted }">
+		    A company name is required
+		  </p>
+		  <br>
+		  <label class="item item-input">
+		    <input type="text" name="contactname" ng-model="contactName" placeholder="Contact Name*" required/>
+		  </label>
+          <p class="help-block" ng-show="form.contactname.$error.required && submitted" 
+          	  ng-class="{'has-error': form.contactname.$invalid && submitted }">
+            A contact name is required
+          </p>
+          <br>
+		  <label class="item item-input">
+		    <input type="text" name="email" ng-model="email" placeholder="Email*" required/>
+		  </label>
+		  <p class="help-block" ng-show="form.email.$error.required && submitted" 
+		  	  ng-class="{'has-error': form.email.$invalid && submitted }">
+		    An email is required
+		  </p>
+		  <br>
+		  <div class="row no-pad">
+		  	<div class="col col-70 no-pad">
+		  		<label class="item item-input">
+		  		  <input type="text" name="phone" ng-model="phone" placeholder="Phone*" required/>
+		  		</label>
+		  		<p class="help-block" ng-show="form.phone.$error.required && submitted" 
+		  			  ng-class="{'has-error': form.phone.$invalid && submitted }">
+		  		  An phone is required
+		  		</p>
+		  	</div>
+		  	<div class="col col-10"></div>
+		  	<div class="col col-20 no-pad">
+		  		<label class="item item-input">
+		  		  <input type="text" placeholder="ext" style="padding-right:0px">
+		  		</label>
+		  	</div>
+		  </div>
+		</div>
+  	</div>
+  	<div class="col col-5 no-pad-lr"></div>
+  </div>
+  <!-- end contact details -->
+  <br>
+  <!-- color match specs and requirements -->
+    <div class="row">
+    	<div class="col text-center">
+    		<h4 class="no-pad">Color Match Specifications &amp; Requirements</h4>
+    	</div>
+    </div>
+    <div class="row no-pad-lr">
+    	<div class="col col-5 no-pad-lr"></div>
+    	<div class="col col-90 no-pad-lr">
+    	 <div class="list list-inset no-pad-lr">
+	  		  <label class="item item-input">
+	  		    <input type="text" name="projectApp" ng-model="projectApp" placeholder="Application/Project*" required/>
+	  		  </label>
+	  		  	<p class="text-center">ex: mobile phone case</p>
+	  		  	<p class="help-block" ng-show="form.projectApp.$error.required && submitted" 
+	  		  		  ng-class="{'has-error': form.projectApp.$invalid && submitted }">
+	  		  	  A project name is required
+	  		  	</p>
+	  		  <br>
+	  		  	<label class="item item-input item-select">
+	  		  	  <div class="input-label">
+	  		  	    Opacity*
+	  		  	  </div>
+	  		  	  <select>
+	  		  	    <option>1</option>
+	  		  	    <option>2</option>
+	  		  	    <option>3</option>
+	  		  	  </select>
+	  		  	</label>
+	  		  <br>
+	  		  <label class="item item-input">
+	  		    <input type="text" placeholder="Base Carrier Resin">
+	  		  </label>
+	  		  <br>
+	  		  <label class="item item-input">
+	  		    <input type="text" placeholder="Resin Grade">
+	  		  </label>
+	  		  <br>
+	  		  <label class="item item-input item-select">
+	  		    <div class="input-label">
+	  		      Process*
+	  		    </div>
+	  		    <select>
+	  		      <option>1</option>
+	  		      <option>2</option>
+	  		      <option>3</option>
+	  		    </select>
+	  		  </label>
+	  		  <br>
+	  		  <label class="item item-input item-select">
+	  		    <div class="input-label">
+	  		      Compounding*
+	  		    </div>
+	  		    <select>
+	  		      <option>1</option>
+	  		      <option>2</option>
+	  		      <option>3</option>
+	  		    </select>
+	  		  </label>
+	  		    <br>
+	  		  <label class="item item-input">
+	  		    <input type="text" placeholder="Requested Letdown %">
+	  		  </label>
+	  		  <br>
+	  		  <label class="item item-input">
+	  		    <input type="text" placeholder="Finished Part Thickness">
+	  		  </label>
+	  		  <br>
+	  		  <label class="item item-input">
+	  		    <input type="text" placeholder="Light Transmission Needed">
+	  		  </label>
+	  		  <br>
+	  		  <label class="item item-input item-select">
+	  		    <div class="input-label">
+	  		      Light Source*
+	  		    </div>
+	  		    <select>
+	  		      <option>1</option>
+	  		      <option>2</option>
+	  		      <option>3</option>
+	  		    </select>
+	  		  </label>
+  		   </div>
+    	</div>
+    	<div class="col col-5 no-pad-lr"></div>
+    </div>
+    <!-- end color match specs and requirements -->
+    <br>
+    <!-- color source -->
+    <div class="row">
+    	<div class="col text-center">
+    		<h4 class="no-pad">Color Source</h4>
+    	</div>
+    </div>
+    <div class="row no-pad-lr">
+    	<div class="col col-5 no-pad-lr"></div>
+    	<div class="col col-90 no-pad-lr">
+    		<!-- photo img  -->
+    		<div class="row">
+    			<div class="col">
+    				<img id="photo" src="images/test.jpg" style="width:100%;">
+    			</div>
+    			<div class="col">
+    				<div id="form-color-selected" class="box-color" style="height:86px"></div>
+    			</div>
+    		</div>
+    		<!-- selected color -->
+    		<!-- hex -->
+    		<div class="row">
+    			<div class="col text-center">
+    				<h4 class="form-hex-rgb">{{hex}}</h4> 
+    				<p>Hex</p>
+    			</div>
+    		</div>
+    		<!-- end hex -->
+    		<!-- rgb -->
+    		<div class="row text-center">
+    			<div class="col"></div>
+    			<div class="col">
+    				<h4 class="form-hex-rgb">{{red}}</h4> 
+    				<p>R</p> 
+    			</div>
+    			<div class="col">	
+    				<h4 class="form-hex-rgb">{{green}}</h4> 
+    				<p>G</p> 
+    			</div>
+    			<div class="col">
+    				<h4 class="form-hex-rgb">{{blue}}</h4> 
+    				<p>B</p>
+    			</div>
+    			<div class="col"></div>
+    		</div>
+    		<!-- end rgb -->
+    		<div class="list list-inset no-pad-lr">
+	  		  <label class="item item-input">
+	  		    <input type="text" placeholder="Pantone Value Desired">
+	  		  </label>
+	  		</div>
+    		<div class="list list-inset no-pad-lr">
+	  		  <label class="item item-input">
+	  		    <textarea placeholder="Additional Comments" rows="5"></textarea>
+	  		  </label>
+	  		</div>
+
+	  		<div class="row text-center">
+	  			<div class="col">
+	  				<p>If you have any questions in regards to requesting a sample feel free to reach out to us at:</p>
+	  				<a href="mailto:info@opticolorinc.com">info@opticolorinc.com</a>
+	  				
+	  				<button class="button button-full button-royal" type="submit">
+	  				  Request sample
+	  				</button>
+	  			</div>
+	  		</div>
+    	
+    	</div>
+    	<div class="col col-5 no-pad-lr"></div>
+    </div>
+    <!-- end color source -->
+	</form>
+	<!-- end form -->
+  </ion-content>  
+</ion-view>

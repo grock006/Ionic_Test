@@ -1,5 +1,34 @@
 angular.module('starter.controllers', [])
 
+  .controller('FormCtrl', function($scope, $state, $rootScope, imgURI, colorSelected) {
+      // $rootScope.imgURI = "images/test.jpg"
+      console.log("FormCtrl")
+      console.log(imgURI)
+      console.log(colorSelected)
+      $rootScope.imgURI = imgURI;
+      var rgb = colorSelected.replace(/[()]/g, "").replace(/rgb/, "").split(",")
+      console.log(rgb)
+      $scope.red = rgb[0]
+      $scope.green = rgb[1]
+      $scope.blue = rgb[2]
+      // $scope.alpha = "100"
+      $scope.hex = chroma(rgb).hex();
+      document.getElementById('form-color-selected').style.backgroundColor = colorSelected
+
+      $scope.sendEmail = function(form){
+        console.log(form)
+        $scope.submitted = true;
+        if(form.$valid){
+           console.log("valid")
+        }
+        else{
+           console.log(document.body.scrollTop)
+           console.log(document.documentElement.scrollTop);
+        }
+      }
+
+  })
+
   .controller('ZoomCtrl', function($scope, $state, $rootScope) {
       // $rootScope.imgURI = "images/test.jpg"
       console.log("ZoomCtrl")
@@ -56,7 +85,7 @@ angular.module('starter.controllers', [])
         document.getElementById('dark-three').style.backgroundColor = chroma(rgb).darken(3);
   })
   
-  .controller('PhotoCtrl', function($scope, $stateParams, $cordovaCamera, $state, $rootScope, imgURI) {
+  .controller('PhotoCtrl', function($scope, $stateParams, $state, $rootScope, imgURI) {
 
       $rootScope.imgURI = imgURI;
       // console.log($rootScope.colorSelected)
@@ -88,13 +117,22 @@ angular.module('starter.controllers', [])
         // $rootScope.imgURI = $rootScope.imgURI
         // console.log()
           $rootScope.imgURI = imgURI;
-        $state.go('zoom')
+          $state.go('zoom')
+      }
+
+      $scope.sendForm = function(){
+        var colorSelected = document.getElementById('main-color').style.backgroundColor 
+        // console.log(colorSelected)
+          $rootScope.colorSelected = colorSelected
+          $rootScope.imgURI = imgURI;
+          $state.go('form')
       }
 
 
-      $scope.$on('$ionicView.beforeEnter', function(){
-         $scope.showCheck = false;
-      })
+
+      // $scope.$on('$ionicView.beforeEnter', function(){
+      //    $scope.showCheck = false;
+      // })
 
 
       $scope.$on('$ionicView.afterEnter', function(){

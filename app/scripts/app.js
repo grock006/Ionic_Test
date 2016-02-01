@@ -83,6 +83,21 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova', 'directi
     }
   })
 
+
+  .state('form', {
+    url: '/form',
+    templateUrl: 'templates/form.html',
+    controller: 'FormCtrl',
+    resolve:{
+      colorSelected: function($rootScope){
+        return $rootScope.colorSelected;
+      },
+      imgURI: function($rootScope){
+        return $rootScope.imgURI;
+      }
+    }
+  })
+
   .state('app', {
     url: '/app',
     abstract: true,
