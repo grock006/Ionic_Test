@@ -105,10 +105,14 @@ angular.module('starter.controllers', [])
       }
 
       $scope.sendDetails = function(){
+        console.log("sendDetails")
         var colorSelected = document.getElementById('main-color').style.backgroundColor 
+        console.log(colorSelected)
         // console.log(colorSelected)
-        $rootScope.colorSelected = colorSelected
-        $state.go('detail')
+        if(colorSelected){
+          $rootScope.colorSelected = colorSelected
+          $state.go('detail')
+        }
       }
 
       $scope.getZoom = function(){
@@ -123,9 +127,11 @@ angular.module('starter.controllers', [])
       $scope.sendForm = function(){
         var colorSelected = document.getElementById('main-color').style.backgroundColor 
         // console.log(colorSelected)
+         if(colorSelected){
           $rootScope.colorSelected = colorSelected
           $rootScope.imgURI = imgURI;
           $state.go('form')
+        }
       }
 
 

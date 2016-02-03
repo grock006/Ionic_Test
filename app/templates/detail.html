@@ -1,21 +1,50 @@
-<ion-header-bar class="bar-light">
+<!-- <ion-header-bar class="bar-light">
+    <button class="button-clear"></button>
     <h1 class="title" style="color:black">Color details</h1>
-</ion-header-bar>
+    <button class="button-clear ion-close" ui-sref="photo">
+    </button>
+</ion-header-bar> -->
+
+<div class="bar bar-light">
+  <button class="button button-clear">
+  </button>
+  <div class="title">
+      Color details
+  </div>
+  <button class="button button-clear ion-close" ui-sref="photo">
+  </button>
+</div>
 
 <ion-view>
-  <ion-content>
-
+ <!--  <ion-content> -->
+      <br>
+      <br>
+      <br>
     <!-- hex and rgb details -->
     <div class="row text-center">
-      <div class="col col-10"></div>
-      <div class="col col-20">{{hex}} Hex</div>
-      <div class="col col-15">{{red}} R
+      <div class="col col-15"></div>
+      <div class="col col-22">
+        <h4 class="detail-hex-rgb">{{hex}}</h4> 
+        <p>Hex</p>
       </div>
-      <div class="col col-15">{{green}} G</div>
-      <div class="col col-15">{{blue}} B</div>
-      <div class="col col-15">{{alpha}} A</div>
+      <div class="col col-12">
+        <h4 class="detail-hex-rgb">{{red}}</h4> 
+        <p>R</p>
+      </div>
+      <div class="col col-12">
+        <h4 class="detail-hex-rgb">{{green}}</h4> 
+        <p>G</p>
+      </div>
+      <div class="col col-12">
+        <h4 class="detail-hex-rgb">{{blue}}</h4>
+        <p>B</p>
+      </div>
+      <div class="col col-12">
+        <h4 class="detail-hex-rgb">{{alpha}}</h4>
+        <p>A</p>
+      </div>
       <!--  2 1 1 1 1 -->
-      <div class="col col-10"></div>
+      <div class="col col-15"></div>
     </div>
     <!-- end hex and rgb details -->
 
@@ -31,7 +60,11 @@
     <br>
     <br>
     <!-- darken brignten color -->
-    <div style="position: relative; bottom: 0px; width: 100%">
+  
+    <div style="position:absolute; bottom: 0px; width: 100%">
+        
+     <!--  <div class="col-25 box-detail-main" id="main"></div> -->
+
       <div class="row text-center no-pad-lr">  
         <div class="col-12 box-detail" id="bright-three">
           
@@ -42,8 +75,11 @@
         <div class="col-12 box-detail" id="bright-one">
           
         </div>
-        <div class="col-25 box-detail" id="main">
-          
+
+        <div class="col-25 box-detail" style="position:relative">
+            <div class="box-detail-main" id="main">
+                <i class="ion-checkmark detail"></i>
+            </div>
         </div>
         <div class="col-12 box-detail" id="dark-one">
           
@@ -55,7 +91,8 @@
           
         </div>
       </div>
+    
     </div>
     <!-- end darken brighten color -->
-  </ion-content>
+  <!-- </ion-content> -->
 </ion-view>
