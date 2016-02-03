@@ -11,8 +11,10 @@
 </ion-header-bar>
 
 <ion-view>
-  <ion-content>
-	<div class="row row-center text-center">  	
+<!--   <ion-content> -->
+  <br>
+  <br>
+	<div class="row row-center text-center">  
 		<div class="col">
 			<div ng-colorwheel="{ size: 300, segments: 40 }" ng-model="color.hex"></div>
 		</div>
@@ -20,8 +22,9 @@
 		<br>
 		<br>
 		<br>
-	 <div style="position: relative; bottom: 0px; width: 100%">
-      <div class="row text-center no-pad-lr">  
+    <br>
+	 <div style="position: absolute; bottom: 0px; width: 100%">
+      <div class="row text-center no-pad-lr" ng-show="color.hex">  
         <div class="col-12 box-detail" id="wheel-bright-three">
           
         </div>
@@ -31,8 +34,10 @@
         <div class="col-12 box-detail" id="wheel-bright-one">
           
         </div>
-        <div class="col-25 box-detail" id="wheel-main">
-          
+        <div class="col-25 box-detail" style="position:relative">
+          <div class="box-detail-main" id="wheel-main">
+              <i class="ion-checkmark detail"></i>
+          </div>
         </div>
         <div class="col-12 box-detail" id="wheel-dark-one">
           
@@ -45,5 +50,5 @@
         </div>
       </div>
     </div>
-	</ion-content>
+	<!-- </ion-content> -->
 </ion-view>
