@@ -41,6 +41,17 @@ angular.module('starter.controllers', [])
       // do a watch on color
       $scope.color = {hex: ""};
       $scope.test = {words: ""}
+
+      $scope.sendWheelDetails = function(){
+        var colorSelected = document.getElementById('wheel-main').style.backgroundColor 
+        console.log(colorSelected)
+        // console.log(colorSelected)
+        if(colorSelected){
+          $rootScope.colorSelected = colorSelected
+          $state.go('detail')
+        }
+      }
+      
       $scope.$watch('color.hex', function(newValue, oldValue) {
          rgb = newValue
          document.getElementById('wheel-main').style.backgroundColor = rgb;
@@ -57,7 +68,7 @@ angular.module('starter.controllers', [])
       }, true);
   })
 
-  .controller('DetailCtrl', function($scope, $state, $rootScope, colorSelected) {
+  .controller('DetailCtrl', function($scope, $state, $rootScope, colorSelected, $ionicHistory) {
         // console.log("DetailCtrl")
         // console.log($rootScope.colorSelected)
         var rgb = colorSelected.replace(/[()]/g, "").replace(/rgb/, "").split(",")
@@ -71,6 +82,11 @@ angular.module('starter.controllers', [])
         $scope.hex = chroma(rgb).hex();
         // break down rgb and assign to scope
         // console.log(colorSelected.slice(4,7))
+
+        $scope.goBack = function() {
+         $ionicHistory.goBack();
+        };
+
         document.getElementById('detail-box').style.backgroundColor = colorSelected
 
         document.getElementById('main').style.backgroundColor = $scope.hex

@@ -118,6 +118,11 @@
 	margin-top: 6vh;
 }
 
+.margin-top-wheel{
+	margin-top: 13vh;
+}
+
+
 .form-hex-rgb {
 	border: 1px solid gray;
 	display:inline-block;
