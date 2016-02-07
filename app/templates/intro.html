@@ -1,65 +1,74 @@
-<ion-view view-title="" hide-back-button="false">
+
+  <ion-header-bar class="bar-light" style="height:70px">
+      <h1 class="title" style="font-size:xx-large;margin-top:4vh">OptiColor Inc.</h1>
+  </ion-header-bar>
+  
 <!--   <ion-nav-bar class="bar-stable">
 	  <ion-nav-buttons side="right">
 	    <button class="button button-positive button-clear no-animation" ng-click="startApp()">Skippy</button>
 	  </ion-nav-buttons>
   </ion-nav-bar> -->
+<ion-view hide-back-button="false">
   <ion-slide-box on-slide-changed="slideChanged(index)" show-pager="true">
-    <ion-slide class="intro col1 slider-bg">
-      <figure>
-        <figcaption class="intro-headings"><h2>SLIDE 1</h2>SLIDE 1</figcaption>
-      </figure>
-      <button class="button button-clear button-block intro-footer" ng-click="next()">SLIDE 1</button>
+    <ion-slide>
+        <div class="text-center" style="margin-top:20vh;margin-bottom:10vh" ng-click="next();">
+          <div class="row">
+            <div class="col col-10"></div>
+            <div class="col col-80">
+              <h4>Welcome to Opti Color's Color Matching app!</h4>
+              <h4>An app that helps us to help you find that perfect color compound.</h4>
+            </div>
+            <div class="col col-10"></div>
+          </div>
+        </div>
     </ion-slide>
 
     <ion-slide class="intro col2 slider-bg">
-      <figure>
-        <figcaption class="intro-headings"><h2>SLIDE 2</h2>SLIDE 2</figcaption>
-      </figure>
-      <button class="button button-clear button-block intro-footer" ng-click="next()">SLIDE 2</button>
+      <div class="text-center" style="margin-top:20vh;margin-bottom:10vh" ng-click="next();">
+        <div class="row">
+          <div class="col col-10"></div>
+          <div class="col col-80">
+            <h4>Match a color from a photo or choose a color from our color wheel.</h4>
+          </div>
+          <div class="col col-10"></div>
+        </div>
+      </div>
     </ion-slide>
 
     <ion-slide class="intro col3 slider-bg">
-      <figure>
-        <figcaption class="intro-headings"><h2>SLIDE 3</h2>SLIDE 3</figcaption>
-      </figure>
-      <button class="button button-clear button-block intro-footer" ng-click="next()">SLIDE 3</button>
+      <div class="text-center" style="margin-top:20vh;margin-bottom:10vh" ng-click="next();">
+        <div class="row">
+          <div class="col col-10"></div>
+          <div class="col col-80">
+            <h4>Then fill out our form to let us know the specifics of how you'd like us to create a sample compound of the desired color chosen</h4>
+          </div>
+          <div class="col col-10"></div>
+        </div>
+      </div>
     </ion-slide>
     
     <ion-slide class="intro col4 slider-bg">
-      <figure>
-        <figcaption class="intro-headings"><h2>SLIDE 4</h2>SLIDE 4</figcaption>
-      </figure>
-      <button class="button button-clear button-block intro-footer" ng-click="next()">SLIDE 4</button>
-      
-      <button class="button button-large button-positive button-intro-fb" ng-click="startApp()">
-        <span class="icon_height boxercise_facebook white"></span>
-        <span class="icon_padding ">Hello</span>
-      </button>
-    </ion-slide>
-    
-<!--     <ion-slide class="intro col5 slider-bg">
-      <figure>
-        <figcaption class="intro-headings-5"><h2>SLIDE 5</h2>SLIDE 5</figcaption>
-      </figure>
-      <form name="signupUserForm" class="avionic-intro" novalidate="novalidate">
-
-        <div class="padding">
-          <label>
-            <input id="text" type="email" name="email" placeholder="{{'APP_SIGNUP_EMAIL' }}" ng-model="user.username" ng-minlength="5" ng-maxlength="64" required="required">
-          </label>
-
-          <label>
-              <input id="password" name="password" type="password" placeholder="{{ 'APP_SIGNUP_PASSWORD' }}" ng-model="user.password" ng-minlength="5" ng-maxlength="30" required="required">
-          </label>
-
-          <div class="padding info">
-            {{ 'APP_INTRO_CTA_TERMS_INTRO_SLIDE_5' }} <a href="#">{{ 'APP_INTRO_CTA_TERMSCONDITIONS_SLIDE_5' }}</a> {{ 'APP_INTRO_CTA_AND_SLIDE_5' }} <a href="#">{{ 'APP_INTRO_CTA_PRIVACY_SLIDE_5' }}</a>                        
+        <div class="text-center" style="margin-top:20vh;margin-bottom:10vh" ng-click="next();">
+          <div class="row">
+            <div class="col col-10"></div>
+            <div class="col col-80">
+              <h4>Once we recieve your desired color match and other necessary information. We'll contact you and send you a sample.</h4>
+              <h4>It's that simple!</h4>
+              <br>
+              <button class="button button-full button-royal" ui-sref="logo">
+              Let's get started!
+            </button>
+            </div>
+            <div class="col col-10"></div>
           </div>
         </div>
-      </form>
-
-      <button class="button button-clear button-block intro-footer" ng-click="signupUser()">{{ 'APP_INTRO_CTA_BTN_SLIDE_5' }}</button>
-    </ion-slide> -->
+     
+      
+     <!--  <button class="button button-large button-positive button-intro-fb" ng-click="startApp()">
+        <span class="icon_height boxercise_facebook white"></span>
+        <span class="icon_padding ">Hello</span>
+      </button> -->
+    </ion-slide>
+    
   </ion-slide-box>
 </ion-view>

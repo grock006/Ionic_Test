@@ -25,17 +25,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova', 'directi
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
-  .state('logo', {
-      url: '/',
-      templateUrl: 'templates/logo.html',
-      // controller: 'IntroCtrl'
-    })
-
   .state('intro', {
-    url: '/intro',
+    url: '/',
     templateUrl: 'templates/intro.html',
     controller: 'IntroCtrl'
   })
+
+  .state('logo', {
+      url: '/logo',
+      templateUrl: 'templates/logo.html',
+      controller: 'IntroCtrl'
+    })
 
    .state('wheel', {
     url: '/wheel',
@@ -79,6 +79,21 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova', 'directi
     resolve:{
       colorSelected: function($rootScope){
         return $rootScope.colorSelected;
+      }
+    }
+  })
+
+
+  .state('request', {
+    url: '/request',
+    templateUrl: 'templates/request.html',
+    controller: 'RequestCtrl',
+    resolve:{
+      colorSelected: function($rootScope){
+        return $rootScope.colorSelected;
+      },
+      imgURI: function($rootScope){
+        return $rootScope.imgURI;
       }
     }
   })
@@ -143,5 +158,5 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova', 'directi
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/capture');
+  $urlRouterProvider.otherwise('/');
 });

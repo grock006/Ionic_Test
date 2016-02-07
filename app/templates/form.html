@@ -1,5 +1,5 @@
 <ion-header-bar class="bar-light">
-  <button class="button button-clear ion-chevron-left" ui-sref="photo">
+  <button class="button button-clear ion-chevron-left" ui-sref="request">
      back
   </button>
   <div class="title">
@@ -167,7 +167,8 @@
     		<!-- photo img  -->
     		<div class="row">
     			<div class="col">
-    				<img id="photo" src="images/test.jpg" style="width:100%;">
+    				<!-- <img id="photo" src="images/test.jpg" style="width:100%;"> -->
+    				<img id="photo" ng-src="{{imgURI}}" style="width:100%;">
     			</div>
     			<div class="col">
     				<div id="form-color-selected" class="box-color" style="height:86px"></div>

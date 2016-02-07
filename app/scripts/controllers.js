@@ -31,34 +31,34 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('IntroCtrl', function($scope, $ionicSlideBoxDelegate, $state) {
+// .controller('IntroCtrl', function($scope, $ionicSlideBoxDelegate, $state) {
 
-  $scope.startApp = function () {
-    $state.go('app.search');
-    // $localstorage.set('firstTime', 'true');
-  };
+//   $scope.startApp = function () {
+//     $state.go('app.search');
+//     // $localstorage.set('firstTime', 'true');
+//   };
 
-  $scope.next = function () {
-    $ionicSlideBoxDelegate.next();
-  };
+//   $scope.next = function () {
+//     $ionicSlideBoxDelegate.next();
+//   };
 
-  $scope.previous = function () {
-    $ionicSlideBoxDelegate.previous();
-  };
+//   $scope.previous = function () {
+//     $ionicSlideBoxDelegate.previous();
+//   };
 
-  $scope.disableSwipe = function() {
-    $ionicSlideBoxDelegate.enableSlide(false);
-  };
+//   $scope.disableSwipe = function() {
+//     $ionicSlideBoxDelegate.enableSlide(false);
+//   };
 
-  // Called each time the slide changes
-  $scope.slideChanged = function (index) {
-    $scope.slideIndex = index;
-  };
+//   // Called each time the slide changes
+//   $scope.slideChanged = function (index) {
+//     $scope.slideIndex = index;
+//   };
 
-  // $scope.currentSlide = IntroSlideService.index;
+//   // $scope.currentSlide = IntroSlideService.index;
 
 
-})
+// })
 
 .controller('PhotosCtrl', function($scope) {
     $scope.message = "yo yo"

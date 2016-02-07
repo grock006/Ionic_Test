@@ -29,6 +29,17 @@ angular.module('starter.controllers', [])
 
   })
 
+  .controller('RequestCtrl', function($scope, $state, $rootScope, imgURI, colorSelected, $ionicHistory) {
+      // $rootScope.imgURI = "images/test.jpg"
+      console.log("RequestCtrl")
+      console.log(imgURI)
+      console.log(colorSelected)
+
+      $scope.goBack = function() {
+       $ionicHistory.goBack();
+      };
+  })
+
   .controller('ZoomCtrl', function($scope, $state, $rootScope) {
       // $rootScope.imgURI = "images/test.jpg"
       console.log("ZoomCtrl")
@@ -49,6 +60,16 @@ angular.module('starter.controllers', [])
         if(colorSelected){
           $rootScope.colorSelected = colorSelected
           $state.go('detail')
+        }
+      }
+
+      $scope.sendForm = function(){
+        var colorSelected = document.getElementById('wheel-main').style.backgroundColor 
+        // console.log(colorSelected)
+         if(colorSelected){
+          $rootScope.colorSelected = colorSelected
+          // $rootScope.imgURI = imgURI;
+          $state.go('request')
         }
       }
       
@@ -147,7 +168,7 @@ angular.module('starter.controllers', [])
          if(colorSelected){
           $rootScope.colorSelected = colorSelected
           $rootScope.imgURI = imgURI;
-          $state.go('form')
+          $state.go('request')
         }
       }
 
@@ -247,6 +268,37 @@ angular.module('starter.controllers', [])
     function rgbToHex(r, g, b) {
         return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
     }
+
+
+})
+
+
+.controller('IntroCtrl', function($scope, $ionicSlideBoxDelegate, $state) {
+
+  // $scope.startApp = function () {
+  //   $state.go('app.search');
+  //   // $localstorage.set('firstTime', 'true');
+  // };
+
+  $scope.next = function () {
+    console.log("fuck you")
+    $ionicSlideBoxDelegate.next();
+  };
+
+  // $scope.previous = function () {
+  //   $ionicSlideBoxDelegate.previous();
+  // };
+
+  // $scope.disableSwipe = function() {
+  //   $ionicSlideBoxDelegate.enableSlide(false);
+  // };
+
+  // // Called each time the slide changes
+  // $scope.slideChanged = function (index) {
+  //   $scope.slideIndex = index;
+  // };
+
+  // $scope.currentSlide = IntroSlideService.index;
 
 
 })
