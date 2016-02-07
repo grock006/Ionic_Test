@@ -152,6 +152,10 @@ body, .bar, .bar-dark, .bar-stable, h1.title, h5, .button{
 	margin-top: 6vh;
 }
 
+.margin-top-detail{
+	margin-top: 10vh;
+}
+
 .margin-top-wheel{
 	margin-top: 13vh;
 }
