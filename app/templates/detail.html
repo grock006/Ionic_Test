@@ -1,29 +1,25 @@
-<!-- <ion-header-bar class="bar-light">
-    <button class="button-clear"></button>
-    <h1 class="title" style="color:black">Color details</h1>
-    <button class="button-clear ion-close" ui-sref="photo">
-    </button>
-</ion-header-bar> -->
-
-<div class="bar bar-light">
+<ion-header-bar class="bar-light">
   <button class="button button-clear">
   </button>
   <div class="title">
       Color details
   </div>
-  <button class="button button-clear ion-close" ng-click="goBack();">
+  <button class="button button-clear" ng-click="goBack();">
+      <i class="ion-close"></i> 
   </button>
-</div>
+</ion-header-bar>
+
 
 <ion-view>
  <!--  <ion-content> -->
     <!-- hex and rgb details -->
     <div class="row text-center margin-top">
       <div class="col col-15"></div>
-      <div class="col col-22">
+      <div class="col col-20">
         <h4 class="detail-hex-rgb">{{hex}}</h4> 
         <p>Hex</p>
       </div>
+      <div class="col col-2"></div>
       <div class="col col-12">
         <h4 class="detail-hex-rgb">{{red}}</h4> 
         <p>R</p>
@@ -40,7 +36,6 @@
         <h4 class="detail-hex-rgb">{{alpha}}</h4>
         <p>A</p>
       </div>
-      <!--  2 1 1 1 1 -->
       <div class="col col-15"></div>
     </div>
     <!-- end hex and rgb details -->
