@@ -130,6 +130,18 @@ body, .bar, .bar-dark, .bar-stable, h1.title, h5, .button{
 	color: white;
 }
 
+.form.ion-checkmark{
+	line-height: 0;
+}
+
+.item-select select {
+  left: 0;
+}
+
+.form.ion-checkmark:before{
+	color:rgb(144, 19, 254);
+}
+
 .detail.ion-checkmark:before{
 	font-size: 25px !important;
 	color: black;
@@ -179,6 +191,15 @@ p.has-error{
 	padding-bottom:0px;
 	margin-bottom: 0px;
 	color: red;
+}
+
+.button.button-royal{
+	background-color: rgb(144, 19, 254);	
+}
+
+.purple-background{
+	color: rgb(144, 19, 254);
+	font-size: 20px;
 }
 
 button.ion-camera:before {

@@ -1,10 +1,14 @@
 angular.module('starter.controllers', [])
 
-  .controller('FormCtrl', function($scope, $state, $rootScope, imgURI, colorSelected) {
+  .controller('FormCtrl', function($scope, $state, $rootScope, imgURI, colorSelected, $http) {
       // $rootScope.imgURI = "images/test.jpg"
       console.log("FormCtrl")
       console.log(imgURI)
       console.log(colorSelected)
+
+      $scope.details = false;
+      console.log($scope.details)
+
       $rootScope.imgURI = imgURI;
       var rgb = colorSelected.replace(/[()]/g, "").replace(/rgb/, "").split(",")
       console.log(rgb)
@@ -15,17 +19,67 @@ angular.module('starter.controllers', [])
       $scope.hex = chroma(rgb).hex();
       document.getElementById('form-color-selected').style.backgroundColor = colorSelected
 
-      $scope.sendEmail = function(form){
-        console.log(form)
-        $scope.submitted = true;
-        if(form.$valid){
-           console.log("valid")
-        }
-        else{
-           console.log(document.body.scrollTop)
-           console.log(document.documentElement.scrollTop);
-        }
+
+      //companyName, contactName, email, phone
+      //if these are true then details is true
+   
+
+      $scope.user = {companyName: null, contactName: null, email: null, phone: null}
+
+      $scope.$watchCollection('[user.companyName, user.contactName, user.email, user.phone]', function(newValues, oldValues){
+          if(newValues[0] && newValues[1] && newValues[2] && newValues[3]){
+             $scope.details = true
+          }
+          else{
+             $scope.details = false;
+          }
+      });
+
+
+      var data = {
+      'key': '',
+      'message': {
+        'from_email': 'grock006@gmail.com',
+        'to': [
+          {
+            'email': 'grock006@gmail.com',
+            'name': 'YOUR_RECEIVER_NAME',
+            'type': 'to'
+          }
+        ],
+        'subject': 'title',
+        'html': 'html can be used'
       }
+    }
+   
+
+            $scope.sendEmail = function(form){
+              // console.log(form)
+              $scope.submitted = true;
+
+
+              // $http.post('https://mandrillapp.com/api/1.0/messages/send.json', data)
+              //     .success(function(data){
+              //       //on success send success message
+              //       console.log(data)
+              //       console.log("success")
+              //     })
+              //     .error(function(err){
+              //         console.log(err)
+              //         console.log("error")
+              //     })
+              
+              if(form.$valid){
+                 console.log("valid")
+              }
+              else{
+                 console.log(document.body.scrollTop)
+                 console.log(document.documentElement.scrollTop);
+              }
+            
+            }
+
+
 
   })
 
@@ -51,7 +105,6 @@ angular.module('starter.controllers', [])
       console.log($scope.color)
       // do a watch on color
       $scope.color = {hex: ""};
-      $scope.test = {words: ""}
 
       $scope.sendWheelDetails = function(){
         var colorSelected = document.getElementById('wheel-main').style.backgroundColor 
