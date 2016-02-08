@@ -55,7 +55,7 @@
 		  </label>
 		  <p class="help-block" ng-show="form.email.$error.required && submitted" 
 		  	  ng-class="{'has-error': form.email.$invalid && submitted }">
-		    An email is required
+		    A email is required
 		  </p>
 		  <br>
 		  <div class="row no-pad">
@@ -65,7 +65,7 @@
 		  		</label>
 		  		<p class="help-block" ng-show="form.phone.$error.required && submitted" 
 		  			  ng-class="{'has-error': form.phone.$invalid && submitted }">
-		  		  An phone is required
+		  		  A phone is required
 		  		</p>
 		  	</div>
 		  	<div class="col col-10"></div>
@@ -92,7 +92,7 @@
     	<div class="col col-90 no-pad-lr">
     	 <div class="list list-inset no-pad-lr">
 	  		  <label class="item item-input">
-	  		    <input type="text" name="projectApp" ng-model="projectApp" placeholder="Application/Project*" required/>
+	  		    <input type="text" name="projectApp" ng-model="user.projectApp" placeholder="Application/Project*" required/>
 	  		  </label>
 	  		  	<p class="text-center">ex: mobile phone case</p>
 	  		  	<p class="help-block" ng-show="form.projectApp.$error.required && submitted" 
@@ -104,11 +104,11 @@
 	  		  	  <div class="input-label">
 	  		  	    &nbsp;
 	  		  	  </div>
-	  		  	  <select name="opacity" ng-model="opacity" required> 
+	  		  	  <select name="opacity" ng-model="user.opacity" required> 
 	  		  	  	<option value="" disabled selected>Opacity*</option>
-	  		  	    <option value="1">Solid</option>
-	  		  	    <option value="2">Translucent</option>
-	  		  	    <option value="3">Transparent</option>
+	  		  	    <option value="Solid">Solid</option>
+	  		  	    <option value="Translucent">Translucent</option>
+	  		  	    <option value="Transparent">Transparent</option>
 	  		  	  </select>
 	  		  	</label>
 	  		  	<p class="help-block" ng-show="form.opacity.$error.required && submitted" 
@@ -117,57 +117,152 @@
 	  		  	</p>
 	  		  <br>
 	  		  <label class="item item-input">
-	  		    <input type="text" placeholder="Base Carrier Resin">
+	  		    <input type="text" name="base" ng-model="user.base" placeholder="Base Carrier Resin" required>
 	  		  </label>
+	  		  <p class="help-block" ng-show="form.base.$error.required && submitted" 
+	  		  		  ng-class="{'has-error': form.base.$invalid && submitted }">
+	  		  	  A base carrier resin is required
+	  		  	</p>
 	  		  <br>
 	  		  <label class="item item-input">
-	  		    <input type="text" placeholder="Resin Grade">
+	  		    <input type="text" name="resin" ng-model="user.resin" placeholder="Resin Grade*" required>
 	  		  </label>
+	  		  <p class="help-block" ng-show="form.resin.$error.required && submitted" 
+	  		  	  ng-class="{'has-error': form.resin.$invalid && submitted }">
+	  		    A resin grade is required
+	  		  </p>
 	  		  <br>
 	  		  <label class="item item-input item-select">
 	  		    <div class="input-label">
-	  		      Process*
+	  		         &nbsp;
 	  		    </div>
-	  		    <select>
-	  		      <option>1</option>
-	  		      <option>2</option>
-	  		      <option>3</option>
+	  		    <select name="process" ng-model="user.process" required>
+	  		      <option value="" disabled selected>Process*</option>	
+	  		      <option value="Profile Extrusion">Profile Extrusion</option>
+	  		      <option value="Sheet Extrusion">Sheet Extrusion</option>
+	  		      <option value="Inject Moulding">Inject Moulding</option>
 	  		    </select>
 	  		  </label>
+	  		  <p class="help-block" ng-show="form.process.$error.required && submitted" 
+	  		  	  ng-class="{'has-error': form.process.$invalid && submitted }">
+	  		    A process is required
+	  		  </p>
 	  		  <br>
 	  		  <label class="item item-input item-select">
 	  		    <div class="input-label">
-	  		      Compounding*
+	  		      &nbsp; 
 	  		    </div>
-	  		    <select>
-	  		      <option>1</option>
-	  		      <option>2</option>
-	  		      <option>3</option>
+	  		    <select name="compounding" ng-model="user.compounding" required>
+	  		      <option value="" disabled selected>Compounding*</option>			
+	  		      <option value="Pre-colored Material">Pre-colored Material</option>
+	  		      <option value="Concentrate">Concentrate</option>
+	  		      <option value="Tolling Service">Tolling Service</option>
 	  		    </select>
 	  		  </label>
+	  		  <p class="help-block" ng-show="form.compounding.$error.required && submitted" 
+	  		  	  ng-class="{'has-error': form.compounding.$invalid && submitted }">
+	  		    A compounding is required
+	  		  </p>
 	  		    <br>
-	  		  <label class="item item-input">
-	  		    <input type="text" placeholder="Requested Letdown %">
+	  		  <label class="item item-input item-select">
+	  		    <div class="input-label">
+	  		      &nbsp; 
+	  		    </div>
+	  		    <select name="letdown" ng-model="user.letdown" required>
+	  		      <option value="" disabled selected>Requested Letdown %*</option>			
+	  		      <option value="0.5">0.5</option>
+	  		      <option value="1">1</option>
+	  		      <option value="1.5">1.5</option>
+	  		      <option value="2">2</option>
+	  		      <option value="2.5">2.5</option>
+	  		      <option value="3">3</option>
+	  		      <option value="3.5">3.5</option>
+	              <option value="4">4</option>
+	              <option value="4.5">4.5</option>
+	              <option value="5">5</option>
+      		      <option value="5.5">5.5</option>
+      		      <option value="6">6</option>
+      		      <option value="6.5">6.5</option>
+      		      <option value="7">7</option>
+      		      <option value="7.5">7.5</option>
+      		      <option value="8">8</option>
+      		      <option value="8.5">8.5</option>
+                  <option value="9">9</option>
+                  <option value="9.5">9.5</option>
+                  <option value="10">10</option>
+  	  		      <option value="10.5">10.5</option>
+  	  		      <option value="11">11</option>
+  	  		      <option value="11.5">11.5</option>
+  	  		      <option value="12">12</option>
+  	  		      <option value="12.5">12.5</option>
+  	  		      <option value="13">13</option>
+  	  		      <option value="13.5">13.5</option>
+  	              <option value="14">14</option>
+  	              <option value="14.5">14.5</option>
+  	              <option value="15">15</option>
+    		      <option value="15.5">15.5</option>
+    		      <option value="16">16</option>
+    		      <option value="16.5">16.5</option>
+    		      <option value="17">17</option>
+    		      <option value="17.5">17.5</option>
+    		      <option value="18">18</option>
+    		      <option value="18.5">18.5</option>
+                  <option value="19">19</option>
+                  <option value="19.5">19.5</option>
+                  <option value="20">20</option>
+	  		    </select>
 	  		  </label>
+	  		  <p class="help-block" ng-show="form.letdown.$error.required && submitted" 
+	  		  	  ng-class="{'has-error': form.letdown.$invalid && submitted }">
+	  		    A requested letdown is required
+	  		  </p>
 	  		  <br>
 	  		  <label class="item item-input">
-	  		    <input type="text" placeholder="Finished Part Thickness">
+	  		    <input type="text" name="thickness" ng-model="user.thickness" placeholder="Finished Part Thickness" required>
 	  		  </label>
+	  		  <p class="help-block" ng-show="form.thickness.$error.required && submitted" 
+	  		  	  ng-class="{'has-error': form.thickness.$invalid && submitted }">
+	  		    A finished part thickness is required
+	  		  </p>
 	  		  <br>
 	  		  <label class="item item-input">
-	  		    <input type="text" placeholder="Light Transmission Needed">
+	  		    <input type="text" name="transmission" ng-model="user.transmission" placeholder="Light Transmission Needed*" required>
 	  		  </label>
+	  		  <p class="help-block" ng-show="form.transmission.$error.required && submitted" 
+	  		  	  ng-class="{'has-error': form.transmission.$invalid && submitted }">
+	  		    A light transmission needed is required
+	  		  </p>
 	  		  <br>
 	  		  <label class="item item-input item-select">
 	  		    <div class="input-label">
-	  		      Light Source*
+	  		       &nbsp; 
 	  		    </div>
-	  		    <select>
-	  		      <option>1</option>
-	  		      <option>2</option>
-	  		      <option>3</option>
+	  		    <select name="source" ng-model="user.source" required>
+	  		      <option value="" disabled selected>Light Source*</option>			
+	  		      <option value="D75 Natural Daylight">D75 Natural Daylight</option>
+	  		      <option value="D65 Average Daylight">D65 Average Daylight</option>
+	  		      <option value="D50 Equal Energy Dayight">D50 Equal Energy Dayight</option>
+	  		      <option value="TL84">TL84</option>
+	  		      <option value="TL835">TL835</option>
+	  		      <option value="Tungesten A">Tungesten A</option>
+	  		      <option value="TL83">TL83</option>
+	  		      <option value="Illuminat A">Illuminat A</option>
+	  		      <option value="Horizon">Horizon</option>
+	  		      <option value="7500K">7500K</option>
+	  		      <option value="6500K">6500K</option>
+	  		      <option value="5000K">5000K</option>
+	  		      <option value="4100K">4100K</option>
+	  		      <option value="3200K">3200K</option>
+	  		      <option value="3000K">3000K</option>
+	  		      <option value="2865K">2865K</option>
+	  		      <option value="2300K">2300K</option>
+	  		      <option value="Other">Other</option>
 	  		    </select>
 	  		  </label>
+	  		  <p class="help-block" ng-show="form.source.$error.required && submitted" 
+	  		  	  ng-class="{'has-error': form.source.$invalid && submitted }">
+	  		    A light source is required
+	  		  </p>
   		   </div>
     	</div>
     	<div class="col col-5 no-pad-lr"></div>
@@ -186,8 +281,8 @@
     		<!-- photo img  -->
     		<div class="row">
     			<div class="col">
-    				<img id="photo" src="images/test.jpg" style="width:100%;">
-    				<!-- <img id="photo" ng-src="{{imgURI}}" style="width:100%;"> -->
+    				<!-- <img id="photo" src="images/test.jpg" style="width:100%;"> -->
+    				<img id="photo" ng-src="{{imgURI}}" style="width:100%;">
     			</div>
     			<div class="col">
     				<div id="form-color-selected" class="box-color" style="height:86px"></div>
@@ -222,12 +317,12 @@
     		<!-- end rgb -->
     		<div class="list list-inset no-pad-lr">
 	  		  <label class="item item-input">
-	  		    <input type="text" placeholder="Pantone Value Desired">
+	  		    <input type="text" placeholder="Pantone Value Desired" ng-model="user.pantoneValue">
 	  		  </label>
 	  		</div>
     		<div class="list list-inset no-pad-lr">
 	  		  <label class="item item-input">
-	  		    <textarea placeholder="Additional Comments" rows="5"></textarea>
+	  		    <textarea placeholder="Additional Comments" rows="5" ng-model="user.comments"></textarea>
 	  		  </label>
 	  		</div>
 
