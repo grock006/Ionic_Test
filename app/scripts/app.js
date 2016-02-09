@@ -43,7 +43,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova', 'directi
     controller: 'WheelCtrl'
   })
 
-
   .state('capture', {
     url: '/capture',
     templateUrl: 'templates/capture.html',
@@ -83,7 +82,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova', 'directi
     }
   })
 
-
   .state('request', {
     url: '/request',
     templateUrl: 'templates/request.html',
@@ -97,7 +95,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova', 'directi
       }
     }
   })
-
 
   .state('form', {
     url: '/form',
@@ -113,49 +110,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova', 'directi
     }
   })
 
-  .state('app', {
-    url: '/app',
-    abstract: true,
-    templateUrl: 'templates/menu.html',
-    controller: 'AppCtrl'
-  })
-
-  .state('app.search', {
-    url: '/search',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/search.html',
-        controller: 'SearchCtrl'
-      }
-    }
-  })
-
-  .state('app.browse', {
-      url: '/browse',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/browse.html'
-        }
-      }
-    })
-    .state('app.playlists', {
-      url: '/playlists',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/playlists.html',
-          controller: 'PlaylistsCtrl'
-        }
-      }
-    })
-
-  .state('app.single', {
-    url: '/playlists/:playlistId',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/playlist.html',
-        controller: 'PlaylistCtrl'
-      }
-    }
+  .state('confirmation', {
+    url: '/confirmation',
+    templateUrl: 'templates/confirmation.html',
+    controller: 'IntroCtrl'
   });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/');

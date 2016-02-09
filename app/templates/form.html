@@ -8,12 +8,12 @@
   			<i class="icon ion-record" ng-class="{'purple-background': details}"></i>
   		</span>
   		<span class="slider-pager-page">
-  			<i class="icon ion-record purple-background"></i>
+  			<i class="icon ion-record" ng-class="{'purple-background': requirements}"></i>
   		</span>
   		<span class="slider-pager-page">
-  			<i class="icon ion-record purple-background"></i>
+  			<i class="icon ion-record" ng-class="{'purple-background': match}"></i>
   		</span>
-  		<span class="slider-pager-page">
+  		<span class="slider-pager-page" ng-show="details && requirements && match">
   			<i class="form icon ion-checkmark"></i>
   		</span>
   	</div>
@@ -51,8 +51,12 @@
           </p>
           <br>
 		  <label class="item item-input">
-		    <input type="text" name="email" ng-model="user.email" placeholder="Email*" required/>
+		    <input type="email" name="email" ng-model="user.email" placeholder="Email*" required/>
 		  </label>
+		  <p class="help-block" ng-show="form.email.$error.email && submitted"
+		  	 ng-class="{'has-error': form.email.$invalid && submitted }">
+            Doesn't look like a valid email.
+          </p>
 		  <p class="help-block" ng-show="form.email.$error.required && submitted" 
 		  	  ng-class="{'has-error': form.email.$invalid && submitted }">
 		    A email is required
@@ -134,7 +138,7 @@
 	  		  <br>
 	  		  <label class="item item-input item-select">
 	  		    <div class="input-label">
-	  		         &nbsp;
+	  		      &nbsp;
 	  		    </div>
 	  		    <select name="process" ng-model="user.process" required>
 	  		      <option value="" disabled selected>Process*</option>	
@@ -235,7 +239,7 @@
 	  		  <br>
 	  		  <label class="item item-input item-select">
 	  		    <div class="input-label">
-	  		       &nbsp; 
+	  		     &nbsp; 
 	  		    </div>
 	  		    <select name="source" ng-model="user.source" required>
 	  		      <option value="" disabled selected>Light Source*</option>			
@@ -330,6 +334,11 @@
 	  			<div class="col">
 	  				<p>If you have any questions in regards to requesting a sample feel free to reach out to us at:</p>
 	  				<a href="mailto:info@opticolorinc.com">info@opticolorinc.com</a>
+
+	  				<p class="help-block" ng-show="form.$invalid && submitted"
+					  	 ng-class="{'has-error': form.$invalid && submitted }">
+			            Oops! Looks like you forgot a few things.
+			         </p>
 	  				
 	  				<button class="button button-full button-royal" type="submit">
 	  				  Request sample

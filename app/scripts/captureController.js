@@ -20,11 +20,20 @@ angular.module('starter.controllers', [])
       document.getElementById('form-color-selected').style.backgroundColor = colorSelected
 
 
-      //companyName, contactName, email, phone
-      //if these are true then details is true
-   
-
-      $scope.user = {companyName: null, contactName: null, email: null, phone: null}
+      $scope.user = {companyName: null, 
+                     contactName: null, 
+                     email: null, 
+                     phone: null,
+                     projectApp: null,
+                     opacity: "",
+                     base: null,
+                     resin: null,
+                     process: "",
+                     compounding: "",
+                     letdown: "",
+                     thickness: null,
+                     transmission: null,
+                     source: ""}
 
       $scope.$watchCollection('[user.companyName, user.contactName, user.email, user.phone]', function(newValues, oldValues){
           if(newValues[0] && newValues[1] && newValues[2] && newValues[3]){
@@ -32,6 +41,17 @@ angular.module('starter.controllers', [])
           }
           else{
              $scope.details = false;
+          }
+      });
+
+        $scope.$watchCollection('[user.projectApp, user.opacity, user.base, user.resin, user.process, user.compounding, user.letdown, user.thickness, user.transmission, user.source]'
+          , function(newValues, oldValues){
+          if(newValues[0] && newValues[1] && newValues[2] && newValues[3] && newValues[4] && newValues[5] && newValues[6] && newValues[7] && newValues[8] && newValues[9]){
+             $scope.requirements = true
+             $scope.match = true
+          }
+          else{
+             $scope.requirements = false;
           }
       });
 
@@ -334,7 +354,6 @@ angular.module('starter.controllers', [])
   // };
 
   $scope.next = function () {
-    console.log("fuck you")
     $ionicSlideBoxDelegate.next();
   };
 
