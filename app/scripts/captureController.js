@@ -290,7 +290,7 @@ angular.module('starter.controllers', [])
 
    $scope.takePhoto = function () {
       var options = {
-        quality: 75, //100
+        quality: 100, //100
         destinationType: Camera.DestinationType.DATA_URL, // FILE_URI
         sourceType: Camera.PictureSourceType.CAMERA,
         allowEdit: true,
@@ -314,7 +314,7 @@ angular.module('starter.controllers', [])
               
     $scope.choosePhoto = function () {
       var options = {
-        quality: 75, //100
+        quality: 100, //100
         destinationType: Camera.DestinationType.FILE_URI,
         sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
         allowEdit: true,
