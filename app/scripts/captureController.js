@@ -2,7 +2,7 @@ angular.module('starter.controllers', [])
 
   .controller('FormCtrl', function($scope, $state, $rootScope, imgURI, colorSelected, $http) {
       // $rootScope.imgURI = "images/test.jpg"
-      console.log("FormCtrl")
+      console.log("imgURI")
       console.log(imgURI)
       console.log(colorSelected)
 
@@ -18,6 +18,69 @@ angular.module('starter.controllers', [])
       // $scope.alpha = "100"
       $scope.hex = chroma(rgb).hex();
       document.getElementById('form-color-selected').style.backgroundColor = colorSelected
+      console.log('<div style="width:200px;height:200px;background-color:' + colorSelected + '"></div>')
+
+      
+
+      $scope.sendEmail = function(form){
+
+      console.log("imgURI")
+      console.log(imgURI)
+      // remove the "image tag" from the IMGURI that was added
+      console.log( '<img src="' + imgURI + '">')
+
+          var data = {
+          'key': 'ZrkOtJ2ahIz4gOgsp8FsvQ',
+          'message': {
+            'from_email': 'help@opticolorinc.com',
+            'from_name': 'ios app',
+            'to': [
+              {
+                'email': 'help@opticolorinc.com',
+                'name': 'YOUR_RECEIVER_NAME',
+                'type': 'to'
+              }
+            ],
+            'subject': 'ios App Data',
+            'html': '<h1>html can be used</h1>' + $scope.user.companyName + '<div style="width:200px;height:200px;background-color:' + colorSelected + '"></div><img src="cid:cdv_photo_001"/>',
+            'inline_css': 'true',
+            'text': 'sample text',
+            "images": [
+                          {
+                              "name": "cdv_photo_001",
+                              "type": "image/jpeg",
+                              "content": imgURI
+                          }
+                      ]
+          }
+        }
+        // console.log(form)
+        console.log("scope user")
+        console.log($scope.user)
+        $scope.submitted = true;
+
+
+        $http.post('https://mandrillapp.com/api/1.0/messages/send.json', data)
+            .success(function(data){
+              //on success send success message
+              console.log(data)
+              console.log("success")
+            })
+            .error(function(err){
+                console.log(err)
+                console.log("error")
+            })
+        
+        // if(form.$valid){
+        //    console.log("valid")
+        // }
+        // else{
+        //    console.log(document.body.scrollTop)
+        //    console.log(document.documentElement.scrollTop);
+        // }
+      
+      }
+
 
 
       $scope.user = {companyName: null, 
@@ -56,49 +119,8 @@ angular.module('starter.controllers', [])
       });
 
 
-      var data = {
-      'key': '',
-      'message': {
-        'from_email': 'grock006@gmail.com',
-        'to': [
-          {
-            'email': 'grock006@gmail.com',
-            'name': 'YOUR_RECEIVER_NAME',
-            'type': 'to'
-          }
-        ],
-        'subject': 'title',
-        'html': 'html can be used'
-      }
-    }
-   
 
-            $scope.sendEmail = function(form){
-              // console.log(form)
-              $scope.submitted = true;
-
-
-              // $http.post('https://mandrillapp.com/api/1.0/messages/send.json', data)
-              //     .success(function(data){
-              //       //on success send success message
-              //       console.log(data)
-              //       console.log("success")
-              //     })
-              //     .error(function(err){
-              //         console.log(err)
-              //         console.log("error")
-              //     })
-              
-              if(form.$valid){
-                 console.log("valid")
-              }
-              else{
-                 console.log(document.body.scrollTop)
-                 console.log(document.documentElement.scrollTop);
-              }
-            
-            }
-
+             
 
 
   })
@@ -198,7 +220,8 @@ angular.module('starter.controllers', [])
   .controller('PhotoCtrl', function($scope, $stateParams, $state, $rootScope, imgURI) {
 
       $rootScope.imgURI = imgURI;
-      // console.log($rootScope.colorSelected)
+      console.log("imguri")
+      console.log( $rootScope.imgURI)
       var colorThief = new ColorThief();
       var photo = document.getElementById("photo");
       $scope.showCheck = false;
@@ -315,7 +338,7 @@ angular.module('starter.controllers', [])
     $scope.choosePhoto = function () {
       var options = {
         quality: 100, //100
-        destinationType: Camera.DestinationType.FILE_URI,
+        destinationType: Camera.DestinationType.DATA_URL,
         sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
         allowEdit: true,
         encodingType: Camera.EncodingType.JPEG,
@@ -326,7 +349,7 @@ angular.module('starter.controllers', [])
       };
 
       $cordovaCamera.getPicture(options).then(function (imageData) {
-            $rootScope.imgURI = imageData;
+            $rootScope.imgURI = "data:image/jpeg;base64," + imageData;
             $state.go('photo')        
         }, function (err) {
             // An error occured. Show a message to the user
