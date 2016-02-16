@@ -1,18 +1,21 @@
-<ion-header-bar class="bar-dark">
+<ion-header-bar class="bar-stable">
   <button class="button button-clear ion-chevron-left" ui-sref="logo">
      back
   </button>
-    <h1 class="title" style="color:white">Capture</h1>
+    <h1 class="title" style="color: #4a4a4a;">Capture</h1>
 </ion-header-bar>
 
 <ion-view>
   <ion-content scroll="false">
-    <div class="row row-center" style="margin-top:10vh">    
+    <div class="row row-center" style="margin-top:5vh;margin-bottom:5vh">    
       <div class="col-22"></div>
       <div class="col col-center text-center">
-          <button class="button button-clear button-dark ion-camera" ng-click="takePhoto()">
+          <button class="button button-clear button-dark" ng-click="takePhoto()">
+            <img src="images/camera.png" style="width:100%">
           </button>
-             <h5 class="no-pad">Take Picture</h5>
+
+             <h5 class="capture-title">Take Picture</h5>
+     
       </div>
       <div class="col-22"><br><br><br><br><br><br></div>
     </div>
@@ -20,13 +23,15 @@
     <div class="row row-center">  
       <div class="col-22"></div>
       <div class="col col-center text-center">
-          <button class="button button-clear button-dark ion-images" ng-click="choosePhoto()">
+          <button class="button button-clear button-dark" ng-click="choosePhoto()">
+              <img src="images/library.png" style="width:100%">
           </button>
-          <h5 class="no-pad">Use Photo Library</h5>
+             <h5 class="capture-title">Use Photo Library</h5>
+       
       </div>
       <div class="col-22"><br><br><br><br><br><br></div>
     </div>
 
-
+      <img src="images/intro-middle-1.png" style="width:100%;position:absolute;bottom: 2%;">
   </ion-content>
 </ion-view>

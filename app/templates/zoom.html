@@ -26,16 +26,26 @@
 <div class="bar bar-subheader text-center" style="display:grid">
   <div class="row">
     <div class="col-33">
-      <a href="#" ng-click="getZoom(imgURI);"> 
-      zoom &amp; crop
-      </a>
+      <div class="row" ng-click="getZoom(imgURI);">
+        <div class="col col-40 no-pad-lr">
+          <img src="images/zoom.png">
+        </div>
+        <div class="col col-60">
+          <p class="subheader-title">crop &amp; capture</p>
+        </div>
+      </div>
     </div>
     <div class="col-33">
     </div>
     <div class="col-33">
-       <a href="#" ng-click="sendDetails();"> 
-        view color details
-      </a>
+      <div class="row" ng-click="sendDetails();">
+        <div class="col col-25 no-pad-lr">
+          <img src="images/details.png">
+        </div>
+        <div class="col col-75">
+          <p class="subheader-title">view color details</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>

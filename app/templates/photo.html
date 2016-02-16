@@ -26,16 +26,26 @@
 <div class="bar bar-subheader text-center" style="display:grid">
   <div class="row">
     <div class="col-33">
-      <a href="#" ng-click="getZoom(imgURI);"> 
-      zoom &amp; crop
-      </a>
+      <div class="row" ng-click="getZoom(imgURI);">
+        <div class="col col-40 no-pad-lr">
+          <img src="images/zoom.png">
+        </div>
+        <div class="col col-60">
+          <p class="subheader-title">crop &amp; capture</p>
+        </div>
+      </div>
     </div>
     <div class="col-33">
     </div>
     <div class="col-33">
-       <a href="#" ng-click="sendDetails();"> 
-        view color details
-      </a>
+      <div class="row" ng-click="sendDetails();">
+        <div class="col col-25 no-pad-lr">
+          <img src="images/details.png">
+        </div>
+        <div class="col col-75">
+          <p class="subheader-title">view color details</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -45,11 +55,11 @@
    <div class="row no-pad-lr" style="padding-top:18vh">
       <div class="col no-pad-lr">
           <img id="photo" ng-src="{{imgURI}}" style="width:100vw">
-        <!--  <img id="photo" src="images/test.jpg" style="width:100vw"> -->
+         <!-- <img id="photo" src="images/test.jpg" style="width:100vw"> -->
      </div>
    </div>
 
-  <div style="position: absolute; bottom: 0px; width: 100%">
+  <div style="position: absolute; bottom: 10%; width: 100%">
     <div class="row row-center text-center no-pad-lr">  
       <div class="col-20 box-color" id="one" ng-click="selectColor('one');">
         <i ng-show="showCheck === 'one'" class="ion-checkmark ng-hide"></i>
@@ -86,3 +96,14 @@
     </div>
   </div>
 </ion-view>
+<ion-footer-bar align-title="left" class="bar-dark">
+    <div class="">
+     <!--  <button ui-sref="logo" class="button button-clear button-skip">
+        <h5 class="skip-button">Skip <i class="ion-refresh"></i></h5>
+      </button> -->
+    </div>
+    <h1 class="title">choose a color</h1>
+    <div class="buttons">
+     <!--  <button class="button"></button> -->
+    </div>
+  </ion-footer-bar>

@@ -27,7 +27,7 @@ angular.module('starter.controllers', [])
                   'type': 'to'
                 }
               ],
-              'subject': 'iOS App Customer Data',
+              'subject': 'iOS App Customer Data ' + $scope.user.companyName + '/' + $scope.user.contactName,
               'html': '<body><h3 style="text-decoration:underline"><em>Contact Details</em></h3><' + 
               '<h5>Company Name: ' + $scope.user.companyName + '</h5>' + 
               '<h5>Contact Name: ' + $scope.user.contactName + '</h5>' + 

@@ -50,8 +50,34 @@ h5.skip-button{
     height: 50px;
 }
 
+.bar.bar-light {
+    border: 0px solid transparent;
+}
+
+.bar.bar-light.bar-footer {
+	 border: 0px solid transparent;
+}
 
 /*End Intro*/
+
+/* Capture */
+
+.bar-stable .button.button-clear {
+    font-size: 14px;
+}
+
+.capture-title{
+	padding-top: 3vh;
+}
+
+/* End Capture */
+
+/* photo */
+
+.subheader-title{
+	line-height: 1.2;
+    font-size: 10px;
+}
 
 .bar.bar-stable .title {
      color: white; 
@@ -59,6 +85,7 @@ h5.skip-button{
 
 .bar-subheader{
 	font-size: 12px;
+	height: 53px;
 }
 
 .bar-subheader a{

@@ -110,7 +110,7 @@
 	  		  	  </div>
 	  		  	  <select name="opacity" ng-model="user.opacity" required> 
 	  		  	  	<option value="" disabled selected>Opacity*</option>
-	  		  	    <option value="Solid">Solid</option>
+	  		  	    <option value="Solid">Solid Opaque</option>
 	  		  	    <option value="Translucent">Translucent</option>
 	  		  	    <option value="Transparent">Transparent</option>
 	  		  	  </select>
@@ -172,7 +172,7 @@
 	  		    <div class="input-label">
 	  		      &nbsp; 
 	  		    </div>
-	  		    <select name="letdown" ng-model="user.letdown" required>
+	  		    <select name="letdown" ng-model="user.letdown">
 	  		      <option value="" disabled selected>Requested Letdown %*</option>			
 	  		      <option value="0.5">0.5</option>
 	  		      <option value="1">1</option>
@@ -230,7 +230,7 @@
 	  		  </p>
 	  		  <br>
 	  		  <label class="item item-input">
-	  		    <input type="text" name="transmission" ng-model="user.transmission" placeholder="Light Transmission Needed*" required>
+	  		    <input type="text" name="transmission" ng-model="user.transmission" placeholder="Light Transmission Target*">
 	  		  </label>
 	  		  <p class="help-block" ng-show="form.transmission.$error.required && submitted" 
 	  		  	  ng-class="{'has-error': form.transmission.$invalid && submitted }">
@@ -241,10 +241,12 @@
 	  		    <div class="input-label">
 	  		     &nbsp; 
 	  		    </div>
-	  		    <select name="source" ng-model="user.source" required>
+	  		    <select name="source" ng-model="user.source">
 	  		      <option value="" disabled selected>Light Source*</option>			
 	  		      <option value="D75 Natural Daylight">D75 Natural Daylight</option>
-	  		      <option value="D65 Average Daylight">D65 Average Daylight</option>
+	  		      <option value="Daylight 6500k">Daylight 6500K</option>
+	  		      <option value="Cool White Florescent">Cool White Fluorescent</option>
+	  		      <option value="Northern Daylight">Northern Daylight</option>
 	  		      <option value="D50 Equal Energy Dayight">D50 Equal Energy Dayight</option>
 	  		      <option value="TL84">TL84</option>
 	  		      <option value="TL835">TL835</option>
@@ -253,8 +255,6 @@
 	  		      <option value="Illuminat A">Illuminat A</option>
 	  		      <option value="Horizon">Horizon</option>
 	  		      <option value="7500K">7500K</option>
-	  		      <option value="6500K">6500K</option>
-	  		      <option value="5000K">5000K</option>
 	  		      <option value="4100K">4100K</option>
 	  		      <option value="3200K">3200K</option>
 	  		      <option value="3000K">3000K</option>
