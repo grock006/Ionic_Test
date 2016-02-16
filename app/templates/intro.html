@@ -11,49 +11,58 @@
 <ion-view hide-back-button="false">
   <ion-slide-box on-slide-changed="slideChanged(index)" show-pager="true">
     <ion-slide>
-        <div class="text-center" style="margin-top:20vh;margin-bottom:10vh" ng-click="next();">
-          <div class="row">
+        <div class="text-center" style="margin-top:12vh;margin-bottom:10vh" ng-click="next();">
+          <div class="row intro-text">
             <div class="col col-10"></div>
             <div class="col col-80">
-              <h4>Welcome to Opti Color's Color Matching app!</h4>
-              <h4>An app that helps us to help you find that perfect color compound.</h4>
+              <h5>Welcome to Opti Color's Color Matching app!</h5>
+              <h5>An app that helps us to help you find that perfect color compound.</h5>
             </div>
             <div class="col col-10"></div>
           </div>
+          <img src="images/intro-middle-1.png" style="width:100%">
         </div>
     </ion-slide>
 
     <ion-slide class="intro col2 slider-bg">
-      <div class="text-center" style="margin-top:20vh;margin-bottom:10vh" ng-click="next();">
-        <div class="row">
+      <div class="text-center" style="margin-top:12vh;margin-bottom:10vh" ng-click="next();">
+        <div class="row intro-text">
           <div class="col col-10"></div>
           <div class="col col-80">
-            <h4>Match a color from a photo or choose a color from our color wheel.</h4>
+            <h5>Match a color from a photo or choose a color from our color wheel.</h5>
           </div>
           <div class="col col-10"></div>
         </div>
+          <img src="images/intro-middle-2.png">
       </div>
     </ion-slide>
 
     <ion-slide class="intro col3 slider-bg">
-      <div class="text-center" style="margin-top:20vh;margin-bottom:10vh" ng-click="next();">
-        <div class="row">
+      <div class="text-center" style="margin-top:12vh;margin-bottom:10vh" ng-click="next();">
+        <div class="row intro-text">
           <div class="col col-10"></div>
           <div class="col col-80">
-            <h4>Then fill out our form to let us know the specifics of how you'd like us to create a sample compound of the desired color chosen</h4>
+            <h5>Then fill out our form to let us know the specifics of how you'd like us to create a sample compound of the desired color chosen</h5>
           </div>
           <div class="col col-10"></div>
+        </div>
+
+        <div class="row">
+          <div class="col col-45"></div>
+          <div class="col col-55">
+              <img src="images/intro-middle-3.png">
+          </div>
         </div>
       </div>
     </ion-slide>
     
     <ion-slide class="intro col4 slider-bg">
-        <div class="text-center" style="margin-top:20vh;margin-bottom:10vh" ng-click="next();">
-          <div class="row">
+        <div class="text-center" style="margin-top:12vh;margin-bottom:10vh" ng-click="next();">
+          <div class="row intro-text">
             <div class="col col-10"></div>
             <div class="col col-80">
-              <h4>Once we recieve your desired color match and other necessary information. We'll contact you and send you a sample.</h4>
-              <h4>It's that simple!</h4>
+              <h5>Once we recieve your desired color match and other necessary information. We'll contact you and send you a sample.</h5>
+              <h5>It's that simple!</h5>
               <br>
               <button class="button button-full button-royal" ui-sref="logo">
               Let's get started!
@@ -63,12 +72,21 @@
           </div>
         </div>
      
-      
-     <!--  <button class="button button-large button-positive button-intro-fb" ng-click="startApp()">
-        <span class="icon_height boxercise_facebook white"></span>
-        <span class="icon_padding ">Hello</span>
-      </button> -->
     </ion-slide>
+
+
     
   </ion-slide-box>
+   <img src="images/intro-bottom-1.png">
+  <ion-footer-bar align-title="left" class="bar-light">
+    <div class="">
+      <button ui-sref="logo" class="button button-clear button-skip">
+        <h5 class="skip-button">Skip <i class="ion-refresh"></i></h5>
+      </button>
+    </div>
+    <!-- <h1 class="title"></h1> -->
+   <!--  <div class="buttons">
+      <button class="button"></button>
+    </div> -->
+  </ion-footer-bar>
 </ion-view>

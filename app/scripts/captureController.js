@@ -120,12 +120,75 @@ angular.module('starter.controllers', [])
 
 
 
-  .controller('ZoomCtrl', function($scope, $state, $rootScope) {
-  
-      $scope.useZoomed = function(){
-        // $rootScope.imgURI = zoomURI
-        // $state.go('photo')
+  .controller('ZoomCtrl', function($scope, $stateParams, $state, $rootScope, imgURI, $jrCrop) {
+      $rootScope.imgURI = imgURI;
+      var colorThief = new ColorThief();
+      var photo = document.getElementById("photo-zoom");
+      $scope.showCheck = false;
+
+      $scope.selectColor = function(color){
+         $scope.showCheck = color
+         var colorSelected = document.getElementById(color).style.backgroundColor 
+         document.getElementById('main-color-zoom').style.backgroundColor = colorSelected
+      }
+
+      $scope.sendDetails = function(){
+        var colorSelected = document.getElementById('main-color-zoom').style.backgroundColor 
+        if(colorSelected){
+          $rootScope.colorSelected = colorSelected
+          $state.go('detail')
         }
+      }
+
+      $scope.getZoom = function(img){
+          console.log($jrCrop.defaultOptions.template)
+          $jrCrop.crop({
+              url: img, 
+              width: 150,
+              height: 150,
+          }).then(function(canvas) {
+              var image = canvas.toDataURL();
+              $rootScope.imgURI = image;
+              $state.go('zoom')
+          }, function() {
+              // User canceled or couldn't load image.
+          });
+      }
+
+      $scope.sendForm = function(){
+        var colorSelected = document.getElementById('main-color-zoom').style.backgroundColor 
+         if(colorSelected){
+          $rootScope.colorSelected = colorSelected
+          $rootScope.imgURI = imgURI;
+          $state.go('request')
+        }
+      }
+
+      $scope.$on('$ionicView.afterEnter', function(){
+          var palette = colorThief.getPalette(photo, 12);
+
+          var one = "rgb(" + palette[1][0] + ", " + palette[1][1] + ", " + palette[1][2] + ")"
+          var two = "rgb(" + palette[2][0] + ", " + palette[2][1] + ", " + palette[2][2] + ")"
+          var three = "rgb(" + palette[3][0] + ", " + palette[3][1] + ", " + palette[3][2] + ")"
+          var four = "rgb(" + palette[4][0] + ", " + palette[4][1] + ", " + palette[4][2] + ")"
+          var five = "rgb(" + palette[5][0] + ", " + palette[5][1] + ", " + palette[5][2] + ")"
+          var six = "rgb(" + palette[6][0] + ", " + palette[6][1] + ", " + palette[6][2] + ")"
+          var seven = "rgb(" + palette[7][0] + ", " + palette[7][1] + ", " + palette[7][2] + ")"
+          var eight = "rgb(" + palette[8][0] + ", " + palette[8][1] + ", " + palette[8][2] + ")"
+          var nine = "rgb(" + palette[9][0] + ", " + palette[9][1] + ", " + palette[9][2] + ")"
+          var ten = "rgb(" + palette[10][0] + ", " + palette[10][1] + ", " + palette[10][2] + ")"
+
+          document.getElementById('one-zoom').style.backgroundColor = one
+          document.getElementById('two-zoom').style.backgroundColor = two
+          document.getElementById('three-zoom').style.backgroundColor = three
+          document.getElementById('four-zoom').style.backgroundColor = four
+          document.getElementById('five-zoom').style.backgroundColor = five
+          document.getElementById('six-zoom').style.backgroundColor = six
+          document.getElementById('seven-zoom').style.backgroundColor = seven
+          document.getElementById('eight-zoom').style.backgroundColor = eight
+          document.getElementById('nine-zoom').style.backgroundColor = nine
+          document.getElementById('ten-zoom').style.backgroundColor = ten
+      });
   
   })
 
@@ -191,7 +254,7 @@ angular.module('starter.controllers', [])
  
 
 
-  .controller('PhotoCtrl', function($scope, $stateParams, $state, $rootScope, imgURI) {
+  .controller('PhotoCtrl', function($scope, $stateParams, $state, $rootScope, imgURI, $jrCrop) {
 
       $rootScope.imgURI = imgURI;
       var colorThief = new ColorThief();
@@ -212,9 +275,24 @@ angular.module('starter.controllers', [])
         }
       }
 
-      $scope.getZoom = function(){
-          $rootScope.imgURI = imgURI;
-          $state.go('zoom')
+      $scope.getZoom = function(img){
+          console.log($jrCrop.defaultOptions.template)
+          // $rootScope.imgURI = imgURI;
+          // $state.go('zoom')
+          $jrCrop.crop({
+              url: img, //"images/test.jpg",
+              width: 150,
+              height: 150,
+          }).then(function(canvas) {
+              // success!
+              var image = canvas.toDataURL();
+              console.log("image")
+              console.log(image)
+              $rootScope.imgURI = image;
+              $state.go('zoom')
+          }, function() {
+              // User canceled or couldn't load image.
+          });
       }
 
       $scope.sendForm = function(){

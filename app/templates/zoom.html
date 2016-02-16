@@ -1,4 +1,94 @@
-<ion-header-bar class="bar-light">
+<!-- header -->
+<ion-header-bar class="bar-dark text-center" style="z-index:100">
+  <div class="row">
+  <div class="col-25">
+     <a href="#/capture">
+      <button class="button-clear"> 
+        <i class="ion-chevron-left"></i> back
+      </button>
+    </a>
+  </div>
+  <div class="col col-10"></div>
+  <div class="col col-30 text-center">
+    <div class="main-box-color" id="main-color-zoom"></div>
+  </div>
+  <div class="col col-10"></div>
+  <div class="col-25">
+      <button class="button-clear" ng-show="showCheck" ng-click="sendForm();"> 
+         next <i class="ion-chevron-right"></i> 
+      </button>
+  </div>
+</div>
+</ion-header-bar>
+<!-- end header -->
+
+<!-- subheader -->
+<div class="bar bar-subheader text-center" style="display:grid">
+  <div class="row">
+    <div class="col-33">
+      <a href="#" ng-click="getZoom(imgURI);"> 
+      zoom &amp; crop
+      </a>
+    </div>
+    <div class="col-33">
+    </div>
+    <div class="col-33">
+       <a href="#" ng-click="sendDetails();"> 
+        view color details
+      </a>
+    </div>
+  </div>
+</div>
+<!-- end subheader -->
+
+<ion-view>
+   <div class="row no-pad-lr" style="padding-top:18vh">
+      <div class="col no-pad-lr">
+          <img id="photo-zoom" ng-src="{{imgURI}}" style="width:100vw">
+         <!-- <img id="photo" src="images/test.jpg" style="width:100vw"> -->
+     </div>
+   </div>
+
+  <div style="position: absolute; bottom: 0px; width: 100%">
+    <div class="row row-center text-center no-pad-lr">  
+      <div class="col-20 box-color" id="one-zoom" ng-click="selectColor('one-zoom');">
+        <i ng-show="showCheck === 'one-zoom'" class="ion-checkmark ng-hide"></i>
+      </div>
+      <div class="col-20 box-color" id="two-zoom" ng-click="selectColor('two-zoom');">
+        <i ng-show="showCheck === 'two-zoom'" class="ion-checkmark ng-hide"></i>
+      </div>
+      <div class="col-20 box-color" id="three-zoom" ng-click="selectColor('three-zoom');">
+        <i ng-show="showCheck === 'three-zoom'" class="ion-checkmark ng-hide"></i>
+      </div>
+      <div class="col-20 box-color" id="four-zoom" ng-click="selectColor('four-zoom');">
+        <i ng-show="showCheck === 'four-zoom'" class="ion-checkmark ng-hide"></i>
+      </div>
+      <div class="col-20 box-color" id="five-zoom" ng-click="selectColor('five-zoom');">
+        <i ng-show="showCheck === 'five-zoom'" class="ion-checkmark ng-hide"></i>
+      </div>
+    </div>
+    <div class="row row-center text-center no-pad-lr">  
+      <div class="col-20 box-color" id="six-zoom" ng-click="selectColor('six-zoom');">
+        <i ng-show="showCheck === 'six-zoom'" class="ion-checkmark ng-hide"></i>
+      </div>
+      <div class="col-20 box-color" id="seven-zoom" ng-click="selectColor('seven-zoom');">
+        <i ng-show="showCheck === 'seven-zoom'" class="ion-checkmark ng-hide"></i>
+      </div>
+      <div class="col-20 box-color" id="eight-zoom" ng-click="selectColor('eight-zoom');">
+        <i ng-show="showCheck === 'eight-zoom'" class="ion-checkmark ng-hide"></i>
+      </div>
+      <div class="col-20 box-color" id="nine-zoom" ng-click="selectColor('nine-zoom');">
+        <i ng-show="showCheck === 'nine-zoom'" class="ion-checkmark ng-hide"></i>
+      </div>
+      <div class="col-20 box-color" id="ten-zoom" ng-click="selectColor('ten-zoom');">
+        <i ng-show="showCheck === 'ten-zoom'" class="ion-checkmark ng-hide"></i>
+      </div>
+    </div>
+  </div>
+</ion-view>
+
+
+<!-- <ion-header-bar class="bar-light">
   <button class="button button-clear ion-chevron-left" ui-sref="photo">
      back
   </button>
@@ -6,15 +96,15 @@
 </ion-header-bar>
 
 <ion-view>
- <!--  <ion-content> -->
-      <!-- <div style="height:40vh">
+  <ion-content>
+      <div style="height:40vh">
 		  <ion-scroll zooming="true"  direction="xy" style="width: 100%; height: 100%; position: absolute; top: 0; bottom: 0; left: 0; right: 0; ">
             <img ng-src="images/test.jpg" id="zoom-image" style="width: 100%!important; display:block;width:100%; height:auto; max-width: 100vw; max-height:100vh; margin:auto; padding:10px; "></img>
           </ion-scroll>
       </div>
- -->
-<!-- 
-   <img ng-src="images/test.jpg" id="zoom-image" style="width:100vw;"> -->
+
+
+   <img ng-src="images/test.jpg" id="zoom-image" style="width:100vw;">
 
       <div class="row row-center">  
         <div class="col-22"></div>
@@ -24,5 +114,5 @@
         <div class="col-22"><br><br><br><br><br><br></div>
       </div>
 
-<!--   </ion-content> -->
-</ion-view>
+  </ion-content>
+</ion-view> -->

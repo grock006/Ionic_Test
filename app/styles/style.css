@@ -31,6 +31,28 @@ body, .bar, .bar-dark, .bar-stable, h1.title, h5, .button, h4{
 	font-family: 'Dodeca Bold Basic' !important;
 }
 
+/*Intro*/
+
+.intro-text h5{
+	font-family: 'Dodeca Reg Basic' !important;
+}
+
+h5.skip-button{
+	font-family: 'Dodeca Reg Basic' !important;
+	color: #9013fe;
+	letter-spacing: -0.13px;
+	line-height: 24px;
+	padding-left: 10%;
+	min-width: 50px;
+}
+
+.bar-footer {
+    height: 50px;
+}
+
+
+/*End Intro*/
+
 .bar.bar-stable .title {
      color: white; 
 }
