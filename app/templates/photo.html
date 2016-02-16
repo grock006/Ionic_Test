@@ -38,7 +38,7 @@
     <div class="col-33">
     </div>
     <div class="col-33">
-      <div class="row" ng-click="sendDetails();">
+      <div class="row" ng-click="sendDetails();" ng-class="{'details-opacity': !showCheck}">
         <div class="col col-25 no-pad-lr">
           <img src="images/details.png">
         </div>
@@ -55,11 +55,11 @@
    <div class="row no-pad-lr" style="padding-top:18vh">
       <div class="col no-pad-lr">
           <img id="photo" ng-src="{{imgURI}}" style="width:100vw">
-         <!-- <img id="photo" src="images/test.jpg" style="width:100vw"> -->
+        <!--  <img id="photo" src="images/test.jpg" style="width:100vw"> -->
      </div>
    </div>
 
-  <div style="position: absolute; bottom: 8%; width: 100%">
+  <div style="position: absolute; bottom: 50px; width: 100%">
     <div class="row row-center text-center no-pad-lr">  
       <div class="col-20 box-color" id="one" ng-click="selectColor('one');">
         <i ng-show="showCheck === 'one'" class="ion-checkmark ng-hide"></i>
