@@ -35,6 +35,7 @@ body, .bar, .bar-dark, .bar-stable, h1.title, h5, .button, h4{
 
 .intro-text h5{
 	font-family: 'Dodeca Reg Basic' !important;
+	font-size: 15px;
 }
 
 h5.skip-button{
@@ -68,6 +69,10 @@ h5.skip-button{
 
 .capture-title{
 	padding-top: 3vh;
+}
+
+.bar.bar-dark {
+    background-color: black;
 }
 
 /* End Capture */
