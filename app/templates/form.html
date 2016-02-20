@@ -37,43 +37,27 @@
   	<div class="col col-90 no-pad-lr">
   		<p class="text-right">* required fields</p>
   		<div class="list list-inset no-pad-lr">
-		  <label class="item item-input">
+		  <label class="item item-input" ng-class="{'danger': form.companyname.$invalid && submitted }">
 		    <input type="text" name="companyname" ng-model="user.companyName" placeholder="Company Name*" required/>
 		  </label>
-		  <p class="help-block" ng-show="form.companyname.$error.required && submitted" 
-		  	  ng-class="{'has-error': form.companyname.$invalid && submitted }">
-		    A company name is required
-		  </p>
 		  <br>
-		  <label class="item item-input">
+		  <label class="item item-input"  ng-class="{'danger': form.contactname.$invalid && submitted }">
 		    <input type="text" name="contactname" ng-model="user.contactName" placeholder="Contact Name*" required/>
 		  </label>
-          <p class="help-block" ng-show="form.contactname.$error.required && submitted" 
-          	  ng-class="{'has-error': form.contactname.$invalid && submitted }">
-            A contact name is required
-          </p>
           <br>
-		  <label class="item item-input">
+		  <label class="item item-input" ng-class="{'danger': form.email.$invalid && submitted }">
 		    <input type="email" name="email" ng-model="user.email" placeholder="Email*" required/>
 		  </label>
 		  <p class="help-block" ng-show="form.email.$error.email && submitted"
-		  	 ng-class="{'has-error': form.email.$invalid && submitted }">
+		  	 ng-class="{'danger': form.email.$invalid && submitted }">
             Doesn't look like a valid email.
           </p>
-		  <p class="help-block" ng-show="form.email.$error.required && submitted" 
-		  	  ng-class="{'has-error': form.email.$invalid && submitted }">
-		    A email is required
-		  </p>
 		  <br>
 		  <div class="row no-pad">
 		  	<div class="col col-70 no-pad">
-		  		<label class="item item-input">
+		  		<label class="item item-input" ng-class="{'danger': form.phone.$invalid && submitted }">
 		  		  <input type="tel" name="phone" ng-model="user.phone" placeholder="Phone*" required/>
 		  		</label>
-		  		<p class="help-block" ng-show="form.phone.$error.required && submitted" 
-		  			  ng-class="{'has-error': form.phone.$invalid && submitted }">
-		  		  A phone is required
-		  		</p>
 		  	</div>
 		  	<div class="col col-10"></div>
 		  	<div class="col col-20 no-pad">
@@ -98,17 +82,13 @@
     	<div class="col col-5 no-pad-lr"></div>
     	<div class="col col-90 no-pad-lr">
     	 <div class="list list-inset no-pad-lr">
-	  		  <label class="item item-input">
+	  		  <label class="item item-input" ng-class="{'danger': form.projectApp.$invalid && submitted }">
 	  		    <input type="text" name="projectApp" ng-model="user.projectApp" placeholder="Application/Project*" required/>
 	  		  </label>
 	  		  	<p class="text-center">ex: mobile phone case</p>
-	  		  	<p class="help-block" ng-show="form.projectApp.$error.required && submitted" 
-	  		  		  ng-class="{'has-error': form.projectApp.$invalid && submitted }">
-	  		  	  A project name is required
-	  		  	</p>
-	  		  <br>
-	  		  	<label class="item item-input item-select">
-	  		  	  <div class="input-label">
+	  		  	<br>
+	  		  	<label class="item item-input item-select" ng-class="{'danger': form.opacity.$invalid && submitted }">
+	  		  	  <div class="input-label" >
 	  		  	    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
 	  		  	  </div>
 	  		  	  <select name="opacity" ng-model="user.opacity" required> 
@@ -118,28 +98,16 @@
 	  		  	    <option value="Transparent">Transparent</option>
 	  		  	  </select>
 	  		  	</label>
-	  		  	<p class="help-block" ng-show="form.opacity.$error.required && submitted" 
-	  		  		  ng-class="{'has-error': form.opacity.$invalid && submitted }">
-	  		  	  An opacity is required
-	  		  	</p>
 	  		  <br>
-	  		  <label class="item item-input">
+	  		  <label class="item item-input" ng-class="{'danger': form.base.$invalid && submitted }">
 	  		    <input type="text" name="base" ng-model="user.base" placeholder="Base Carrier Resin" required>
 	  		  </label>
-	  		  <p class="help-block" ng-show="form.base.$error.required && submitted" 
-	  		  		  ng-class="{'has-error': form.base.$invalid && submitted }">
-	  		  	  A base carrier resin is required
-	  		  	</p>
 	  		  <br>
-	  		  <label class="item item-input">
+	  		  <label class="item item-input" ng-class="{'danger': form.resin.$invalid && submitted }">
 	  		    <input type="text" name="resin" ng-model="user.resin" placeholder="Resin Grade*" required>
 	  		  </label>
-	  		  <p class="help-block" ng-show="form.resin.$error.required && submitted" 
-	  		  	  ng-class="{'has-error': form.resin.$invalid && submitted }">
-	  		    A resin grade is required
-	  		  </p>
 	  		  <br>
-	  		  <label class="item item-input item-select">
+	  		  <label class="item item-input item-select" ng-class="{'danger': form.process.$invalid && submitted }">
 	  		    <div class="input-label">
 	  		      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
 	  		    </div>
@@ -150,12 +118,8 @@
 	  		      <option value="Inject Moulding">Inject Moulding</option>
 	  		    </select>
 	  		  </label>
-	  		  <p class="help-block" ng-show="form.process.$error.required && submitted" 
-	  		  	  ng-class="{'has-error': form.process.$invalid && submitted }">
-	  		    A process is required
-	  		  </p>
 	  		  <br>
-	  		  <label class="item item-input item-select">
+	  		  <label class="item item-input item-select" ng-class="{'danger': form.compounding.$invalid && submitted }">
 	  		    <div class="input-label">
 	  		      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
 	  		    </div>
@@ -166,12 +130,8 @@
 	  		      <option value="Tolling Service">Tolling Service</option>
 	  		    </select>
 	  		  </label>
-	  		  <p class="help-block" ng-show="form.compounding.$error.required && submitted" 
-	  		  	  ng-class="{'has-error': form.compounding.$invalid && submitted }">
-	  		    A compounding is required
-	  		  </p>
 	  		    <br>
-	  		  <label class="item item-input item-select">
+	  		  <label class="item item-input item-select" ng-class="{'danger': form.letdown.$invalid && submitted }" required>
 	  		    <div class="input-label">
 	  		      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
 	  		    </div>
@@ -219,28 +179,16 @@
                   <option value="20">20</option>
 	  		    </select>
 	  		  </label>
-	  		  <p class="help-block" ng-show="form.letdown.$error.required && submitted" 
-	  		  	  ng-class="{'has-error': form.letdown.$invalid && submitted }">
-	  		    A requested letdown is required
-	  		  </p>
 	  		  <br>
-	  		  <label class="item item-input">
+	  		  <label class="item item-input" ng-class="{'danger': form.thickness.$invalid && submitted }">
 	  		    <input type="text" name="thickness" ng-model="user.thickness" placeholder="Finished Part Thickness" required>
 	  		  </label>
-	  		  <p class="help-block" ng-show="form.thickness.$error.required && submitted" 
-	  		  	  ng-class="{'has-error': form.thickness.$invalid && submitted }">
-	  		    A finished part thickness is required
-	  		  </p>
 	  		  <br>
-	  		  <label class="item item-input">
-	  		    <input type="text" name="transmission" ng-model="user.transmission" placeholder="Light Transmission Target*">
+	  		  <label class="item item-input" ng-class="{'danger': form.transmission.$invalid && submitted }">
+	  		    <input type="text" name="transmission" ng-model="user.transmission" placeholder="Light Transmission Target*"required>
 	  		  </label>
-	  		  <p class="help-block" ng-show="form.transmission.$error.required && submitted" 
-	  		  	  ng-class="{'has-error': form.transmission.$invalid && submitted }">
-	  		    A light transmission needed is required
-	  		  </p>
 	  		  <br>
-	  		  <label class="item item-input item-select">
+	  		  <label class="item item-input item-select" ng-class="{'danger': form.source.$invalid && submitted }" required>
 	  		    <div class="input-label">
 	  		      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
 	  		    </div>
@@ -266,10 +214,6 @@
 	  		      <option value="Other">Other</option>
 	  		    </select>
 	  		  </label>
-	  		  <p class="help-block" ng-show="form.source.$error.required && submitted" 
-	  		  	  ng-class="{'has-error': form.source.$invalid && submitted }">
-	  		    A light source is required
-	  		  </p>
   		   </div>
     	</div>
     	<div class="col col-5 no-pad-lr"></div>
@@ -289,7 +233,7 @@
     		<div class="row">
     			<div class="col">
     				<!-- <img id="photo" src="images/test.jpg" style="width:100%;"> -->
-    				<img id="photo" ng-src="{{imgURI}}" style="width:100%;">
+    				<img id="photo" ng-src="{{imgURI}}" style="width:100px;height:100px;border-radius:5px;">
     			</div>
     			<div class="col col-center">
     				<div id="form-color-selected" class="box-color" style="width:100px;height:100px"></div>
@@ -339,7 +283,7 @@
 	  				<a href="mailto:help@opticolorinc.com">help@opticolorinc.com</a>
 
 	  				<p class="help-block" ng-show="form.$invalid && submitted"
-					  	 ng-class="{'has-error': form.$invalid && submitted }">
+					  	 ng-class="{'danger': form.$invalid && submitted }">
 			            Oops! Looks like you forgot a few things.
 			         </p>
 	  				

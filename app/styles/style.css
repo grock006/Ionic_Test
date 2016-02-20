@@ -198,6 +198,10 @@ h5.skip-button{
 	line-height: 0;
 }
 
+/*.item-select{
+	width: 100%
+}
+
 .item-select select {
   left: 0;
 }
@@ -205,7 +209,7 @@ h5.skip-button{
 select option{
   text-align: left;
 }
-
+*/
 .form.ion-checkmark:before{
 	color:rgb(144, 19, 254);
 }
@@ -290,6 +294,7 @@ button.ion-ios-color-filter:before {
 .ion-record:before{
 	color: #9013fe;
 	font-size: 18px;
+	transition: opacity 0.4s ease-in;
 }
 
 .ion-ios-arrow-right:before {
@@ -310,7 +315,11 @@ label.item-input{
 	border: 1px solid #979797;
 }
 
-input, textarea, select{
+label.item-input.danger{
+	border: 1px solid red !important;
+}
+
+input, textarea{
 	text-align: center;
 }
 
@@ -319,10 +328,12 @@ input, textarea, select{
 }
 
 .item-select select{
+	/*padding: 14px 150px 16px 16px;*/
 	padding-top: 0px;
 	padding-bottom: 0px;
     font-size: 16px;
     width: 100%;
+/*    min-width: 255px;*/
 }
 
 h4.form-header{
