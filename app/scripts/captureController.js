@@ -3,6 +3,8 @@ angular.module('starter.controllers', [])
   .controller('FormCtrl', function($scope, $state, $rootScope, imgURI, colorSelected, $http) {
 
       $scope.details = false;
+      $scope.requirements = false;
+      $scope.match = false;
       $rootScope.imgURI = imgURI;
       var rgb = colorSelected.replace(/[()]/g, "").replace(/rgb/, "").split(",")
       $scope.red = rgb[0]
@@ -264,7 +266,8 @@ angular.module('starter.controllers', [])
       $scope.selectColor = function(color){
          $scope.showCheck = color
          var colorSelected = document.getElementById(color).style.backgroundColor 
-         document.getElementById('main-color').style.backgroundColor = colorSelected
+         document.getElementById('main-color').style.backgroundImage = "none";
+         document.getElementById('main-color').style.backgroundColor = colorSelected;
       }
 
       $scope.sendDetails = function(){

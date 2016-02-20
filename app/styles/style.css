@@ -31,6 +31,18 @@ body, .bar, .bar-dark, .bar-stable, h1.title, h5, .button, h4{
 	font-family: 'Dodeca Bold Basic' !important;
 }
 
+.bar { 
+	background-image: none !important; 
+}
+
+.bar.bar-header.no-bg-color, .bar.bar-footer.no-bg-color{
+	border: 0px;
+	border-color: transparent;
+	border-top: transparent;
+	border-bottom: transparent;
+	background-image: none !important; 
+}
+
 /*Intro*/
 
 .intro-text h5{
@@ -48,7 +60,7 @@ h5.skip-button{
 }
 
 .bar-footer {
-    height: 50px;
+    height: 8vh;
 }
 
 .bar.bar-light {
@@ -84,8 +96,8 @@ h5.skip-button{
 /* photo */
 
 .subheader-title{
-	line-height: 1.2;
-    font-size: 10px;
+    line-height: 1.1;
+    font-size: 2vh;
 }
 
 .bar.bar-stable .title {
@@ -116,19 +128,26 @@ h5.skip-button{
 	border-radius: 5px;
 }
 
+.box-color-container{
+	position: absolute; 
+	bottom: 8vh; 
+	background: black; 
+	width: 100%
+}
+
 .box-outline{
 	border: 2px solid black;
 }
 
 .main-box-color{
 	width: 100%;
-	/*height: 13vh;*/
-	border: 1px solid darkgray;
+/*	border: 1px solid #979797;*/
 	background-color: white;
 	position: relative;
 	top: -10px;
 	border-radius: 5px;
 	text-align: center;
+	background: url("../images/choice.png") no-repeat center center;
 }
 
 .main-box-color:after {
@@ -262,3 +281,47 @@ button.ion-images:before {
 button.ion-ios-color-filter:before {
     font-size: 50px !important;
 }
+
+.ion-ios-circle-outline:before{
+	color: #9013fe;
+}
+
+.ion-record:before{
+	color: #9013fe;
+}
+
+/* Form */
+
+label.item-input{
+	border: 1px solid #979797;
+}
+
+input, textarea, select{
+	text-align: center;
+}
+
+.item.item-input input{
+	font-size: 2.5vh;
+}
+
+.item-select select{
+	padding-top: 0px;
+	padding-bottom: 0px;
+    font-size: 2.5vh;
+    width: 100%;
+}
+
+h4.form-header{
+	color: #9013fe;
+	font-size: 3.2vh;	
+}
+
+.slider-pager .slider-pager-page {
+     opacity: 1; 
+}
+
+.slider-pager .slider-pager-page .active i.icon.ion-record:before{
+     color: #9013fe;
+}
+
+/* End Form */

@@ -1,17 +1,20 @@
-<ion-header-bar class="bar-light">
+<ion-header-bar class="bar-light no-bg-color">
   <button class="button button-clear ion-chevron-left" ui-sref="request">
      back
   </button>
   <div class="title">
   	<div class="slider-pager">
   		<span class="slider-pager-page">
-  			<i class="icon ion-record" ng-class="{'purple-background': details}"></i>
+  			<i class="icon ion-ios-circle-outline" ng-hide="details"></i>
+  			<i class="icon ion-record" ng-show="details"></i>
   		</span>
   		<span class="slider-pager-page">
-  			<i class="icon ion-record" ng-class="{'purple-background': requirements}"></i>
+  			<i class="icon ion-ios-circle-outline" ng-hide="requirements"></i>
+  			<i class="icon ion-record" ng-show="requirements"></i>
   		</span>
   		<span class="slider-pager-page">
-  			<i class="icon ion-record" ng-class="{'purple-background': match}"></i>
+  			<i class="icon ion-ios-circle-outline" ng-hide="match"></i>
+  			<i class="icon ion-record" ng-show="match"></i>
   		</span>
   		<span class="slider-pager-page" ng-show="details && requirements && match">
   			<i class="form icon ion-checkmark"></i>
@@ -26,7 +29,7 @@
   <!-- contact details -->
   <div class="row">
   	<div class="col text-center">
-  		<h4 class="no-pad">Contact Details</h4>
+  		<h4 class="no-pad form-header">Contact Details</h4>
   	</div>
   </div>
   <div class="row no-pad-lr">
@@ -88,7 +91,7 @@
   <!-- color match specs and requirements -->
     <div class="row">
     	<div class="col text-center">
-    		<h4 class="no-pad">Color Match Specifications &amp; Requirements</h4>
+    		<h4 class="no-pad form-header">Color Match Specifications &amp; requirements</h4>
     	</div>
     </div>
     <div class="row no-pad-lr">
@@ -106,7 +109,7 @@
 	  		  <br>
 	  		  	<label class="item item-input item-select">
 	  		  	  <div class="input-label">
-	  		  	    &nbsp;
+	  		  	    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
 	  		  	  </div>
 	  		  	  <select name="opacity" ng-model="user.opacity" required> 
 	  		  	  	<option value="" disabled selected>Opacity*</option>
@@ -138,7 +141,7 @@
 	  		  <br>
 	  		  <label class="item item-input item-select">
 	  		    <div class="input-label">
-	  		      &nbsp;
+	  		      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
 	  		    </div>
 	  		    <select name="process" ng-model="user.process" required>
 	  		      <option value="" disabled selected>Process*</option>	
@@ -154,7 +157,7 @@
 	  		  <br>
 	  		  <label class="item item-input item-select">
 	  		    <div class="input-label">
-	  		      &nbsp; 
+	  		      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
 	  		    </div>
 	  		    <select name="compounding" ng-model="user.compounding" required>
 	  		      <option value="" disabled selected>Compounding*</option>			
@@ -170,7 +173,7 @@
 	  		    <br>
 	  		  <label class="item item-input item-select">
 	  		    <div class="input-label">
-	  		      &nbsp; 
+	  		      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
 	  		    </div>
 	  		    <select name="letdown" ng-model="user.letdown">
 	  		      <option value="" disabled selected>Requested Letdown %*</option>			
@@ -239,7 +242,7 @@
 	  		  <br>
 	  		  <label class="item item-input item-select">
 	  		    <div class="input-label">
-	  		     &nbsp; 
+	  		      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
 	  		    </div>
 	  		    <select name="source" ng-model="user.source">
 	  		      <option value="" disabled selected>Light Source*</option>			
@@ -276,7 +279,7 @@
     <!-- color source -->
     <div class="row">
     	<div class="col text-center">
-    		<h4 class="no-pad">Color Source</h4>
+    		<h4 class="no-pad form-header">Color Source</h4>
     	</div>
     </div>
     <div class="row no-pad-lr">
@@ -288,8 +291,8 @@
     				<!-- <img id="photo" src="images/test.jpg" style="width:100%;"> -->
     				<img id="photo" ng-src="{{imgURI}}" style="width:100%;">
     			</div>
-    			<div class="col">
-    				<div id="form-color-selected" class="box-color" style="height:86px"></div>
+    			<div class="col col-center">
+    				<div id="form-color-selected" class="box-color" style="width:100px;height:100px"></div>
     			</div>
     		</div>
     		<!-- selected color -->
@@ -333,7 +336,7 @@
 	  		<div class="row text-center">
 	  			<div class="col">
 	  				<p>If you have any questions in regards to requesting a sample feel free to reach out to us at:</p>
-	  				<a href="mailto:help@opticolorinc.com">info@opticolorinc.com</a>
+	  				<a href="mailto:help@opticolorinc.com">help@opticolorinc.com</a>
 
 	  				<p class="help-block" ng-show="form.$invalid && submitted"
 					  	 ng-class="{'has-error': form.$invalid && submitted }">
