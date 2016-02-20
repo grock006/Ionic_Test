@@ -391,8 +391,8 @@ angular.module('starter.controllers', [])
     $ionicSlideBoxDelegate.next();
   };
 
-  // $scope.previous = function () {
-  //   $ionicSlideBoxDelegate.previous();
-  // };
+  $scope.previous = function () {
+    $ionicSlideBoxDelegate.previous();
+  };
 
 })

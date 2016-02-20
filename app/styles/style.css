@@ -47,7 +47,7 @@ body, .bar, .bar-dark, .bar-stable, h1.title, h5, .button, h4{
 
 .intro-text h5{
 	font-family: 'Dodeca Reg Basic' !important;
-	font-size: 15px;
+	font-size: 18px;
 }
 
 h5.skip-button{
@@ -284,10 +284,24 @@ button.ion-ios-color-filter:before {
 
 .ion-ios-circle-outline:before{
 	color: #9013fe;
+    font-size: 18px;
 }
 
 .ion-record:before{
 	color: #9013fe;
+	font-size: 18px;
+}
+
+.ion-ios-arrow-right:before {
+    font-size: 18px;
+    color: #9013fe;
+    margin-left: 25vw;
+}
+
+.ion-ios-arrow-left:before {
+    font-size: 18px;
+    color: #9013fe;
+    margin-right: 25vw;
 }
 
 /* Form */
@@ -301,19 +315,19 @@ input, textarea, select{
 }
 
 .item.item-input input{
-	font-size: 2.5vh;
+	font-size: 16px;
 }
 
 .item-select select{
 	padding-top: 0px;
 	padding-bottom: 0px;
-    font-size: 2.5vh;
+    font-size: 16px;
     width: 100%;
 }
 
 h4.form-header{
 	color: #9013fe;
-	font-size: 3.2vh;	
+	font-size: 22px;	
 }
 
 .slider-pager .slider-pager-page {

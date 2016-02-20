@@ -6,18 +6,18 @@
   	<div class="slider-pager">
   		<span class="slider-pager-page">
   			<i class="icon ion-ios-circle-outline" ng-hide="details"></i>
-  			<i class="icon ion-record" ng-show="details"></i>
+  			<i class="icon ion-record ng-hide" ng-show="details"></i>
   		</span>
   		<span class="slider-pager-page">
   			<i class="icon ion-ios-circle-outline" ng-hide="requirements"></i>
-  			<i class="icon ion-record" ng-show="requirements"></i>
+  			<i class="icon ion-record ng-hide" ng-show="requirements"></i>
   		</span>
   		<span class="slider-pager-page">
   			<i class="icon ion-ios-circle-outline" ng-hide="match"></i>
-  			<i class="icon ion-record" ng-show="match"></i>
+  			<i class="icon ion-record ng-hide" ng-show="match"></i>
   		</span>
-  		<span class="slider-pager-page" ng-show="details && requirements && match">
-  			<i class="form icon ion-checkmark"></i>
+  		<span class="slider-pager-page">
+  			<i class="form icon ion-checkmark ng-hide" ng-show="details && requirements && match"></i>
   		</span>
   	</div>
   </div>
