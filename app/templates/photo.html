@@ -61,49 +61,43 @@
 
   <div class="box-color-container">
     <div class="row row-center text-center no-pad-lr">  
-      <div class="col-20 box-color" id="one" ng-click="selectColor('one');">
+      <div class="col-20 box-color" id="one" ng-click="selectColor('one');" ng-class="{'bc-shadow': showCheck === 'one'}" >
         <i ng-show="showCheck === 'one'" class="ion-checkmark ng-hide"></i>
       </div>
-      <div class="col-20 box-color" id="two" ng-click="selectColor('two');">
+      <div class="col-20 box-color" id="two" ng-click="selectColor('two');" ng-class="{'bc-shadow': showCheck === 'two'}" >
         <i ng-show="showCheck === 'two'" class="ion-checkmark ng-hide"></i>
       </div>
-      <div class="col-20 box-color" id="three" ng-click="selectColor('three');">
+      <div class="col-20 box-color" id="three" ng-click="selectColor('three');" ng-class="{'bc-shadow': showCheck === 'three'}" >
         <i ng-show="showCheck === 'three'" class="ion-checkmark ng-hide"></i>
       </div>
-      <div class="col-20 box-color" id="four" ng-click="selectColor('four');">
+      <div class="col-20 box-color" id="four" ng-click="selectColor('four');" ng-class="{'bc-shadow': showCheck === 'four'}" >
         <i ng-show="showCheck === 'four'" class="ion-checkmark ng-hide"></i>
       </div>
-      <div class="col-20 box-color" id="five" ng-click="selectColor('five');">
+      <div class="col-20 box-color" id="five" ng-click="selectColor('five');" ng-class="{'bc-shadow': showCheck === 'five'}" >
         <i ng-show="showCheck === 'five'" class="ion-checkmark ng-hide"></i>
       </div>
     </div>
     <div class="row row-center text-center no-pad-lr">  
-      <div class="col-20 box-color" id="six" ng-click="selectColor('six');">
+      <div class="col-20 box-color" id="six" ng-click="selectColor('six');" ng-class="{'bc-shadow': showCheck === 'six'}" >
         <i ng-show="showCheck === 'six'" class="ion-checkmark ng-hide"></i>
       </div>
-      <div class="col-20 box-color" id="seven" ng-click="selectColor('seven');">
+      <div class="col-20 box-color" id="seven" ng-click="selectColor('seven');" ng-class="{'bc-shadow': showCheck === 'seven'}" >
         <i ng-show="showCheck === 'seven'" class="ion-checkmark ng-hide"></i>
       </div>
-      <div class="col-20 box-color" id="eight" ng-click="selectColor('eight');">
+      <div class="col-20 box-color" id="eight" ng-click="selectColor('eight');" ng-class="{'bc-shadow': showCheck === 'eight'}" >
         <i ng-show="showCheck === 'eight'" class="ion-checkmark ng-hide"></i>
       </div>
-      <div class="col-20 box-color" id="nine" ng-click="selectColor('nine');">
+      <div class="col-20 box-color" id="nine" ng-click="selectColor('nine');" ng-class="{'bc-shadow': showCheck === 'nine'}" >
         <i ng-show="showCheck === 'nine'" class="ion-checkmark ng-hide"></i>
       </div>
-      <div class="col-20 box-color" id="ten" ng-click="selectColor('ten');">
+      <div class="col-20 box-color" id="ten" ng-click="selectColor('ten');" ng-class="{'bc-shadow': showCheck === 'ten'}" >
         <i ng-show="showCheck === 'ten'" class="ion-checkmark ng-hide"></i>
       </div>
     </div>
   </div>
 </ion-view>
 <ion-footer-bar align-title="left" class="bar-dark no-bg-color">
-    <div class="">
-     <!--  <button ui-sref="logo" class="button button-clear button-skip">
-        <h5 class="skip-button">Skip <i class="ion-refresh"></i></h5>
-      </button> -->
-    </div>
+    <div></div>
     <h1 class="title">choose a color</h1>
-    <div class="buttons">
-     <!--  <button class="button"></button> -->
-    </div>
+    <div class="buttons"></div>
   </ion-footer-bar>

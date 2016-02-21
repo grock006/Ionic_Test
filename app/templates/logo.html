@@ -8,26 +8,31 @@
       <div class="col-22"></div>
       <div class="col col-center text-center">
           <a ui-sref="capture">
-            <img src="images/camera.svg" style="width:30%">
+            <img src="images/camera.svg" style="width:28%">
           </a>
-          <h5>Capture</h5>
+          <h5 class="no-margin">Capture</h5>
       </div>
       <div class="col-22"><br><br><br><br><br><br></div>
     </div>
-
+    <br>
     <div class="row row-center">  
       <div class="col-22"></div>
       <div class="col col-center text-center">
           <a ui-sref="wheel">
-            <img src="images/browse-colors.svg" style="width:25%">
+            <img src="images/browse-colors.svg" style="width:23%">
           </a>
-            <h5>Browse Colors</h5>
+            <h5 class="no-margin">Browse Colors</h5>
       </div>
       <div class="col-22"><br><br><br><br><br><br></div>
     </div>
 
+  <div style="position:absolute;bottom: 6%;width:100%">
     <img src="images/intro-bottom-1.png" style="width:100%">
-
+    <button ui-sref="intro" class="button button-clear button-skip" style="position: absolute;
+    bottom: -4vh;">
+      <h5 class="skip-button"><i class="ion-ios-information"></i></h5>
+    </button>
+   </div>
 
   </ion-content>
 </ion-view>

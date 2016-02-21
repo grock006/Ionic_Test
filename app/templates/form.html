@@ -1,4 +1,4 @@
-<ion-header-bar class="bar-light no-bg-color">
+<ion-header-bar class="no-bg-color">
   <button class="button button-clear ion-chevron-left" ui-sref="request">
      back
   </button>
@@ -25,7 +25,7 @@
 <ion-view>
   <ion-content>
   <!-- form -->
-  <form name="form" ng-submit="sendEmail(form)" novalidate>
+  <form name="form" ng-submit="sendEmail(form)" class="final-form" novalidate>
   <!-- contact details -->
   <div class="row">
   	<div class="col text-center">
@@ -48,7 +48,7 @@
 		  <label class="item item-input" ng-class="{'danger': form.email.$invalid && submitted }">
 		    <input type="email" name="email" ng-model="user.email" placeholder="Email*" required/>
 		  </label>
-		  <p class="help-block" ng-show="form.email.$error.email && submitted"
+		  <p class="help-block ng-hide" ng-show="form.email.$error.email && submitted"
 		  	 ng-class="{'danger': form.email.$invalid && submitted }">
             Doesn't look like a valid email.
           </p>
@@ -131,11 +131,11 @@
 	  		    </select>
 	  		  </label>
 	  		    <br>
-	  		  <label class="item item-input item-select" ng-class="{'danger': form.letdown.$invalid && submitted }" required>
+	  		  <label class="item item-input item-select" ng-class="{'danger': form.letdown.$invalid && submitted }">
 	  		    <div class="input-label">
 	  		      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
 	  		    </div>
-	  		    <select name="letdown" ng-model="user.letdown">
+	  		    <select name="letdown" ng-model="user.letdown" required>
 	  		      <option value="" disabled selected>Requested Letdown %*</option>			
 	  		      <option value="0.5">0.5</option>
 	  		      <option value="1">1</option>
@@ -188,11 +188,11 @@
 	  		    <input type="text" name="transmission" ng-model="user.transmission" placeholder="Light Transmission Target*"required>
 	  		  </label>
 	  		  <br>
-	  		  <label class="item item-input item-select" ng-class="{'danger': form.source.$invalid && submitted }" required>
+	  		  <label class="item item-input item-select" ng-class="{'danger': form.source.$invalid && submitted }">
 	  		    <div class="input-label">
 	  		      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
 	  		    </div>
-	  		    <select name="source" ng-model="user.source">
+	  		    <select name="source" ng-model="user.source" required>
 	  		      <option value="" disabled selected>Light Source*</option>			
 	  		      <option value="D75 Natural Daylight">D75 Natural Daylight</option>
 	  		      <option value="Daylight 6500k">Daylight 6500K</option>
@@ -231,11 +231,11 @@
     	<div class="col col-90 no-pad-lr">
     		<!-- photo img  -->
     		<div class="row">
-    			<div class="col">
+    			<div class="col col-50 col-center">
     				<!-- <img id="photo" src="images/test.jpg" style="width:100%;"> -->
-    				<img id="photo" ng-src="{{imgURI}}" style="width:100px;height:100px;border-radius:5px;">
+    				<img id="photo" ng-src="{{imgURI}}" style="width:100px;height:100px;border-radius:5px;float:right;">
     			</div>
-    			<div class="col col-center">
+    			<div class="col col-50 col-center">
     				<div id="form-color-selected" class="box-color" style="width:100px;height:100px"></div>
     			</div>
     		</div>
@@ -244,7 +244,7 @@
     		<div class="row">
     			<div class="col text-center">
     				<h4 class="form-hex-rgb">{{hex}}</h4> 
-    				<p>Hex</p>
+    				<h5 class="no-margin">Hex</h5>
     			</div>
     		</div>
     		<!-- end hex -->
@@ -253,15 +253,15 @@
     			<div class="col"></div>
     			<div class="col">
     				<h4 class="form-hex-rgb">{{red}}</h4> 
-    				<p>R</p> 
+    				<h5 class="no-margin">R</h5> 
     			</div>
     			<div class="col">	
     				<h4 class="form-hex-rgb">{{green}}</h4> 
-    				<p>G</p> 
+    				<h5 class="no-margin">G</h5> 
     			</div>
     			<div class="col">
     				<h4 class="form-hex-rgb">{{blue}}</h4> 
-    				<p>B</p>
+    				<h5 class="no-margin">B</h5>
     			</div>
     			<div class="col"></div>
     		</div>
@@ -279,13 +279,12 @@
 
 	  		<div class="row text-center">
 	  			<div class="col">
-	  				<p>If you have any questions in regards to requesting a sample feel free to reach out to us at:</p>
-	  				<a href="mailto:help@opticolorinc.com">help@opticolorinc.com</a>
+	  				<h5>If you have any questions in regards to requesting a sample feel free to reach out to us at:</h5>
+	  				<a href="mailto:help@opticolorinc.com"><h5 style="color:blue">help@opticolorinc.com</h5></a>
 
-	  				<p class="help-block" ng-show="form.$invalid && submitted"
-					  	 ng-class="{'danger': form.$invalid && submitted }">
+	  				<h5 class="help-block text-danger" ng-show="form.$invalid && submitted">
 			            Oops! Looks like you forgot a few things.
-			         </p>
+			         </h5>
 	  				
 	  				<button class="button button-full button-royal" type="submit">
 	  				  Request sample

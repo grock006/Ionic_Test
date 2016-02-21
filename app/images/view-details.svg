@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Avocode 2.5.3 - http://avocode.com -->
+<svg height="53" width="147" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 147 53">
+    <defs>
+        <filter height="200%" width="200%" y="-50%" x="-50%" id="filter-1">
+            <feOffset result="shadowOffset1" in="SourceAlpha" dy="1" dx="0" />
+            <feGaussianBlur result="shadowBlur1" in="shadowOffset1" stdDeviation="2" />
+            <feColorMatrix result="shadowMatrix1" in="shadowBlur1" type="matrix" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0   0 0 0 0.5 0" />
+            <feMerge>
+                <feMergeNode in="shadowMatrix1" />
+                <feMergeNode in="SourceGraphic" />
+            </feMerge>
+        </filter>
+        <filter height="200%" width="200%" y="-50%" x="-50%" id="filter-2">
+            <feOffset result="shadowOffset1" in="SourceAlpha" dy="1" dx="0" />
+            <feGaussianBlur result="shadowBlur1" in="shadowOffset1" stdDeviation="2" />
+            <feColorMatrix result="shadowMatrix1" in="shadowBlur1" type="matrix" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0   0 0 0 0.5 0" />
+            <feMerge>
+                <feMergeNode in="shadowMatrix1" />
+                <feMergeNode in="SourceGraphic" />
+            </feMerge>
+        </filter>
+    </defs>
+    <path filter="url(#filter-1)" fill="#ffffff" fill-rule="evenodd" d="M 19.27 2.49 L 20.23 1.76 L 23.14 1 L 140.03 1 L 143.05 1.82 L 143.94 2.53 L 145 5.01 L 145 45.99 L 143.96 48.45 L 143.05 49.17 L 140.03 50 L 23.14 50 L 20.12 49.18 L 19.19 48.43 L 18.17 45.99 L 18.17 42 L 2 38 L 18.17 30 L 18.17 5.01 L 19.27 2.49 Z M 19.27 2.49" />
+    <path filter="url(#filter-2)" fill="#ffffff" fill-rule="evenodd" d="M 19.27 2.49 L 20.23 1.76 L 23.14 1 L 140.03 1 L 143.05 1.82 L 143.94 2.53 L 145 5.01 L 145 45.99 L 143.96 48.45 L 143.05 49.17 L 140.03 50 L 23.14 50 L 20.12 49.18 L 19.19 48.43 L 18.17 45.99 L 18.17 42 L 2 38 L 18.17 30 L 18.17 5.01 L 19.27 2.49 Z M 19.27 2.49" />
+    <text font-weight="400" font-size="15" font-family="DodecaBasic" fill="#4a4a4a" y="37" x="64">
+        <tspan>view color 
+details</tspan>
+    </text>
+    <text font-weight="400" font-size="15" font-family="DodecaBasic" fill="#4a4a4a" y="37" x="64">
+        <tspan>view color 
+details</tspan>
+    </text>
+    <path fill="#000000" fill-rule="evenodd" d="M 41.5 13 C 35.7 13 31 17.7 31 23.5 C 31 29.3 35.7 34 41.5 34 C 47.3 34 52 29.3 52 23.5 C 52 17.7 47.3 13 41.5 13 L 41.5 13 Z M 41.5 17.32 C 42.18 17.32 42.74 17.88 42.74 18.56 C 42.74 19.24 42.18 19.79 41.5 19.79 C 40.82 19.79 40.26 19.24 40.26 18.56 C 40.26 17.88 40.82 17.32 41.5 17.32 L 41.5 17.32 Z M 43.97 29.68 L 39.03 29.68 L 39.03 28.44 L 40.26 28.44 L 40.26 21.03 L 39.03 21.03 L 39.03 20.41 L 42.74 20.41 L 42.74 28.44 L 43.97 28.44 L 43.97 29.68 Z M 43.97 29.68" />
+    <path fill="#000000" fill-rule="evenodd" d="M 41.5 13 C 35.7 13 31 17.7 31 23.5 C 31 29.3 35.7 34 41.5 34 C 47.3 34 52 29.3 52 23.5 C 52 17.7 47.3 13 41.5 13 L 41.5 13 Z M 41.5 17.32 C 42.18 17.32 42.74 17.88 42.74 18.56 C 42.74 19.24 42.18 19.79 41.5 19.79 C 40.82 19.79 40.26 19.24 40.26 18.56 C 40.26 17.88 40.82 17.32 41.5 17.32 L 41.5 17.32 Z M 43.97 29.68 L 39.03 29.68 L 39.03 28.44 L 40.26 28.44 L 40.26 21.03 L 39.03 21.03 L 39.03 20.41 L 42.74 20.41 L 42.74 28.44 L 43.97 28.44 L 43.97 29.68 Z M 43.97 29.68" />
+</svg>
