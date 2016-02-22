@@ -146,7 +146,6 @@ angular.module('starter.controllers', [])
       $rootScope.imgURI = imgURI;
       var colorThief = new ColorThief();
       var photo = document.getElementById("photo-zoom");
-      document.getElementById('main-color-zoom').style.background = 'url("../images/choice.png") no-repeat center center';
       $scope.showCheck = false;
       var colorSelected;
 
@@ -156,8 +155,7 @@ angular.module('starter.controllers', [])
         $rootScope.colorSelected = null;
         $scope.showCheck = false;
         var colorSelected = null;
-        document.getElementById('main-color-zoom').style.background = 'url("../images/choice.png") no-repeat center center';
-        document.getElementById('main-color').style.background = 'url("../images/choice.png") no-repeat center center';
+        // document.getElementById('main-color-zoom').style.background = 'url("../images/choice.png") no-repeat center center';
         console.log("imgURI")
         console.log(imgURI)
         console.log("rootScope imgURI")
@@ -169,17 +167,6 @@ angular.module('starter.controllers', [])
         console.log("var colorSelected")
         console.log(colorSelected)
 
-        document.getElementById('one-zoom').style.backgroundColor =  'transparent'
-        document.getElementById('two-zoom').style.backgroundColor = 'transparent'
-        document.getElementById('three-zoom').style.backgroundColor =  'transparent'
-        document.getElementById('four-zoom').style.backgroundColor = 'transparent'
-        document.getElementById('five-zoom').style.backgroundColor = 'transparent'
-        document.getElementById('six-zoom').style.backgroundColor = 'transparent'
-        document.getElementById('seven-zoom').style.backgroundColor =  'transparent'
-        document.getElementById('eight-zoom').style.backgroundColor =  'transparent'
-        document.getElementById('nine-zoom').style.backgroundColor = 'transparent'
-        document.getElementById('ten-zoom').style.backgroundColor = 'transparent'
-
         $state.go('capture');
       }
 
@@ -187,6 +174,7 @@ angular.module('starter.controllers', [])
          $scope.showCheck = color
          var colorSelected = document.getElementById(color).style.backgroundColor 
          document.getElementById('main-color-zoom').style.background = colorSelected
+         $rootScope.colorSelected = colorSelected;
       }
 
       $scope.sendDetails = function(){
@@ -211,6 +199,22 @@ angular.module('starter.controllers', [])
           // $scope.showCheck = false;
           // var colorSelected = null;
           // document.getElementById('main-color-zoom').style.background = 'url("../images/choice.png") no-repeat center center';
+          if(!$rootScope.colorSelected){
+              colorSelected = null
+              $scope.showCheck = false;
+              document.getElementById('main-color-zoom').style.backgroundColor = 'white';
+
+              document.getElementById('one-zoom').style.backgroundColor =  'transparent'
+              document.getElementById('two-zoom').style.backgroundColor = 'transparent'
+              document.getElementById('three-zoom').style.backgroundColor =  'transparent'
+              document.getElementById('four-zoom').style.backgroundColor = 'transparent'
+              document.getElementById('five-zoom').style.backgroundColor = 'transparent'
+              document.getElementById('six-zoom').style.backgroundColor = 'transparent'
+              document.getElementById('seven-zoom').style.backgroundColor =  'transparent'
+              document.getElementById('eight-zoom').style.backgroundColor =  'transparent'
+              document.getElementById('nine-zoom').style.backgroundColor = 'transparent'
+              document.getElementById('ten-zoom').style.backgroundColor = 'transparent'
+          }
           var palette = colorThief.getPalette(photo, 12);
 
           var one = "rgb(" + palette[1][0] + ", " + palette[1][1] + ", " + palette[1][2] + ")"
@@ -305,7 +309,6 @@ angular.module('starter.controllers', [])
       $rootScope.imgURI = imgURI;
       var colorThief = new ColorThief();
       var photo = document.getElementById("photo");
-      document.getElementById('main-color').style.background = 'url("../images/choice.png") no-repeat center center';
       $scope.showCheck = false;
       var colorSelected;
 
@@ -315,7 +318,7 @@ angular.module('starter.controllers', [])
         $scope.showCheck = false;
         $rootScope.colorSelected = null;
         var colorSelected = null;
-        document.getElementById('main-color').style.background = 'url("../images/choice.png") no-repeat center center';
+        // document.getElementById('main-color').style.background = 'url("../images/choice.png") no-repeat center center';
         console.log("imgURI")
         console.log(imgURI)
         console.log("rootScope imgURI")
@@ -327,17 +330,6 @@ angular.module('starter.controllers', [])
         console.log("var colorSelected")
         console.log(colorSelected)
 
-        document.getElementById('one').style.backgroundColor =  'transparent'
-        document.getElementById('two').style.backgroundColor = 'transparent'
-        document.getElementById('three').style.backgroundColor =  'transparent'
-        document.getElementById('four').style.backgroundColor = 'transparent'
-        document.getElementById('five').style.backgroundColor = 'transparent'
-        document.getElementById('six').style.backgroundColor = 'transparent'
-        document.getElementById('seven').style.backgroundColor =  'transparent'
-        document.getElementById('eight').style.backgroundColor =  'transparent'
-        document.getElementById('nine').style.backgroundColor = 'transparent'
-        document.getElementById('ten').style.backgroundColor = 'transparent'
-
         $state.go('capture');
       }
 
@@ -345,6 +337,7 @@ angular.module('starter.controllers', [])
          $scope.showCheck = color
          var colorSelected = document.getElementById(color).style.backgroundColor 
          document.getElementById('main-color').style.background = colorSelected;
+         $rootScope.colorSelected = colorSelected;
       }
 
       $scope.sendDetails = function(){
@@ -385,10 +378,27 @@ angular.module('starter.controllers', [])
       }
 
       $scope.$on('$ionicView.afterEnter', function(){
+          console.log(colorSelected)
+          console.log(!colorSelected)
           // $rootScope.colorSelected = null
           // $scope.showCheck = false;
           // var colorSelected = null;
           // document.getElementById('main-color-zoom').style.background = 'url("../images/choice.png") no-repeat center center';
+          if(!$rootScope.colorSelected){
+              colorSelected = null
+              $scope.showCheck = false;
+              document.getElementById('main-color').style.backgroundColor = 'white';
+              document.getElementById('one').style.backgroundColor =  'transparent'
+              document.getElementById('two').style.backgroundColor = 'transparent'
+              document.getElementById('three').style.backgroundColor =  'transparent'
+              document.getElementById('four').style.backgroundColor = 'transparent'
+              document.getElementById('five').style.backgroundColor = 'transparent'
+              document.getElementById('six').style.backgroundColor = 'transparent'
+              document.getElementById('seven').style.backgroundColor =  'transparent'
+              document.getElementById('eight').style.backgroundColor =  'transparent'
+              document.getElementById('nine').style.backgroundColor = 'transparent'
+              document.getElementById('ten').style.backgroundColor = 'transparent'
+          }
 
           var palette = colorThief.getPalette(photo, 12);
 

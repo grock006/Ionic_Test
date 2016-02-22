@@ -167,13 +167,13 @@ h5.text-danger{
 
 .main-box-color{
 	width: 100%;
-/*	border: 1px solid #979797;*/
+	border: 1px solid #979797;
 	background-color: white;
 	position: relative;
 	top: -10px;
 	border-radius: 5px;
 	text-align: center;
-	background: url("../images/choice.png") no-repeat center center;
+/*	background: url("../images/choice.png") no-repeat center center;*/
 }
 
 .main-box-color:after {
