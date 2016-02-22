@@ -130,12 +130,12 @@ angular.module('starter.controllers', [])
       var colorSelected;
 
       $scope.clearZoom = function(){
-        imgURI = null
-        $rootScope.imgURI = null
-        $rootScope.colorSelected = null
+        imgURI = null;
+        $rootScope.imgURI = null;
+        $rootScope.colorSelected = null;
         $scope.showCheck = false;
         var colorSelected = null;
-        document.getElementById('main-color-zoom').style.backgroundColor = "none";
+        document.getElementById('main-color-zoom').style.backgroundColor = 'url("../images/choice.png") no-repeat center center';
         $state.go('capture');
       }
 
@@ -166,7 +166,6 @@ angular.module('starter.controllers', [])
           $rootScope.colorSelected = null
           $scope.showCheck = false;
           var colorSelected = null;
-          document.getElementById('main-color-zoom').style.backgroundColor = "transparent";
           
           var palette = colorThief.getPalette(photo, 12);
 
@@ -271,15 +270,14 @@ angular.module('starter.controllers', [])
         $scope.showCheck = false;
         $rootScope.colorSelected = null;
         var colorSelected = null;
-        document.getElementById('main-color').style.backgroundColor = "none";
+        document.getElementById('main-color').style.background = 'url("../images/choice.png") no-repeat center center';
         $state.go('capture');
       }
 
       $scope.selectColor = function(color){
          $scope.showCheck = color
          var colorSelected = document.getElementById(color).style.backgroundColor 
-         document.getElementById('main-color').style.backgroundImage = "none";
-         document.getElementById('main-color').style.backgroundColor = colorSelected;
+         document.getElementById('main-color').style.background = colorSelected;
       }
 
       $scope.sendDetails = function(){
@@ -323,7 +321,6 @@ angular.module('starter.controllers', [])
           $rootScope.colorSelected = null
           $scope.showCheck = false;
           var colorSelected = null;
-          document.getElementById('main-color').style.backgroundColor = "transparent";
           var palette = colorThief.getPalette(photo, 12);
 
           var one = "rgb(" + palette[1][0] + ", " + palette[1][1] + ", " + palette[1][2] + ")"
@@ -353,7 +350,7 @@ angular.module('starter.controllers', [])
 
 
 
-  .controller('CaptureCtrl', function($scope, $stateParams, $cordovaCamera, $state, $rootScope) {
+  .controller('CaptureCtrl', function($scope, $stateParams, $cordovaCamera, $state, $rootScope, imgURI, colorSelected) {
 
     $scope.takePhoto = function () {
         var options = {

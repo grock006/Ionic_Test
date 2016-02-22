@@ -46,7 +46,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova', 'directi
   .state('capture', {
     url: '/capture',
     templateUrl: 'templates/capture.html',
-    controller: 'CaptureCtrl'
+    controller: 'CaptureCtrl',
+    resolve:{
+      colorSelected: function($rootScope){
+        return $rootScope.colorSelected;
+      },
+      imgURI: function($rootScope){
+        return $rootScope.imgURI;
+      }
+    }
   })
 
   .state('photo', {
