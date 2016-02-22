@@ -127,6 +127,17 @@ angular.module('starter.controllers', [])
       var colorThief = new ColorThief();
       var photo = document.getElementById("photo-zoom");
       $scope.showCheck = false;
+      var colorSelected;
+
+      $scope.clearZoom = function(){
+        imgURI = null
+        $rootScope.imgURI = null
+        $rootScope.colorSelected = null
+        $scope.showCheck = false;
+        var colorSelected = null;
+        document.getElementById('main-color-zoom').style.backgroundColor = "none";
+        $state.go('capture');
+      }
 
       $scope.selectColor = function(color){
          $scope.showCheck = color
@@ -142,21 +153,6 @@ angular.module('starter.controllers', [])
         }
       }
 
-      $scope.getZoom = function(img){
-          console.log($jrCrop.defaultOptions.template)
-          $jrCrop.crop({
-              url: img, 
-              width: 150,
-              height: 150,
-          }).then(function(canvas) {
-              var image = canvas.toDataURL();
-              $rootScope.imgURI = image;
-              $state.go('zoom')
-          }, function() {
-              // User canceled or couldn't load image.
-          });
-      }
-
       $scope.sendForm = function(){
         var colorSelected = document.getElementById('main-color-zoom').style.backgroundColor 
          if(colorSelected){
@@ -167,6 +163,11 @@ angular.module('starter.controllers', [])
       }
 
       $scope.$on('$ionicView.afterEnter', function(){
+          $rootScope.colorSelected = null
+          $scope.showCheck = false;
+          var colorSelected = null;
+          document.getElementById('main-color-zoom').style.backgroundColor = "transparent";
+          
           var palette = colorThief.getPalette(photo, 12);
 
           var one = "rgb(" + palette[1][0] + ", " + palette[1][1] + ", " + palette[1][2] + ")"
@@ -262,6 +263,17 @@ angular.module('starter.controllers', [])
       var colorThief = new ColorThief();
       var photo = document.getElementById("photo");
       $scope.showCheck = false;
+      var colorSelected;
+
+      $scope.clearPhoto = function(){
+        imgURI = null;
+        $rootScope.imgURI = null;
+        $scope.showCheck = false;
+        $rootScope.colorSelected = null;
+        var colorSelected = null;
+        document.getElementById('main-color').style.backgroundColor = "none";
+        $state.go('capture');
+      }
 
       $scope.selectColor = function(color){
          $scope.showCheck = color
@@ -308,6 +320,10 @@ angular.module('starter.controllers', [])
       }
 
       $scope.$on('$ionicView.afterEnter', function(){
+          $rootScope.colorSelected = null
+          $scope.showCheck = false;
+          var colorSelected = null;
+          document.getElementById('main-color').style.backgroundColor = "transparent";
           var palette = colorThief.getPalette(photo, 12);
 
           var one = "rgb(" + palette[1][0] + ", " + palette[1][1] + ", " + palette[1][2] + ")"

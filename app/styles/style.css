@@ -51,7 +51,7 @@ body, .bar, .bar-dark, .bar-stable, h1.title, h5, .button, h4{
 
 .intro-text h5{
 	font-family: 'Dodeca Reg Basic' !important;
-	font-size: 3.2vh;
+	font-size: 3vh;
 }
 
 h5.skip-button{
@@ -64,6 +64,12 @@ h5.skip-button{
 	font-size: 2.6vh;
 	position: absolute;
 	bottom: 6%;
+}
+
+h5.info-button{
+	position: absolute;
+	bottom: 0%;
+	padding-left: 10%;
 }
 
 h5.text-danger{
@@ -82,11 +88,16 @@ h5.text-danger{
 	 border: 0px solid transparent;
 }
 
+.form .button-clear.button-clear{
+	color:black;
+	font-size: 2.5vh;
+}
+
 /*End Intro*/
 
 /* Capture */
 
-.bar-stable .button.button-clear, .bar-light .button.button-clear {
+.bar-stable .button.button-clear, .bar-light .button.button-clear, .button-clear.button-clear {
     font-size: 2.5vh;
 }
 
@@ -261,7 +272,7 @@ a {
 }
 
 .margin-top-detail{
-	margin-top: 6vh;
+	margin-top: 10vh;
 }
 
 .margin-top-wheel{
@@ -321,7 +332,7 @@ button.ion-ios-color-filter:before {
 
 .ion-ios-information:before{
 	color: #9013fe;
-	font-size: 25px;
+	font-size: 30px;
 }
 
 .ion-record:before{
