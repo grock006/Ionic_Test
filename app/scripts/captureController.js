@@ -388,16 +388,16 @@ angular.module('starter.controllers', [])
               colorSelected = null
               $scope.showCheck = false;
               document.getElementById('main-color').style.backgroundColor = 'white';
-              document.getElementById('one').style.backgroundColor =  'transparent'
-              document.getElementById('two').style.backgroundColor = 'transparent'
-              document.getElementById('three').style.backgroundColor =  'transparent'
-              document.getElementById('four').style.backgroundColor = 'transparent'
-              document.getElementById('five').style.backgroundColor = 'transparent'
-              document.getElementById('six').style.backgroundColor = 'transparent'
-              document.getElementById('seven').style.backgroundColor =  'transparent'
-              document.getElementById('eight').style.backgroundColor =  'transparent'
-              document.getElementById('nine').style.backgroundColor = 'transparent'
-              document.getElementById('ten').style.backgroundColor = 'transparent'
+              // document.getElementById('one').style.backgroundColor =  'transparent'
+              // document.getElementById('two').style.backgroundColor = 'transparent'
+              // document.getElementById('three').style.backgroundColor =  'transparent'
+              // document.getElementById('four').style.backgroundColor = 'transparent'
+              // document.getElementById('five').style.backgroundColor = 'transparent'
+              // document.getElementById('six').style.backgroundColor = 'transparent'
+              // document.getElementById('seven').style.backgroundColor =  'transparent'
+              // document.getElementById('eight').style.backgroundColor =  'transparent'
+              // document.getElementById('nine').style.backgroundColor = 'transparent'
+              // document.getElementById('ten').style.backgroundColor = 'transparent'
           }
 
           var palette = colorThief.getPalette(photo, 12);

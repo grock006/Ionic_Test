@@ -2,12 +2,9 @@
   "name": "Opticolor",
   "version": "0.0.0",
   "dependencies": {
-    "angular-ui-mask": "~1.8.0",
     "chroma-js": "~1.1.1",
     "color-thief": "~2.0.1",
     "ionic": "v1.0.0-rc.3",
-    "ionic-color-picker": "~1.0.3",
-    "ionic-zoom-view": "~2.0.0",
     "jr-crop": "~1.1.2",
     "ng-colorwheel": "~0.1.4",
     "ngCordova": "v0.1.14-alpha"
