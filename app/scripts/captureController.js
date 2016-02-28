@@ -489,12 +489,24 @@ angular.module('starter.controllers', [])
 
 .controller('IntroCtrl', function($scope, $ionicSlideBoxDelegate, $state) {
 
-  $scope.next = function () {
-    $ionicSlideBoxDelegate.next();
-  };
+    $scope.next = function () {
+      $ionicSlideBoxDelegate.next();
+      // console.log($ionicSlideBoxDelegate.currentIndex())
+    };
 
-  $scope.previous = function () {
-    $ionicSlideBoxDelegate.previous();
-  };
+    $scope.previous = function () {
+      $ionicSlideBoxDelegate.previous();
+    };
+
+    $scope.slideChanged = function (index) {
+      // $scope.slideIndex = index;
+      console.log(index)
+      if(index === 3){
+        $scope.lastSlide = true
+      }
+      else{
+        $scope.lastSlide = false;
+      }
+    };
 
 })

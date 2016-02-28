@@ -27,16 +27,22 @@
        url('../fonts/dodeca_semi_basic-webfont.woff') format('woff')
 }
 
-body, .bar, .bar-dark, .bar-stable, h1.title, h5, .button, h4{
+body, .bar, .bar-dark, .bar-stable, .button, h4, h1.title, h1.logo{
 	font-family: 'Dodeca Bold Basic' !important;
+}
+
+h5{
+	font-family: 'Dodeca Reg Basic' !important;	
 }
 
 .bar { 
 	background-image: none !important; 
+	padding: 5px 20px;
 }
 
 .bar .title{
-	font-size: 3vh;
+	font-size: 3.2vh;
+	color: #4A4A4A;
 }
 
 .bar.bar-header.no-bg-color, .bar.bar-footer.no-bg-color{
@@ -53,7 +59,7 @@ body, .bar, .bar-dark, .bar-stable, h1.title, h5, .button, h4{
 	font-size:6.5vh;
 	margin-top:4vh;
 	font-family: 'Dodeca Reg Basic' !important;
-	color: #363636;
+	color: #4A4A4A;
 }
 
 .intro-text h5{
@@ -62,11 +68,12 @@ body, .bar, .bar-dark, .bar-stable, h1.title, h5, .button, h4{
 }
 
 .intro .slider-pager{
-	bottom: 8vh;
+	bottom: 5vh;
 }
 
 .slider-pager .slider-pager-page {
-    margin: 0px 10px;
+    margin: 0px 12px;
+    width: 12px;
 }
 
 h5.skip-button{
@@ -81,9 +88,9 @@ h5.skip-button{
 	bottom: 6%;
 }
 
-h5.info-button{
+a.info-button{
 	position: absolute;
-	bottom: 0%;
+	bottom: -3%;
 	padding-left: 10%;
 }
 
@@ -100,12 +107,18 @@ h5.text-danger{
 }
 
 .bar.bar-light.bar-footer {
-	 border: 0px solid transparent;
+	border: 0px solid transparent;
+	padding: 5px;
 }
 
 .form .button-clear.button-clear{
 	color:black;
 	font-size: 2.5vh;
+}
+
+h5.no-margin{
+	margin-top: 10px;
+	font-size: 3vh;
 }
 
 /*End Intro*/
@@ -357,15 +370,11 @@ button.ion-ios-color-filter:before {
 }
 
 .ion-ios-arrow-right:before {
-    font-size: 18px;
-    color: #9013fe;
-    margin-left: 25vw;
+    font-size: 11px;
 }
 
 .ion-ios-arrow-left:before {
-    font-size: 18px;
-    color: #9013fe;
-    margin-right: 25vw;
+    font-size: 11px;
 }
 
 /* Form */
