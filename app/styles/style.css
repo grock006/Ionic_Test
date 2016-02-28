@@ -49,9 +49,24 @@ body, .bar, .bar-dark, .bar-stable, h1.title, h5, .button, h4{
 
 /*Intro*/
 
+.bar.bar-light h1.title{
+	font-size:6.5vh;
+	margin-top:4vh;
+	font-family: 'Dodeca Reg Basic' !important;
+	color: #363636;
+}
+
 .intro-text h5{
 	font-family: 'Dodeca Reg Basic' !important;
-	font-size: 3vh;
+	font-size: 2.8vh;
+}
+
+.intro .slider-pager{
+	bottom: 8vh;
+}
+
+.slider-pager .slider-pager-page {
+    margin: 0px 10px;
 }
 
 h5.skip-button{

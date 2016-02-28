@@ -17,7 +17,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova', 'directi
     }
     if (window.StatusBar) {
       // org.apache.cordova.statusbar required
-      StatusBar.styleDefault();
+      //config xml 
+      // StatusBar.styleDefault();
+      //insert in plist after requires full screen
+      // <key>UIStatusBarHidden</key>
+      // <true/>
+      // <key>UIViewControllerBasedStatusBarAppearance</key>
+      // <false/>
+      StatusBar.hide();
+      StatusBar.overlaysWebView(false);
     }
   });
 })
