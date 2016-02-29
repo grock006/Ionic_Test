@@ -1,27 +1,26 @@
-<ion-header-bar class="no-bg-color form">
-  <button class="button button-clear ion-chevron-left" ui-sref="request">
+<ion-header-bar class="no-bg-color form" style="position:relative">
+  <button class="button button-clear ion-ios-arrow-left" ui-sref="request" style="font-size:16px">
      back
   </button>
-  <div class="title">
-  	<div class="slider-pager">
-  		<span class="slider-pager-page">
+  <div class="title text-center">
+  	<div class="form-nav-circles">
+  		<span>
   			<i class="icon ion-ios-circle-outline" ng-hide="details"></i>
   			<i class="icon ion-record ng-hide" ng-show="details"></i>
   		</span>
-  		<span class="slider-pager-page">
+  		<span class="form-nav">
   			<i class="icon ion-ios-circle-outline" ng-hide="requirements"></i>
   			<i class="icon ion-record ng-hide" ng-show="requirements"></i>
   		</span>
-  		<span class="slider-pager-page">
+  		<span>
   			<i class="icon ion-ios-circle-outline" ng-hide="match"></i>
-  			<i class="icon ion-record ng-hide" ng-show="match"></i>
-  		</span>
-  		<span class="slider-pager-page">
-  			<i class="form icon ion-checkmark ng-hide" ng-show="details && requirements && match"></i>
+  			<i class="form icon ion-checkmark ng-hide" ng-show="match"></i>
   		</span>
   	</div>
   </div>
 </ion-header-bar>
+
+
 <ion-view>
   <ion-content>
   <!-- form -->
@@ -280,7 +279,7 @@
 	  		<div class="row text-center">
 	  			<div class="col">
 	  				<h5>If you have any questions in regards to requesting a sample feel free to reach out to us at:</h5>
-	  				<a href="mailto:help@opticolorinc.com"><h5 style="color:blue">help@opticolorinc.com</h5></a>
+	  				<a href="mailto:help@opticolorinc.com"><h5 style="color:#9013fe">help@opticolorinc.com</h5></a>
 
 	  				<h5 class="help-block text-danger" ng-show="form.$invalid && submitted">
 			            Oops! Looks like you forgot a few things.

@@ -45,6 +45,10 @@ h5{
 	color: #4A4A4A;
 }
 
+.bar .title + .button:last-child{
+	right: 20px;	
+}
+
 .bar.bar-header.no-bg-color, .bar.bar-footer.no-bg-color{
 	border: 0px;
 	border-color: transparent;
@@ -267,6 +271,7 @@ select option{
 
 .form.ion-checkmark:before{
 	color:rgb(144, 19, 254);
+	font-size: 22px !important;
 }
 
 .detail.ion-checkmark:before{
@@ -295,12 +300,17 @@ select option{
 	margin: 0px;
 }
 
+.only-margin-top{
+	margin: 0px;
+	margin-top: 5px
+}
+
 a {
 	text-decoration: none;
 }
 
 .margin-top-detail{
-	margin-top: 10vh;
+	margin-top: 50px;
 }
 
 .margin-top-wheel{
@@ -379,6 +389,27 @@ button.ion-ios-color-filter:before {
 
 /* Form */
 
+input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:black;
+    opacity: 1 !important;
+    font-family: 'Dodeca Reg Basic' !important;	
+}
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:black;
+   opacity: 1 !important;
+   font-family: 'Dodeca Reg Basic' !important;	
+}
+input::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:black;
+   opacity: 1 !important;
+   font-family: 'Dodeca Reg Basic' !important;	
+}
+input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:black;
+   opacity: 1 !important;
+   font-family: 'Dodeca Reg Basic' !important;	
+}
+
 label.item-input{
 	border: 1px solid #979797;
 }
@@ -390,6 +421,10 @@ label.item-input.danger{
 /*input, textarea, select{
 	text-align: left;
 }*/
+
+.form-nav-circles .form-nav{
+	margin: 0px 12px;
+}
 
 .final-form h5{
 	font-size: 16px;
@@ -407,6 +442,7 @@ label.item-input.danger{
     width: 100%;
 /*    min-width: 255px;*/
 	max-width: 100%;
+	font-family: 'Dodeca Reg Basic' !important;	
 }
 
 h4.form-header{

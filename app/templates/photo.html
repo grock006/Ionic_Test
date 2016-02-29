@@ -1,10 +1,10 @@
 <!-- header -->
-<ion-header-bar class="bar-dark text-center" style="z-index:100">
+<ion-header-bar class="bar-dark text-center" style="z-index:100;padding:5px">
   <div class="row">
   <div class="col-25">
      <a href="#" ng-click="clearPhoto();">
       <button class="button-clear"> 
-        <i class="ion-chevron-left"></i> back
+        <i class="ion-ios-arrow-left"></i> back
       </button>
     </a>
   </div>
@@ -15,7 +15,7 @@
   <div class="col col-10"></div>
   <div class="col-25">
       <button class="button-clear" ng-show="showCheck" ng-click="sendForm();"> 
-         next <i class="ion-chevron-right"></i> 
+         next <i class="ion-ios-arrow-right"></i> 
       </button>
   </div>
 </div>
@@ -28,7 +28,7 @@
     <div class="col-33">
       <div class="row" ng-click="getZoom(imgURI);">
         <div class="col col-40 no-pad-lr">
-          <img src="images/zoom.png" style="width: 50%;margin-left: 6vw;">
+          <img src="images/zoom.svg" style="width: 50%;margin-left: 6vw;">
         </div>
         <div class="col col-60 no-pad-lr">
           <p class="subheader-title">crop &amp; capture</p>
@@ -40,7 +40,7 @@
     <div class="col-33">
       <div class="row" ng-click="sendDetails();" ng-class="{'details-opacity': !showCheck}">
         <div class="col col-25 no-pad-lr">
-          <img src="images/details.png" style="width: 100%;margin-left: 2vw;">
+          <img src="images/details.svg" style="width: 100%;margin-left: 2vw;">
         </div>
         <div class="col col-75 no-pad-lr">
           <p class="subheader-title">view color details</p>
@@ -54,8 +54,8 @@
 <ion-view>
    <div class="row no-pad-lr" style="padding-top:18vh">
       <div class="col no-pad-lr">
-          <img id="photo" ng-src="{{imgURI}}" style="width:100vw">
-       <!--   <img id="photo" src="images/test.jpg" style="width:100vw"> -->
+         <!-- <img id="photo" ng-src="{{imgURI}}" style="width:100vw"> -->
+         <img id="photo" src="images/test.jpg" style="width:100vw">
      </div>
    </div>
 

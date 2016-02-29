@@ -16,8 +16,8 @@
     <div class="row text-center margin-top-detail no-pad detail-hex">
       <div class="col col-35 no-pad"></div>
       <div class="col col-30 no-pad">
-        <h4 class="detail-hex-rgb">{{hex | uppercase}}</h4> 
-        <h5 class="no-margin">Hex</h5>
+        <h4 class="detail-hex-rgb no-margin">{{hex | uppercase}}</h4> 
+        <h5>Hex</h5>
       </div>
       <div class="col col-35 no-pad"></div>
     </div>
@@ -25,18 +25,18 @@
   <div class="row text-center no-pad detail-hex" style="margin-bottom:2vh">
     <div class="col col-34 no-pad"></div>
     <div class="col col-10 no-pad">
-      <h4 class="detail-hex-rgb">{{red}}</h4> 
-      <h5 class="no-margin">R</h5>
+      <h4 class="detail-hex-rgb only-margin-top">{{red}}</h4> 
+      <h5 class="only-margin-top">R</h5>
     </div>
     <div class="col col-1 no-pad"></div>
     <div class="col col-10 no-pad">
-      <h4 class="detail-hex-rgb">{{green}}</h4> 
-      <h5 class="no-margin">G</h5>
+      <h4 class="detail-hex-rgb only-margin-top">{{green}}</h4> 
+      <h5 class="only-margin-top">G</h5>
     </div>
     <div class="col col-1 no-pad"></div>
     <div class="col col-10 no-pad">
-      <h4 class="detail-hex-rgb">{{blue}}</h4>
-      <h5 class="no-margin">B</h5>
+      <h4 class="detail-hex-rgb only-margin-top">{{blue}}</h4>
+      <h5 class="only-margin-top">B</h5>
     </div>
     <div class="col col-34 no-pad"></div>
   </div>
@@ -44,7 +44,8 @@
     <!-- main color -->
     <div class="row text-center">
       <div class="col col-10"></div>
-      <div class="col col-80" id="detail-box">
+      <div class="col col-80">
+        <div id="detail-box"></div>
       </div>
       <div class="col col-10"></div>
     </div>

@@ -246,7 +246,7 @@ angular.module('starter.controllers', [])
 
   .controller('WheelCtrl', function($scope, $state, $rootScope) {
 
-      $scope.color = {hex: ""};
+      $scope.color = {hex: "#fc0000"};
 
       $scope.sendWheelDetails = function(){
         var colorSelected = document.getElementById('wheel-main').style.backgroundColor 
