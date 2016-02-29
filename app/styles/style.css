@@ -310,7 +310,7 @@ a {
 }
 
 .margin-top-detail{
-	margin-top: 50px;
+	margin-top: 60px;
 }
 
 .margin-top-wheel{
@@ -389,7 +389,7 @@ button.ion-ios-color-filter:before {
 
 /* Form */
 
-input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+input::-webkit-input-placeholder,  textarea::-webkit-input-placeholder{ /* WebKit, Blink, Edge */
     color:black;
     opacity: 1 !important;
     font-family: 'Dodeca Reg Basic' !important;	

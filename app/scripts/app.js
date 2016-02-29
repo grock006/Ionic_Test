@@ -18,7 +18,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova', 'directi
     if (window.StatusBar) {
       // org.apache.cordova.statusbar required
       //config xml 
-      // StatusBar.styleDefault();
+      StatusBar.styleDefault();
       //insert in plist after requires full screen
       // <key>UIStatusBarHidden</key>
       // <true/>

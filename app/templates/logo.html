@@ -26,13 +26,17 @@
       <div class="col-22"><br><br><br><br><br><br></div>
     </div>
 
-  <div style="position:absolute;bottom: 6%;width:100%">
+  <div style="position:fixed;bottom:5vh;width:100%">
     <img src="images/intro-bottom-1.png" style="width:100%">
-    <a class="info-button" ui-sref="intro">
-      <h5><i class="ion-ios-information"></i></h5>
-    </a>
+<!--     <a ui-sref="intro">
+     <i class="ion-ios-information"></i>
+    </a> -->
    </div>
 
   </ion-content>
-
+  <ion-footer-bar align-title="left" class="bar-light no-bg-color" style="padding-left:20px">
+    <div class="">
+      <button ui-sref="intro" class="button button-clear ion-ios-information"></button>
+    </div>
+  </ion-footer-bar>
 </ion-view>
