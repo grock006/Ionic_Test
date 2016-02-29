@@ -48,7 +48,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova', 'directi
    .state('wheel', {
     url: '/wheel',
     templateUrl: 'templates/wheel.html',
-    controller: 'WheelCtrl'
+    controller: 'WheelCtrl',
+    resolve:{
+      colorSelected: function($rootScope){
+        return $rootScope.colorSelected;
+      }
+    }
   })
 
   .state('capture', {

@@ -244,7 +244,16 @@ angular.module('starter.controllers', [])
 
 
 
-  .controller('WheelCtrl', function($scope, $state, $rootScope) {
+  .controller('WheelCtrl', function($scope, $state, $rootScope, colorSelected) {
+
+      $scope.$on('$ionicView.enter', function () {
+          console.log('wheelctrl')
+          console.log($rootScope.colorSelected)
+          if($rootScope.colorSelected){
+            var hex = chroma($rootScope.colorSelected).hex();
+            $scope.color = {hex: hex}
+          }
+      });
 
       $scope.color = {hex: "#fc0000"};
 
@@ -285,26 +294,69 @@ angular.module('starter.controllers', [])
         $scope.red = rgb[0]
         $scope.green = rgb[1]
         $scope.blue = rgb[2]
-        $scope.alpha = "100"
         $scope.hex = chroma(rgb).hex();
 
         $scope.goBack = function() {
          $ionicHistory.goBack();
         };
 
-        document.getElementById('detail-box').style.backgroundColor = colorSelected
-        document.getElementById('main').style.backgroundColor = $scope.hex
+        document.getElementById('detail-box').style.backgroundColor = colorSelected;
+        document.getElementById('main-detail').style.backgroundColor = $scope.hex;
         document.getElementById('bright-one').style.backgroundColor = chroma(rgb).brighten();
         document.getElementById('bright-two').style.backgroundColor = chroma(rgb).brighten(2);
         document.getElementById('bright-three').style.backgroundColor = chroma(rgb).brighten(3);
         document.getElementById('dark-one').style.backgroundColor = chroma(rgb).darken();
         document.getElementById('dark-two').style.backgroundColor = chroma(rgb).darken(2);
         document.getElementById('dark-three').style.backgroundColor = chroma(rgb).darken(3);
+
+        $scope.changeDetailColor = function(color){
+            var detailColorSelected = document.getElementById(color).style.backgroundColor 
+            var rgb;
+            $rootScope.colorSelected = detailColorSelected
+
+            if(detailColorSelected === "white"){
+              rgb = [255, 255, 255]
+            }
+            else if(detailColorSelected === "black"){
+              rgb = [0, 0, 0]
+            }
+            else{ 
+              rgb = detailColorSelected.replace(/[()]/g, "").replace(/rgb/, "").split(",")
+            }
+
+            $scope.red = rgb[0]
+            $scope.green = rgb[1]
+            $scope.blue = rgb[2]
+            $scope.hex = chroma(rgb).hex();
+
+            document.getElementById('detail-box').style.backgroundColor = detailColorSelected;
+            document.getElementById('main-detail').style.backgroundColor = detailColorSelected;
+            document.getElementById('bright-one').style.backgroundColor = chroma(rgb).brighten();
+            document.getElementById('bright-two').style.backgroundColor = chroma(rgb).brighten(2);
+            document.getElementById('bright-three').style.backgroundColor = chroma(rgb).brighten(3);
+            document.getElementById('dark-one').style.backgroundColor = chroma(rgb).darken();
+            document.getElementById('dark-two').style.backgroundColor = chroma(rgb).darken(2);
+            document.getElementById('dark-three').style.backgroundColor = chroma(rgb).darken(3);
+        }
   })
  
 
 
   .controller('PhotoCtrl', function($scope, $stateParams, $state, $rootScope, imgURI, $jrCrop) {
+
+      $scope.$on('$ionicView.enter', function () {
+          console.log('photoctrl')
+          console.log($rootScope.colorSelected)
+          var mainBox = document.getElementById('main-color').style.background 
+          console.log(mainBox)
+          if($rootScope.colorSelected !== mainBox){
+            $scope.showCheck = true;
+            document.getElementById('main-color').style.background = $rootScope.colorSelected;
+            //doesn't equal the current 
+            // var hex = chroma($rootScope.colorSelected).hex();
+            // $scope.color = {hex: hex}
+          }
+      });
 
       $rootScope.imgURI = imgURI;
       var colorThief = new ColorThief();
