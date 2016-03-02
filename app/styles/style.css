@@ -130,7 +130,7 @@ h5.no-margin{
 /* Capture */
 
 .bar-stable .button.button-clear, .bar-light .button.button-clear, .button-clear.button-clear {
-    font-size: 2.5vh;
+    font-size: 18px;
 }
 
 .capture-title{
@@ -310,7 +310,7 @@ a {
 }
 
 .margin-top-detail{
-	margin-top: 60px;
+	margin-top: 70px;
 }
 
 .margin-top-wheel{

@@ -345,6 +345,11 @@ angular.module('starter.controllers', [])
   .controller('PhotoCtrl', function($scope, $stateParams, $state, $rootScope, imgURI, $jrCrop) {
 
       $scope.$on('$ionicView.enter', function () {
+          if (window.StatusBar) {
+            StatusBar.hide();
+            StatusBar.overlaysWebView(false);
+            StatusBar.styleBlackOpaque();
+          }
           console.log('photoctrl')
           console.log($rootScope.colorSelected)
           var mainBox = document.getElementById('main-color').style.background 
@@ -541,9 +546,16 @@ angular.module('starter.controllers', [])
 
 .controller('IntroCtrl', function($scope, $ionicSlideBoxDelegate, $state) {
 
+   $scope.$on('$ionicView.enter', function () {
+      $ionicSlideBoxDelegate.slide(0)
+   })
+
+   $scope.goIntro = function(){
+      $state.go('intro')
+   }
+
     $scope.next = function () {
       $ionicSlideBoxDelegate.next();
-      // console.log($ionicSlideBoxDelegate.currentIndex())
     };
 
     $scope.previous = function () {
@@ -551,8 +563,6 @@ angular.module('starter.controllers', [])
     };
 
     $scope.slideChanged = function (index) {
-      // $scope.slideIndex = index;
-      console.log(index)
       if(index === 3){
         $scope.lastSlide = true
       }
