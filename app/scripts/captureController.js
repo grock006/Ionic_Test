@@ -2,16 +2,6 @@ angular.module('starter.controllers', [])
 
   .controller('FormCtrl', function($scope, $state, $rootScope, imgURI, colorSelected, $http) {
 
-      console.log("FormCtrl")
-      console.log("colorSelected")
-      console.log(colorSelected)
-      console.log("imgURI")
-      console.log(imgURI)
-      console.log("$rootScope imgURI")
-      console.log($rootScope.imgURI)
-      console.log("rootScope colorSelected")
-      console.log($rootScope.colorSelected)
-
       $scope.details = false;
       $scope.requirements = false;
       $scope.match = false;
@@ -124,16 +114,6 @@ angular.module('starter.controllers', [])
 
   .controller('RequestCtrl', function($scope, $state, $rootScope, imgURI, colorSelected, $ionicHistory) {
 
-      console.log("RequestCtrl")
-      console.log("colorSelected")
-      console.log(colorSelected)
-      console.log("imgURI")
-      console.log(imgURI)
-      console.log("$rootScope imgURI")
-      console.log($rootScope.imgURI)
-      console.log("rootScope colorSelected")
-      console.log($rootScope.colorSelected)
-
       $scope.goBack = function() {
        $ionicHistory.goBack();
       };
@@ -143,6 +123,22 @@ angular.module('starter.controllers', [])
 
 
   .controller('ZoomCtrl', function($scope, $stateParams, $state, $rootScope, imgURI, $jrCrop) {
+
+      $scope.$on('$ionicView.beforeEnter', function () {
+          if (window.StatusBar) {
+            StatusBar.hide();
+            StatusBar.overlaysWebView(false);
+            StatusBar.styleBlackOpaque();
+          }
+          var mainZoomBox = document.getElementById('main-color-zoom').style.background 
+          if($rootScope.colorSelected !== mainZoomBox){
+            $scope.showCheck = true;
+            document.getElementById('main-color-zoom').style.background = $rootScope.colorSelected;
+          }
+      });
+
+
+
       $rootScope.imgURI = imgURI;
       var colorThief = new ColorThief();
       var photo = document.getElementById("photo-zoom");
@@ -155,18 +151,6 @@ angular.module('starter.controllers', [])
         $rootScope.colorSelected = null;
         $scope.showCheck = false;
         var colorSelected = null;
-        // document.getElementById('main-color-zoom').style.background = 'url("../images/choice.png") no-repeat center center';
-        console.log("imgURI")
-        console.log(imgURI)
-        console.log("rootScope imgURI")
-        console.log($rootScope.imgURI)
-        console.log("rootScope colorSelected")
-        console.log($rootScope.colorSelected)
-        console.log("scope showCheck")
-        console.log($scope.showCheck)
-        console.log("var colorSelected")
-        console.log(colorSelected)
-
         $state.go('capture');
       }
 
@@ -195,10 +179,6 @@ angular.module('starter.controllers', [])
       }
 
       $scope.$on('$ionicView.afterEnter', function(){
-          // $rootScope.colorSelected = null
-          // $scope.showCheck = false;
-          // var colorSelected = null;
-          // document.getElementById('main-color-zoom').style.background = 'url("../images/choice.png") no-repeat center center';
           if(!$rootScope.colorSelected){
               colorSelected = null
               $scope.showCheck = false;
@@ -344,7 +324,7 @@ angular.module('starter.controllers', [])
 
   .controller('PhotoCtrl', function($scope, $stateParams, $state, $rootScope, imgURI, $jrCrop) {
 
-      $scope.$on('$ionicView.enter', function () {
+      $scope.$on('$ionicView.beforeEnter', function () {
           if (window.StatusBar) {
             StatusBar.hide();
             StatusBar.overlaysWebView(false);
@@ -357,9 +337,6 @@ angular.module('starter.controllers', [])
           if($rootScope.colorSelected !== mainBox){
             $scope.showCheck = true;
             document.getElementById('main-color').style.background = $rootScope.colorSelected;
-            //doesn't equal the current 
-            // var hex = chroma($rootScope.colorSelected).hex();
-            // $scope.color = {hex: hex}
           }
       });
 
@@ -375,18 +352,6 @@ angular.module('starter.controllers', [])
         $scope.showCheck = false;
         $rootScope.colorSelected = null;
         var colorSelected = null;
-        // document.getElementById('main-color').style.background = 'url("../images/choice.png") no-repeat center center';
-        console.log("imgURI")
-        console.log(imgURI)
-        console.log("rootScope imgURI")
-        console.log($rootScope.imgURI)
-        console.log("rootScope colorSelected")
-        console.log($rootScope.colorSelected)
-        console.log("scope showCheck")
-        console.log($scope.showCheck)
-        console.log("var colorSelected")
-        console.log(colorSelected)
-
         $state.go('capture');
       }
 
@@ -406,9 +371,6 @@ angular.module('starter.controllers', [])
       }
 
       $scope.getZoom = function(img){
-          console.log($jrCrop.defaultOptions.template)
-          // $rootScope.imgURI = imgURI;
-          // $state.go('zoom')
           $jrCrop.crop({
               url: img, //"images/test.jpg",
               width: 150,
@@ -421,7 +383,7 @@ angular.module('starter.controllers', [])
               $rootScope.imgURI = image;
               $state.go('zoom')
           }, function() {
-              // User canceled or couldn't load image.
+              
           });
       }
 
@@ -429,32 +391,15 @@ angular.module('starter.controllers', [])
         var colorSelected = document.getElementById('main-color').style.backgroundColor 
          if(colorSelected){
           $rootScope.colorSelected = colorSelected
-          // $rootScope.imgURI = $rootScope.imgURI;
           $state.go('request')
         }
       }
 
       $scope.$on('$ionicView.afterEnter', function(){
-          console.log(colorSelected)
-          console.log(!colorSelected)
-          // $rootScope.colorSelected = null
-          // $scope.showCheck = false;
-          // var colorSelected = null;
-          // document.getElementById('main-color-zoom').style.background = 'url("../images/choice.png") no-repeat center center';
           if(!$rootScope.colorSelected){
               colorSelected = null
               $scope.showCheck = false;
               document.getElementById('main-color').style.backgroundColor = 'white';
-              // document.getElementById('one').style.backgroundColor =  'transparent'
-              // document.getElementById('two').style.backgroundColor = 'transparent'
-              // document.getElementById('three').style.backgroundColor =  'transparent'
-              // document.getElementById('four').style.backgroundColor = 'transparent'
-              // document.getElementById('five').style.backgroundColor = 'transparent'
-              // document.getElementById('six').style.backgroundColor = 'transparent'
-              // document.getElementById('seven').style.backgroundColor =  'transparent'
-              // document.getElementById('eight').style.backgroundColor =  'transparent'
-              // document.getElementById('nine').style.backgroundColor = 'transparent'
-              // document.getElementById('ten').style.backgroundColor = 'transparent'
           }
 
           var palette = colorThief.getPalette(photo, 12);
@@ -487,16 +432,6 @@ angular.module('starter.controllers', [])
 
 
   .controller('CaptureCtrl', function($scope, $stateParams, $cordovaCamera, $state, $rootScope, imgURI, colorSelected) {
-
-    console.log("CaptureCtrl")
-    console.log("colorSelected")
-    console.log(colorSelected)
-    console.log("imgURI")
-    console.log(imgURI)
-    console.log("$rootScope imgURI")
-    console.log($rootScope.imgURI)
-    console.log("rootScope colorSelected")
-    console.log($rootScope.colorSelected)
 
     $scope.takePhoto = function () {
         var options = {
@@ -546,7 +481,8 @@ angular.module('starter.controllers', [])
 
 .controller('IntroCtrl', function($scope, $ionicSlideBoxDelegate, $state) {
 
-   $scope.$on('$ionicView.enter', function () {
+   $scope.$on('$ionicView.beforeEnter', function () {
+      $scope.lastSlide = false;
       $ionicSlideBoxDelegate.slide(0)
    })
 
