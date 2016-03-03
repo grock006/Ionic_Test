@@ -91,6 +91,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova', 'directi
     }
   })
 
+  .state('zoom-two', {
+    url: '/zoom2',
+    templateUrl: 'templates/zoom-two.html',
+    controller: 'ZoomTwoCtrl',
+    resolve:{
+      imgURI: function($rootScope){
+        return $rootScope.imgURI;
+      }
+    }
+  })
+
   .state('detail', {
     url: '/detail',
     templateUrl: 'templates/detail.html',

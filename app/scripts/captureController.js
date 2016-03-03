@@ -120,9 +120,52 @@ angular.module('starter.controllers', [])
   
   })
 
-
-
   .controller('ZoomCtrl', function($scope, $stateParams, $state, $rootScope, imgURI, $jrCrop) {
+      
+      $scope.cropper = {};
+      $scope.cropper.sourceImage = "images/test.jpg";
+      $scope.cropper.croppedImage = null;
+      $scope.bounds = {};
+      $scope.bounds.left = 0;
+      $scope.bounds.right = 0;
+      $scope.bounds.top = 0;
+      $scope.bounds.bottom = 0;
+
+      console.log($scope.cropper )
+      console.log($scope.cropper.sourceImage) 
+      console.log($scope.cropper.croppedImage )  
+      console.log($scope.bounds)
+      console.log($scope.bounds.left )
+      console.log($scope.bounds.right )
+      console.log($scope.bounds.top )
+      console.log($scope.bounds.bottom )
+
+  })
+
+  .controller('ZoomTwoCtrl', function($scope, $stateParams, $state, $rootScope, imgURI, $jrCrop) {
+
+    $scope.cropper = {};
+    $scope.cropper.sourceImage = imgURI;
+    $scope.cropper.croppedImage = null;
+    $scope.bounds = {};
+    $scope.bounds.left = 0;
+    $scope.bounds.right = 0;
+    $scope.bounds.top = 0;
+    $scope.bounds.bottom = 0;
+
+    console.log($scope.cropper )
+    console.log($scope.cropper.sourceImage) 
+    console.log($scope.cropper.croppedImage )  
+    console.log($scope.bounds)
+    console.log($scope.bounds.left )
+    console.log($scope.bounds.right )
+    console.log($scope.bounds.top )
+    console.log($scope.bounds.bottom )
+
+    $scope.sendCrop = function sendCrop(img){
+      $rootScope.imgURI = img;
+      $state.go('photo')
+    }
 
       $scope.$on('$ionicView.beforeEnter', function () {
           if (window.StatusBar) {
@@ -155,6 +198,7 @@ angular.module('starter.controllers', [])
       }
 
       $scope.selectColor = function(color){
+        console.log(color)
          $scope.showCheck = color
          var colorSelected = document.getElementById(color).style.backgroundColor 
          document.getElementById('main-color-zoom').style.background = colorSelected
@@ -196,7 +240,7 @@ angular.module('starter.controllers', [])
               document.getElementById('ten-zoom').style.backgroundColor = 'transparent'
           }
           var palette = colorThief.getPalette(photo, 12);
-
+          console.log(palette)
           var one = "rgb(" + palette[1][0] + ", " + palette[1][1] + ", " + palette[1][2] + ")"
           var two = "rgb(" + palette[2][0] + ", " + palette[2][1] + ", " + palette[2][2] + ")"
           var three = "rgb(" + palette[3][0] + ", " + palette[3][1] + ", " + palette[3][2] + ")"
@@ -371,20 +415,22 @@ angular.module('starter.controllers', [])
       }
 
       $scope.getZoom = function(img){
-          $jrCrop.crop({
-              url: img, //"images/test.jpg",
-              width: 150,
-              height: 150,
-          }).then(function(canvas) {
-              // success!
-              var image = canvas.toDataURL();
-              console.log("get zoom image canvas toDataURL")
-              console.log(image)
-              $rootScope.imgURI = image;
-              $state.go('zoom')
-          }, function() {
+          $rootScope.imgURI = img;
+          $state.go('zoom-two')
+          // $jrCrop.crop({
+          //     url: img, //"images/test.jpg",
+          //     width: 150,
+          //     height: 150,
+          // }).then(function(canvas) {
+          //     // success!
+          //     var image = canvas.toDataURL();
+          //     console.log("get zoom image canvas toDataURL")
+          //     console.log(image)
+          //     $rootScope.imgURI = image;
+          //     $state.go('zoom')
+          // }, function() {
               
-          });
+          // });
       }
 
       $scope.sendForm = function(){
