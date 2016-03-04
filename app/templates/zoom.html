@@ -1,107 +1,16 @@
-<!-- header -->
-<ion-header-bar class="bar-dark text-center" style="z-index:100;padding:5px">
-  <div class="row">
-  <div class="col-25">
-      <button class="button-clear" ng-click="clearZoom();"> 
-        <i class="ion-ios-arrow-left"></i> back
-      </button>
-  </div>
-  <div class="col col-10"></div>
-  <div class="col col-30 text-center">
-    <div class="main-box-color" id="main-color-zoom"></div>
-  </div>
-  <div class="col col-10"></div>
-  <div class="col-25">
-      <button class="button-clear" ng-show="showCheck" ng-click="sendForm();"> 
-         next <i class="ion-ios-arrow-right"></i> 
-      </button>
-  </div>
+
+
+<div style="position:relative;background-color:black;text-align:center" >
+   <canvas width="300" height="300" id="canvas" image-cropper image="cropper.sourceImage" cropped-image="cropper.croppedImage" crop-width="300" crop-height="300" keep-aspect="true" touch-radius="30" crop-area-bounds="bounds"></canvas>
+<button class="button button-outline button-energized" style="position:absolute;bottom:22px;right: 20px;width:86px"
+	ng-click="sendCrop(cropper.croppedImage)">
+		OK
+</button> 
+<button class="button button-outline button-energized" style="position:absolute;bottom:22px;left:20px;"
+	ui-sref="photo">
+		CANCEL
+</button>   
 </div>
-</ion-header-bar>
-<!-- end header -->
 
-<!-- subheader -->
-<div class="bar bar-subheader text-center" style="display:grid">
-  <div class="row">
-    <div class="col-33">
-      <div class="row" ng-click="getZoom(imgURI);">
-        <div class="col col-40 no-pad-lr">
-          <img src="images/zoom.svg" class="ng-hide">
-        </div>
-        <div class="col col-60">
-          <p class="subheader-title ng-hide">crop &amp; capture</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-33">
-    </div>
-    <div class="col-33">
-      <div class="row" ng-click="sendDetails();" ng-class="{'details-opacity': !showCheck}">
-        <div class="col col-25 no-pad-lr">
-          <img src="images/details.svg" style="width: 100%;margin-left: 2vw;">
-        </div>
-        <div class="col col-75 no-pad-lr">
-          <p class="subheader-title">view color details</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- end subheader -->
 
-<ion-view>
-   <div class="row no-pad-lr" style="padding-top:18vh">
-      <div class="col no-pad-lr">
-          <img id="photo-zoom" ng-src="{{imgURI}}" style="width:100vw">
-       <!--   <img id="photo-zoom" src="images/test.jpg" style="width:100vw"> -->
-     </div>
-   </div>
 
-  <div class="box-color-container">
-    <div class="row row-center text-center no-pad-lr">  
-      <div class="col-20 box-color" id="one-zoom" ng-click="selectColor('one-zoom');" ng-class="{'bc-shadow': showCheck === 'one-zoom'}">
-        <i ng-show="showCheck === 'one-zoom'" class="ion-checkmark ng-hide"></i>
-      </div>
-      <div class="col-20 box-color" id="two-zoom" ng-click="selectColor('two-zoom');" ng-class="{'bc-shadow': showCheck === 'two-zoom'}">
-        <i ng-show="showCheck === 'two-zoom'" class="ion-checkmark ng-hide"></i>
-      </div>
-      <div class="col-20 box-color" id="three-zoom" ng-click="selectColor('three-zoom');" ng-class="{'bc-shadow': showCheck === 'three-zoom'}">
-        <i ng-show="showCheck === 'three-zoom'" class="ion-checkmark ng-hide"></i>
-      </div>
-      <div class="col-20 box-color" id="four-zoom" ng-click="selectColor('four-zoom');" ng-class="{'bc-shadow': showCheck === 'four-zoom'}">
-        <i ng-show="showCheck === 'four-zoom'" class="ion-checkmark ng-hide"></i>
-      </div>
-      <div class="col-20 box-color" id="five-zoom" ng-click="selectColor('five-zoom');" ng-class="{'bc-shadow': showCheck === 'five-zoom'}">
-        <i ng-show="showCheck === 'five-zoom'" class="ion-checkmark ng-hide"></i>
-      </div>
-    </div>
-    <div class="row row-center text-center no-pad-lr">  
-      <div class="col-20 box-color" id="six-zoom" ng-click="selectColor('six-zoom');" ng-class="{'bc-shadow': showCheck === 'six-zoom'}">
-        <i ng-show="showCheck === 'six-zoom'" class="ion-checkmark ng-hide"></i>
-      </div>
-      <div class="col-20 box-color" id="seven-zoom" ng-click="selectColor('seven-zoom');" ng-class="{'bc-shadow': showCheck === 'seven-zoom'}">
-        <i ng-show="showCheck === 'seven-zoom'" class="ion-checkmark ng-hide"></i>
-      </div>
-      <div class="col-20 box-color" id="eight-zoom" ng-click="selectColor('eight-zoom');" ng-class="{'bc-shadow': showCheck === 'eight-zoom'}">
-        <i ng-show="showCheck === 'eight-zoom'" class="ion-checkmark ng-hide"></i>
-      </div>
-      <div class="col-20 box-color" id="nine-zoom" ng-click="selectColor('nine-zoom');" ng-class="{'bc-shadow': showCheck === 'nine-zoom'}">
-        <i ng-show="showCheck === 'nine-zoom'" class="ion-checkmark ng-hide"></i>
-      </div>
-      <div class="col-20 box-color" id="ten-zoom" ng-click="selectColor('ten-zoom');" ng-class="{'bc-shadow': showCheck === 'ten-zoom'}">
-        <i ng-show="showCheck === 'ten-zoom'" class="ion-checkmark ng-hide"></i>
-      </div>
-    </div>
-  </div>
-</ion-view>
-<ion-footer-bar align-title="left" class="bar-dark no-bg-color">
-    <div class="">
-     <!--  <button ui-sref="logo" class="button button-clear button-skip">
-        <h5 class="skip-button">Skip <i class="ion-refresh"></i></h5>
-      </button> -->
-    </div>
-    <h1 class="title">choose a color</h1>
-    <div class="buttons">
-     <!--  <button class="button"></button> -->
-    </div>
-  </ion-footer-bar>

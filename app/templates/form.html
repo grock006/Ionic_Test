@@ -285,8 +285,10 @@
 			            Oops! Looks like you forgot a few things.
 			         </h5>
 	  				
-	  				<button class="button button-full button-royal" type="submit">
-	  				  Request sample
+	  				<button class="button button-full button-royal" style="padding-top:7px" type="submit" 
+	  				  ng-disabled="sending">
+	  				  <ion-spinner icon="ios" class="spinner-light ng-hide" ng-show="sending"></ion-spinner>
+	  				  <span ng-hide="sending">Request sample<span>
 	  				</button>
 	  			</div>
 	  		</div>

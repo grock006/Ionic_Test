@@ -8,10 +8,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova', 'directi
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
     if (window.cordova && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);
       cordova.plugins.Keyboard.disableScroll(true);
 
     }
@@ -84,17 +82,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova', 'directi
     url: '/zoom',
     templateUrl: 'templates/zoom.html',
     controller: 'ZoomCtrl',
-    resolve:{
-      imgURI: function($rootScope){
-        return $rootScope.imgURI;
-      }
-    }
-  })
-
-  .state('zoom-two', {
-    url: '/zoom2',
-    templateUrl: 'templates/zoom-two.html',
-    controller: 'ZoomTwoCtrl',
     resolve:{
       imgURI: function($rootScope){
         return $rootScope.imgURI;

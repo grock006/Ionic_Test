@@ -257,18 +257,6 @@ h5.no-margin{
 	line-height: 0;
 }
 
-/*.item-select{
-	width: 100%
-}
-
-.item-select select {
-  left: 0;
-}
-
-select option{
-  text-align: left;
-}*/
-
 .form.ion-checkmark:before{
 	color:rgb(144, 19, 254);
 	font-size: 22px !important;
@@ -389,22 +377,22 @@ button.ion-ios-color-filter:before {
 
 /* Form */
 
-input::-webkit-input-placeholder,  textarea::-webkit-input-placeholder{ /* WebKit, Blink, Edge */
+input::-webkit-input-placeholder,  textarea::-webkit-input-placeholder{ 
     color:black;
     opacity: 1 !important;
     font-family: 'Dodeca Reg Basic' !important;	
 }
-input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+input:-moz-placeholder { 
    color:black;
    opacity: 1 !important;
    font-family: 'Dodeca Reg Basic' !important;	
 }
-input::-moz-placeholder { /* Mozilla Firefox 19+ */
+input::-moz-placeholder { 
    color:black;
    opacity: 1 !important;
    font-family: 'Dodeca Reg Basic' !important;	
 }
-input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+input:-ms-input-placeholder { 
    color:black;
    opacity: 1 !important;
    font-family: 'Dodeca Reg Basic' !important;	
@@ -417,10 +405,6 @@ label.item-input{
 label.item-input.danger{
 	border: 1px solid red !important;
 }
-
-/*input, textarea, select{
-	text-align: left;
-}*/
 
 .form-nav-circles .form-nav{
 	margin: 0px 12px;

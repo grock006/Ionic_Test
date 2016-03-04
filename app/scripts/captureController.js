@@ -11,12 +11,16 @@ angular.module('starter.controllers', [])
       $scope.green = rgb[1]
       $scope.blue = rgb[2]
       $scope.hex = chroma(rgb).hex();
+      $scope.sending = false;
       document.getElementById('form-color-selected').style.backgroundColor = colorSelected
 
 
       $scope.sendEmail = function(form){
 
           var modImg = imgURI.replace("data:image/jpeg;base64,", "").replace("data:image/png;base64,", "");
+          if($scope.user.ext === undefined){
+             $scope.user.ext = '';
+          }
 
           var emailData = {
             'key': 'ZrkOtJ2ahIz4gOgsp8FsvQ',
@@ -69,8 +73,12 @@ angular.module('starter.controllers', [])
         $scope.submitted = true;
 
          if(form.$valid){
+            $scope.sending = true;
             $http.post('https://mandrillapp.com/api/1.0/messages/send.json', emailData)
                 .success(function(data){
+                  $rootScope.imgURI = null;
+                  $rootScope.colorSelected = null;
+                  $scope.user = null;
                   $state.go('confirmation')
                 })
                 .error(function(err){
@@ -121,28 +129,6 @@ angular.module('starter.controllers', [])
   })
 
   .controller('ZoomCtrl', function($scope, $stateParams, $state, $rootScope, imgURI, $jrCrop) {
-      
-      $scope.cropper = {};
-      $scope.cropper.sourceImage = "images/test.jpg";
-      $scope.cropper.croppedImage = null;
-      $scope.bounds = {};
-      $scope.bounds.left = 0;
-      $scope.bounds.right = 0;
-      $scope.bounds.top = 0;
-      $scope.bounds.bottom = 0;
-
-      console.log($scope.cropper )
-      console.log($scope.cropper.sourceImage) 
-      console.log($scope.cropper.croppedImage )  
-      console.log($scope.bounds)
-      console.log($scope.bounds.left )
-      console.log($scope.bounds.right )
-      console.log($scope.bounds.top )
-      console.log($scope.bounds.bottom )
-
-  })
-
-  .controller('ZoomTwoCtrl', function($scope, $stateParams, $state, $rootScope, imgURI, $jrCrop) {
 
     $scope.cropper = {};
     $scope.cropper.sourceImage = imgURI;
@@ -152,15 +138,6 @@ angular.module('starter.controllers', [])
     $scope.bounds.right = 0;
     $scope.bounds.top = 0;
     $scope.bounds.bottom = 0;
-
-    console.log($scope.cropper )
-    console.log($scope.cropper.sourceImage) 
-    console.log($scope.cropper.croppedImage )  
-    console.log($scope.bounds)
-    console.log($scope.bounds.left )
-    console.log($scope.bounds.right )
-    console.log($scope.bounds.top )
-    console.log($scope.bounds.bottom )
 
     $scope.sendCrop = function sendCrop(img){
       $rootScope.imgURI = img;
@@ -173,95 +150,6 @@ angular.module('starter.controllers', [])
             StatusBar.overlaysWebView(false);
             StatusBar.styleBlackOpaque();
           }
-          var mainZoomBox = document.getElementById('main-color-zoom').style.background 
-          if($rootScope.colorSelected !== mainZoomBox){
-            $scope.showCheck = true;
-            document.getElementById('main-color-zoom').style.background = $rootScope.colorSelected;
-          }
-      });
-
-
-
-      $rootScope.imgURI = imgURI;
-      var colorThief = new ColorThief();
-      var photo = document.getElementById("photo-zoom");
-      $scope.showCheck = false;
-      var colorSelected;
-
-      $scope.clearZoom = function(){
-        imgURI = null;
-        $rootScope.imgURI = null;
-        $rootScope.colorSelected = null;
-        $scope.showCheck = false;
-        var colorSelected = null;
-        $state.go('capture');
-      }
-
-      $scope.selectColor = function(color){
-        console.log(color)
-         $scope.showCheck = color
-         var colorSelected = document.getElementById(color).style.backgroundColor 
-         document.getElementById('main-color-zoom').style.background = colorSelected
-         $rootScope.colorSelected = colorSelected;
-      }
-
-      $scope.sendDetails = function(){
-        var colorSelected = document.getElementById('main-color-zoom').style.backgroundColor 
-        if(colorSelected){
-          $rootScope.colorSelected = colorSelected
-          $state.go('detail')
-        }
-      }
-
-      $scope.sendForm = function(){
-        var colorSelected = document.getElementById('main-color-zoom').style.backgroundColor 
-         if(colorSelected){
-          $rootScope.colorSelected = colorSelected
-          // $rootScope.imgURI = imgURI;
-          $state.go('request')
-        }
-      }
-
-      $scope.$on('$ionicView.afterEnter', function(){
-          if(!$rootScope.colorSelected){
-              colorSelected = null
-              $scope.showCheck = false;
-              document.getElementById('main-color-zoom').style.backgroundColor = 'white';
-
-              document.getElementById('one-zoom').style.backgroundColor =  'transparent'
-              document.getElementById('two-zoom').style.backgroundColor = 'transparent'
-              document.getElementById('three-zoom').style.backgroundColor =  'transparent'
-              document.getElementById('four-zoom').style.backgroundColor = 'transparent'
-              document.getElementById('five-zoom').style.backgroundColor = 'transparent'
-              document.getElementById('six-zoom').style.backgroundColor = 'transparent'
-              document.getElementById('seven-zoom').style.backgroundColor =  'transparent'
-              document.getElementById('eight-zoom').style.backgroundColor =  'transparent'
-              document.getElementById('nine-zoom').style.backgroundColor = 'transparent'
-              document.getElementById('ten-zoom').style.backgroundColor = 'transparent'
-          }
-          var palette = colorThief.getPalette(photo, 12);
-          console.log(palette)
-          var one = "rgb(" + palette[1][0] + ", " + palette[1][1] + ", " + palette[1][2] + ")"
-          var two = "rgb(" + palette[2][0] + ", " + palette[2][1] + ", " + palette[2][2] + ")"
-          var three = "rgb(" + palette[3][0] + ", " + palette[3][1] + ", " + palette[3][2] + ")"
-          var four = "rgb(" + palette[4][0] + ", " + palette[4][1] + ", " + palette[4][2] + ")"
-          var five = "rgb(" + palette[5][0] + ", " + palette[5][1] + ", " + palette[5][2] + ")"
-          var six = "rgb(" + palette[6][0] + ", " + palette[6][1] + ", " + palette[6][2] + ")"
-          var seven = "rgb(" + palette[7][0] + ", " + palette[7][1] + ", " + palette[7][2] + ")"
-          var eight = "rgb(" + palette[8][0] + ", " + palette[8][1] + ", " + palette[8][2] + ")"
-          var nine = "rgb(" + palette[9][0] + ", " + palette[9][1] + ", " + palette[9][2] + ")"
-          var ten = "rgb(" + palette[10][0] + ", " + palette[10][1] + ", " + palette[10][2] + ")"
-
-          document.getElementById('one-zoom').style.backgroundColor = one
-          document.getElementById('two-zoom').style.backgroundColor = two
-          document.getElementById('three-zoom').style.backgroundColor = three
-          document.getElementById('four-zoom').style.backgroundColor = four
-          document.getElementById('five-zoom').style.backgroundColor = five
-          document.getElementById('six-zoom').style.backgroundColor = six
-          document.getElementById('seven-zoom').style.backgroundColor = seven
-          document.getElementById('eight-zoom').style.backgroundColor = eight
-          document.getElementById('nine-zoom').style.backgroundColor = nine
-          document.getElementById('ten-zoom').style.backgroundColor = ten
       });
   
   })
@@ -366,7 +254,7 @@ angular.module('starter.controllers', [])
  
 
 
-  .controller('PhotoCtrl', function($scope, $stateParams, $state, $rootScope, imgURI, $jrCrop) {
+  .controller('PhotoCtrl', function($scope, $stateParams, $state, $rootScope, imgURI, $ionicHistory) {
 
       $scope.$on('$ionicView.beforeEnter', function () {
           if (window.StatusBar) {
@@ -374,10 +262,17 @@ angular.module('starter.controllers', [])
             StatusBar.overlaysWebView(false);
             StatusBar.styleBlackOpaque();
           }
-          console.log('photoctrl')
-          console.log($rootScope.colorSelected)
+          // console.log('photoctrl')
+          // console.log($rootScope.colorSelected)
           var mainBox = document.getElementById('main-color').style.background 
-          console.log(mainBox)
+          // console.log(mainBox)
+          // var back = $ionicHistory.backView()
+          // var forward = $ionicHistory.forwardView()
+          // console.log(back.stateName)
+          // console.log(forward.stateName)
+          // if coming back from zoom
+          // state previous
+          //if there is a new ImgURI doesn't match the old one
           if($rootScope.colorSelected !== mainBox){
             $scope.showCheck = true;
             document.getElementById('main-color').style.background = $rootScope.colorSelected;
@@ -416,21 +311,7 @@ angular.module('starter.controllers', [])
 
       $scope.getZoom = function(img){
           $rootScope.imgURI = img;
-          $state.go('zoom-two')
-          // $jrCrop.crop({
-          //     url: img, //"images/test.jpg",
-          //     width: 150,
-          //     height: 150,
-          // }).then(function(canvas) {
-          //     // success!
-          //     var image = canvas.toDataURL();
-          //     console.log("get zoom image canvas toDataURL")
-          //     console.log(image)
-          //     $rootScope.imgURI = image;
-          //     $state.go('zoom')
-          // }, function() {
-              
-          // });
+          $state.go('zoom')
       }
 
       $scope.sendForm = function(){
