@@ -1,9 +1,4 @@
-// Ionic Starter App
 
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-// 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova', 'directive.ngColorwheel', 'jrCrop', 'angular-img-cropper'])
 
 .run(function($ionicPlatform) {
@@ -14,21 +9,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova', 'directi
 
     }
     if (window.StatusBar) {
-      // org.apache.cordova.statusbar required
-      //config xml 
-      // StatusBar.styleDefault();
-      //insert in plist after requires full screen
-      // <key>UIStatusBarHidden</key>
-      // <true/>
-      // <key>UIViewControllerBasedStatusBarAppearance</key>
-      // <false/>
       StatusBar.hide();
       StatusBar.overlaysWebView(false);
     }
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+
+  $ionicConfigProvider.views.swipeBackEnabled(false);
+
   $stateProvider
 
   .state('intro', {
@@ -74,6 +64,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova', 'directi
     resolve:{
       imgURI: function($rootScope){
         return $rootScope.imgURI;
+      }, 
+      sendCrop: function($rootScope){
+        return $rootScope.sendCrop;
       }
     }
   })
@@ -131,8 +124,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova', 'directi
   .state('confirmation', {
     url: '/confirmation',
     templateUrl: 'templates/confirmation.html',
-    controller: 'IntroCtrl'
+    controller: 'ConfirmCtrl',
+    resolve:{
+      colorSelected: function($rootScope){
+        return $rootScope.colorSelected = null;
+      },
+      imgURI: function($rootScope){
+        return $rootScope.imgURI = null;
+      }
+    }
   });
-  // if none of the above states are matched, use this as the fallback
+  
   $urlRouterProvider.otherwise('/');
 });

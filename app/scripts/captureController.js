@@ -1,5 +1,10 @@
 angular.module('starter.controllers', [])
 
+  .controller('ConfirmCtrl', function($scope, $state, $rootScope, imgURI, colorSelected) {
+          $rootScope.imgURI = null;
+          $rootScope.colorSelected = null;
+  })
+
   .controller('FormCtrl', function($scope, $state, $rootScope, imgURI, colorSelected, $http) {
 
       $scope.details = false;
@@ -79,6 +84,12 @@ angular.module('starter.controllers', [])
                   $rootScope.imgURI = null;
                   $rootScope.colorSelected = null;
                   $scope.user = null;
+                  $scope.red = null
+                  $scope.green = null 
+                  $scope.blue = null
+                  $scope.hex = null
+                  $scope.sending = false;
+                  $scope.submitted = false;
                   $state.go('confirmation')
                 })
                 .error(function(err){
@@ -113,6 +124,7 @@ angular.module('starter.controllers', [])
           }
           else{
              $scope.requirements = false;
+             $scope.match = false;
           }
         });
 
@@ -140,6 +152,7 @@ angular.module('starter.controllers', [])
     $scope.bounds.bottom = 0;
 
     $scope.sendCrop = function sendCrop(img){
+      $rootScope.sendCrop = true;
       $rootScope.imgURI = img;
       $state.go('photo')
     }
@@ -254,31 +267,33 @@ angular.module('starter.controllers', [])
  
 
 
-  .controller('PhotoCtrl', function($scope, $stateParams, $state, $rootScope, imgURI, $ionicHistory) {
+  .controller('PhotoCtrl', function($scope, $stateParams, $state, $rootScope, imgURI, $ionicHistory, sendCrop) {
+
+  
 
       $scope.$on('$ionicView.beforeEnter', function () {
+          console.log("sendCrop")
+          console.log(sendCrop)
+          console.log($rootScope.sendCrop)
           if (window.StatusBar) {
             StatusBar.hide();
             StatusBar.overlaysWebView(false);
             StatusBar.styleBlackOpaque();
           }
-          // console.log('photoctrl')
-          // console.log($rootScope.colorSelected)
           var mainBox = document.getElementById('main-color').style.background 
-          // console.log(mainBox)
-          // var back = $ionicHistory.backView()
-          // var forward = $ionicHistory.forwardView()
-          // console.log(back.stateName)
-          // console.log(forward.stateName)
-          // if coming back from zoom
-          // state previous
-          //if there is a new ImgURI doesn't match the old one
-          if($rootScope.colorSelected !== mainBox){
+          if($rootScope.sendCrop === true){
+            $scope.showCheck = false;
+            console.log("fire")
+            document.getElementById('main-color').style.background = 'white';
+          }
+          if(($rootScope.sendCrop == false) && $rootScope.colorSelected !== mainBox){
+            console.log("fire2")
             $scope.showCheck = true;
             document.getElementById('main-color').style.background = $rootScope.colorSelected;
           }
       });
 
+     
       $rootScope.imgURI = imgURI;
       var colorThief = new ColorThief();
       var photo = document.getElementById("photo");
@@ -302,6 +317,7 @@ angular.module('starter.controllers', [])
       }
 
       $scope.sendDetails = function(){
+         $rootScope.sendCrop = false;
         var colorSelected = document.getElementById('main-color').style.backgroundColor 
         if(colorSelected){
           $rootScope.colorSelected = colorSelected
@@ -412,6 +428,10 @@ angular.module('starter.controllers', [])
       $scope.lastSlide = false;
       $ionicSlideBoxDelegate.slide(0)
    })
+
+   $scope.goLogo = function(){
+     $state.go('logo')
+   }
 
    $scope.goIntro = function(){
       $state.go('intro')

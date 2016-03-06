@@ -1,13 +1,9 @@
-  <ion-header-bar class="bar-light no-bg-color" style="height:70px">
-      <h1 class="title logo">OptiColor Inc.</h1>
-  </ion-header-bar>
+<ion-pane>
+<ion-header-bar class="bar-light no-bg-color" style="height:70px">
+  <h1 class="title logo">OptiColor Inc.</h1>
+</ion-header-bar>
   
-<!--   <ion-nav-bar class="bar-stable">
-	  <ion-nav-buttons side="right">
-	    <button class="button button-positive button-clear no-animation" ng-click="startApp()">Skippy</button>
-	  </ion-nav-buttons>
-  </ion-nav-bar> -->
-<ion-view hide-back-button="false" class="intro">
+<ion-view class="intro">
   <ion-slide-box on-slide-changed="slideChanged(index)" show-pager="true">
     <ion-slide>
         <div class="text-center" style="margin-top:12vh;margin-bottom:10vh" ng-click="next();">
@@ -45,7 +41,6 @@
           </div>
           <div class="col col-10"></div>
         </div>
-
         <div class="row">
           <div class="col col-25"></div>
           <div class="col col-75">
@@ -69,11 +64,7 @@
           </div>
           <img src="images/intro-bottom-1.png" style="width:100%;">
         </div>
-     
     </ion-slide>
-
-
-    
   </ion-slide-box>
    
    <img ng-hide="lastSlide" src="images/intro-bottom-1.png" style="z-index:10;position:fixed;width:100%;">
@@ -81,7 +72,7 @@
    <div class="row ng-hide" ng-show="lastSlide">
      <div class="col col-10"></div>
      <div class="col col-80">
-        <button class="button button-full button-royal" ui-sref="logo">Let's get started!</button>
+        <button class="button button-full button-royal" ng-click="goLogo()">Let's get started!</button>
       </div>
       <div class="col col-10"></div>
     </div>
@@ -92,9 +83,6 @@
         <h5 class="skip-button">Skip <i class="ion-refresh"></i></h5>
       </button>
     </div>
-    <!-- <h1 class="title"></h1> -->
-   <!--  <div class="buttons">
-      <button class="button"></button>
-    </div> -->
   </ion-footer-bar>
 </ion-view>
+</ion-pane>

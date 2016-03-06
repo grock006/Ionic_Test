@@ -442,4 +442,9 @@ h4.form-header{
      color: #9013fe;
 }
 
+.spinner svg {
+  width: 19% !important;
+  height: 20px !important;
+}
+
 /* End Form */
