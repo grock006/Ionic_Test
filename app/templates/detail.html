@@ -59,7 +59,7 @@
         class="box-detail" id="bright-three-container" 
         ng-click="changeDetailColor('bright-three')">
             <div class="box-detail-main ng-hide" id="bright-three" ng-show="colorPick === 'bright-three'">
-                <i class="ion-checkmark detail ng-hide"></i>
+                <i class="ion-checkmark detail ng-hide" ng-show="colorPick === 'bright-three'"></i>
             </div>
         </div>
         
@@ -67,7 +67,7 @@
              ng-class="{'col-25 relative-pick': ( colorPick === 'bright-two'), 'col-12': (colorPick !== 'bright-two') }" 
              ng-click="changeDetailColor('bright-two')">
              <div class="box-detail-main ng-hide" id="bright-two" ng-show="colorPick === 'bright-two'">
-                 <i class="ion-checkmark detail ng-hide"></i>
+                 <i class="ion-checkmark detail ng-hide" ng-show="colorPick === 'bright-two'"></i>
              </div>
         </div>
 
@@ -75,7 +75,7 @@
              ng-class="{'col-25 relative-pick': ( colorPick === 'bright-one'), 'col-12': (colorPick !== 'bright-one') }" 
              ng-click="changeDetailColor('bright-one')">
              <div class="box-detail-main ng-hide" id="bright-one" ng-show="colorPick === 'bright-one'">
-                 <i class="ion-checkmark detail ng-hide"></i>
+                 <i class="ion-checkmark detail ng-hide" ng-show="colorPick === 'bright-one'"></i>
              </div>
         </div>
 
@@ -83,7 +83,7 @@
              ng-class="{'col-25 relative-pick': ( colorPick === 'main-detail'), 'col-12': (colorPick !== 'main-detail') }"
              ng-click="changeDetailColor('main-detail')">
             <div class="box-detail-main" id="main-detail" ng-show="colorPick === 'main-detail'">
-                <i class="ion-checkmark detail"></i>
+                <i class="ion-checkmark detail" ng-show="colorPick === 'main-detail'"></i>
             </div>
         </div>
 
@@ -91,7 +91,7 @@
              ng-class="{'col-25 relative-pick': ( colorPick === 'dark-one'), 'col-12': (colorPick !== 'dark-one') }" 
              ng-click="changeDetailColor('dark-one')"> 
              <div class="box-detail-main ng-hide" id="dark-one" ng-show="colorPick === 'dark-one'">
-                 <i class="ion-checkmark detail ng-hide"></i>
+                 <i class="ion-checkmark detail ng-hide" ng-show="colorPick === 'dark-one'"></i>
              </div>         
         </div>
 
@@ -99,7 +99,7 @@
               ng-class="{'col-25 relative-pick': ( colorPick === 'dark-two'), 'col-12': (colorPick !== 'dark-two') }" 
               ng-click="changeDetailColor('dark-two')">  
               <div class="box-detail-main ng-hide" id="dark-two" ng-show="colorPick === 'dark-two'">
-                  <i class="ion-checkmark detail ng-hide"></i>
+                  <i class="ion-checkmark detail ng-hide" ng-show="colorPick === 'dark-two'"></i>
               </div>
         </div>
 
@@ -107,7 +107,7 @@
               ng-class="{'col-25 relative-pick': ( colorPick === 'dark-three'), 'col-12': (colorPick !== 'dark-three') }" 
               ng-click="changeDetailColor('dark-three')"> 
               <div class="box-detail-main ng-hide" id="dark-three" ng-show="colorPick === 'dark-three'">
-                  <i class="ion-checkmark detail ng-hide"></i>
+                  <i class="ion-checkmark detail ng-hide" ng-show="colorPick === 'dark-three'"></i>
               </div>   
         </div>
 
