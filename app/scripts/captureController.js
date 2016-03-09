@@ -1,31 +1,37 @@
 angular.module('starter.controllers', [])
 
   .controller('ConfirmCtrl', function($scope, $state, $rootScope, imgURI, colorSelected) {
+    
+      $scope.$on('$ionicView.beforeEnter', function () {
           $rootScope.imgURI = null;
           $rootScope.colorSelected = null;
+      });
+
   })
 
   .controller('FormCtrl', function($scope, $state, $rootScope, imgURI, colorSelected, $http) {
 
+      // $watchCollection
       $scope.details = false;
       $scope.requirements = false;
       $scope.match = false;
+     
       $rootScope.imgURI = imgURI;
       var rgb = colorSelected.replace(/[()]/g, "").replace(/rgb/, "").split(",")
       $scope.red = rgb[0]
       $scope.green = rgb[1]
       $scope.blue = rgb[2]
       $scope.hex = chroma(rgb).hex();
+      
       $scope.sending = false;
+      // reset?
       document.getElementById('form-color-selected').style.backgroundColor = colorSelected
 
 
       $scope.sendEmail = function(form){
 
           var modImg = imgURI.replace("data:image/jpeg;base64,", "").replace("data:image/png;base64,", "");
-          if($scope.user.ext === undefined){
-             $scope.user.ext = '';
-          }
+          if($scope.user.ext === undefined){$scope.user.ext = '';}
 
           var emailData = {
             'key': 'ZrkOtJ2ahIz4gOgsp8FsvQ',
@@ -38,7 +44,7 @@ angular.module('starter.controllers', [])
                   'type': 'to'
                 }
               ],
-              'subject': 'iOS App Customer Data ' + $scope.user.companyName + '/' + $scope.user.contactName,
+              'subject': 'Customer Data from iOS app' + $scope.user.companyName + '/' + $scope.user.contactName,
               'html': '<body><h3 style="text-decoration:underline"><em>Contact Details</em></h3><' + 
               '<h5>Company Name: ' + $scope.user.companyName + '</h5>' + 
               '<h5>Contact Name: ' + $scope.user.contactName + '</h5>' + 
@@ -81,18 +87,14 @@ angular.module('starter.controllers', [])
             $scope.sending = true;
             $http.post('https://mandrillapp.com/api/1.0/messages/send.json', emailData)
                 .success(function(data){
-                  $rootScope.imgURI = null;
-                  $rootScope.colorSelected = null;
                   $scope.user = null;
-                  $scope.red = null
-                  $scope.green = null 
-                  $scope.blue = null
-                  $scope.hex = null
                   $scope.sending = false;
                   $scope.submitted = false;
                   $state.go('confirmation')
                 })
                 .error(function(err){
+                    // it should show error message above the button
+                    //with other text and hide on success?
                     console.log(err)
                     console.log("error")
                 })
@@ -132,15 +134,24 @@ angular.module('starter.controllers', [])
 
 
 
-  .controller('RequestCtrl', function($scope, $state, $rootScope, imgURI, colorSelected, $ionicHistory) {
+  .controller('RequestCtrl', function($ionicHistory, $rootScope, $scope) {
 
       $scope.goBack = function() {
-       $ionicHistory.goBack();
+        $rootScope.sendCrop == false
+        $ionicHistory.goBack();
       };
   
   })
 
-  .controller('ZoomCtrl', function($scope, $stateParams, $state, $rootScope, imgURI, $jrCrop) {
+  .controller('ZoomCtrl', function($scope, $state, $rootScope, imgURI) {
+
+    $scope.$on('$ionicView.beforeEnter', function () {
+        if (window.StatusBar) {
+          StatusBar.hide();
+          StatusBar.overlaysWebView(false);
+          StatusBar.styleBlackOpaque();
+        }
+    });
 
     $scope.cropper = {};
     $scope.cropper.sourceImage = imgURI;
@@ -157,13 +168,6 @@ angular.module('starter.controllers', [])
       $state.go('photo')
     }
 
-      $scope.$on('$ionicView.beforeEnter', function () {
-          if (window.StatusBar) {
-            StatusBar.hide();
-            StatusBar.overlaysWebView(false);
-            StatusBar.styleBlackOpaque();
-          }
-      });
   
   })
 
@@ -172,30 +176,33 @@ angular.module('starter.controllers', [])
   .controller('WheelCtrl', function($scope, $state, $rootScope, colorSelected) {
 
       $scope.$on('$ionicView.enter', function () {
-          console.log('wheelctrl')
-          console.log($rootScope.colorSelected)
           if($rootScope.colorSelected){
             var hex = chroma($rootScope.colorSelected).hex();
             $scope.color = {hex: hex}
           }
       });
 
+      // default color
       $scope.color = {hex: "#fc0000"};
 
       $scope.sendWheelDetails = function(){
         var colorSelected = document.getElementById('wheel-main').style.backgroundColor 
         if(colorSelected){
-          $rootScope.colorSelected = colorSelected
+          $rootScope.colorSelected = colorSelected;
           $state.go('detail')
         }
       }
 
       $scope.sendForm = function(){
         var colorSelected = document.getElementById('wheel-main').style.backgroundColor 
+        console.log(colorSelected)
          if(colorSelected){
-          $rootScope.colorSelected = colorSelected
-          $rootScope.imgURI = ""
-          $state.go('request')
+          console.log("inside")
+          console.log($rootScope.colorSelected)
+          console.log(colorSelected)
+          $rootScope.colorSelected = colorSelected;
+          $rootScope.imgURI = "";
+          $state.go('request');
         }
       }
       
@@ -227,55 +234,42 @@ angular.module('starter.controllers', [])
 
         document.getElementById('detail-box').style.backgroundColor = colorSelected;
         document.getElementById('main-detail').style.backgroundColor = $scope.hex;
+        document.getElementById('main-detail-container').style.backgroundColor = $scope.hex;
         document.getElementById('bright-one').style.backgroundColor = chroma(rgb).brighten();
+        document.getElementById('bright-one-container').style.backgroundColor = chroma(rgb).brighten();
         document.getElementById('bright-two').style.backgroundColor = chroma(rgb).brighten(2);
+        document.getElementById('bright-two-container').style.backgroundColor = chroma(rgb).brighten(2);
         document.getElementById('bright-three').style.backgroundColor = chroma(rgb).brighten(3);
+        document.getElementById('bright-three-container').style.backgroundColor = chroma(rgb).brighten(3);
         document.getElementById('dark-one').style.backgroundColor = chroma(rgb).darken();
+        document.getElementById('dark-one-container').style.backgroundColor = chroma(rgb).darken();
         document.getElementById('dark-two').style.backgroundColor = chroma(rgb).darken(2);
+        document.getElementById('dark-two-container').style.backgroundColor = chroma(rgb).darken(2);
         document.getElementById('dark-three').style.backgroundColor = chroma(rgb).darken(3);
+        document.getElementById('dark-three-container').style.backgroundColor = chroma(rgb).darken(3);
+
+        $scope.colorPick = 'main-detail';
 
         $scope.changeDetailColor = function(color){
+
+            $scope.colorPick = color
             var detailColorSelected = document.getElementById(color).style.backgroundColor 
-            var rgb;
+            document.getElementById('detail-box').style.backgroundColor = detailColorSelected;
             $rootScope.colorSelected = detailColorSelected
-
-            if(detailColorSelected === "white"){
-              rgb = [255, 255, 255]
-            }
-            else if(detailColorSelected === "black"){
-              rgb = [0, 0, 0]
-            }
-            else{ 
-              rgb = detailColorSelected.replace(/[()]/g, "").replace(/rgb/, "").split(",")
-            }
-
+            var rgb = detailColorSelected.replace(/[()]/g, "").replace(/rgb/, "").split(",")
             $scope.red = rgb[0]
             $scope.green = rgb[1]
             $scope.blue = rgb[2]
             $scope.hex = chroma(rgb).hex();
-
-            document.getElementById('detail-box').style.backgroundColor = detailColorSelected;
-            document.getElementById('main-detail').style.backgroundColor = detailColorSelected;
-            document.getElementById('bright-one').style.backgroundColor = chroma(rgb).brighten();
-            document.getElementById('bright-two').style.backgroundColor = chroma(rgb).brighten(2);
-            document.getElementById('bright-three').style.backgroundColor = chroma(rgb).brighten(3);
-            document.getElementById('dark-one').style.backgroundColor = chroma(rgb).darken();
-            document.getElementById('dark-two').style.backgroundColor = chroma(rgb).darken(2);
-            document.getElementById('dark-three').style.backgroundColor = chroma(rgb).darken(3);
         }
   })
  
 
 
-  .controller('PhotoCtrl', function($scope, $stateParams, $state, $rootScope, imgURI, $ionicHistory, sendCrop) {
-
-  
+  .controller('PhotoCtrl', function($scope, $state, $rootScope, imgURI, $ionicHistory, sendCrop) {
 
       $scope.$on('$ionicView.beforeEnter', function () {
-          console.log("sendCrop")
-          console.log(sendCrop)
-          console.log($rootScope.sendCrop)
-          if (window.StatusBar) {
+          if(window.StatusBar) {
             StatusBar.hide();
             StatusBar.overlaysWebView(false);
             StatusBar.styleBlackOpaque();
@@ -283,16 +277,13 @@ angular.module('starter.controllers', [])
           var mainBox = document.getElementById('main-color').style.background 
           if($rootScope.sendCrop === true){
             $scope.showCheck = false;
-            console.log("fire")
             document.getElementById('main-color').style.background = 'white';
           }
           if(($rootScope.sendCrop == false) && $rootScope.colorSelected !== mainBox){
-            console.log("fire2")
             $scope.showCheck = true;
             document.getElementById('main-color').style.background = $rootScope.colorSelected;
           }
       });
-
      
       $rootScope.imgURI = imgURI;
       var colorThief = new ColorThief();
@@ -374,7 +365,7 @@ angular.module('starter.controllers', [])
 
 
 
-  .controller('CaptureCtrl', function($scope, $stateParams, $cordovaCamera, $state, $rootScope, imgURI, colorSelected) {
+  .controller('CaptureCtrl', function($scope, $cordovaCamera, $state, $rootScope, imgURI, colorSelected) {
 
     $scope.takePhoto = function () {
         var options = {
@@ -394,7 +385,7 @@ angular.module('starter.controllers', [])
             $state.go('photo');
          
         }, function (err) {
-            // An error occured. Show a message to the user
+            // An error occured. 
         });
     }
               
@@ -415,7 +406,7 @@ angular.module('starter.controllers', [])
             $rootScope.imgURI = "data:image/jpeg;base64," + imageData;
             $state.go('photo')        
         }, function (err) {
-            // An error occured. Show a message to the user
+            // An error occured. 
         });
     }
 })

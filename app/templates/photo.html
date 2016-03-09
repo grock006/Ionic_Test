@@ -26,7 +26,7 @@
 <div class="bar bar-subheader text-center no-pad" style="display:grid">
   <div class="row no-pad">
     <div class="col-33">
-      <div class="row" ng-click="getZoom(imgURI);">
+      <div class="row" style="padding-top:10px;" ng-click="getZoom(imgURI);">
         <div class="col col-40 no-pad-lr">
           <img src="images/zoom.svg" style="width: 50%;margin-left: 6vw;">
         </div>
@@ -38,7 +38,7 @@
     <div class="col-33">
     </div>
     <div class="col-33">
-      <div class="row" ng-click="sendDetails();" ng-class="{'details-opacity': !showCheck}">
+      <div class="row" style="padding-top:10px;" ng-click="sendDetails();" ng-class="{'details-opacity': !showCheck}">
         <div class="col col-25 no-pad-lr">
           <img src="images/details.svg" style="width: 100%;margin-left: 2vw;">
         </div>
@@ -54,8 +54,8 @@
 <ion-view>
    <div class="row no-pad-lr" style="padding-top:18vh">
       <div class="col no-pad-lr">
-         <img id="photo" ng-src="{{imgURI}}" style="width:100vw">
-         <!-- <img id="photo" src="images/test.jpg" style="width:100vw"> -->
+       <!--   <img id="photo" ng-src="{{imgURI}}" style="width:100vw"> -->
+         <img id="photo" src="images/test.jpg" style="width:100vw">
      </div>
    </div>
 

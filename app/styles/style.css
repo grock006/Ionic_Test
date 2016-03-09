@@ -61,7 +61,7 @@ h5{
 
 .bar.bar-light h1.title{
 	font-size:6.5vh;
-	margin-top:4vh;
+	margin-top:6vh;
 	font-family: 'Dodeca Reg Basic' !important;
 	color: #4A4A4A;
 }
@@ -297,12 +297,32 @@ a {
 	text-decoration: none;
 }
 
+h2.wheel-text{
+	font-size:20px;
+	color: #4a4a4a;
+	font-family: 'Dodeca Reg Basic' !important;
+}
+
+.box-bottom-container{
+	position: absolute; 
+	bottom: -10px; 
+	width: 100%;
+}
+
+.bar-stable.bar-header, .bar-dark.bar-header, .bar-request.bar-header{
+	top: -15px;
+}
+
+.relative-pick{
+	position: relative;
+}
+
 .margin-top-detail{
 	margin-top: 70px;
 }
 
 .margin-top-wheel{
-	margin-top: 13vh;
+	margin-top: 10vh;
 }
 
 

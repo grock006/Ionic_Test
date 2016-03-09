@@ -52,36 +52,69 @@
     <!-- end main color -->
     <!-- darken brignten color -->
   
-    <div style="position:absolute; bottom: 0px; width: 100%">
-        
+    <div class="box-bottom-container">
       <div class="row text-center no-pad-lr">  
-        <div class="col-12 box-detail" id="bright-three" ng-click="changeDetailColor('bright-three')">
-          
-        </div>
-        <div class="col-12 box-detail" id="bright-two" ng-click="changeDetailColor('bright-two')">
-          <!-- ng-click changeDetailColor('bright-two') -->
-        </div>
-        <div class="col-12 box-detail" id="bright-one" ng-click="changeDetailColor('bright-one')">
-          
-        </div>
-
-        <div class="col-25 box-detail" style="position:relative">
-            <div class="box-detail-main" id="main-detail">
+        
+        <div ng-class="{'col-25 relative-pick': ( colorPick === 'bright-three'), 'col-12': (colorPick !== 'bright-three') }" 
+        class="box-detail" id="bright-three-container" 
+        ng-click="changeDetailColor('bright-three')">
+            <div class="box-detail-main" id="bright-three" ng-show="colorPick === 'bright-three'">
                 <i class="ion-checkmark detail"></i>
             </div>
         </div>
-        <div class="col-12 box-detail" id="dark-one" ng-click="changeDetailColor('dark-one')">
-          
+        
+        <div class="box-detail" id="bright-two-container" 
+             ng-class="{'col-25 relative-pick': ( colorPick === 'bright-two'), 'col-12': (colorPick !== 'bright-two') }" 
+             ng-click="changeDetailColor('bright-two')">
+             <div class="box-detail-main" id="bright-two" ng-show="colorPick === 'bright-two'">
+                 <i class="ion-checkmark detail"></i>
+             </div>
         </div>
-         <div class="col-12 box-detail" id="dark-two" ng-click="changeDetailColor('dark-two')">
-          
+
+        <div class="box-detail" id="bright-one-container" 
+             ng-class="{'col-25 relative-pick': ( colorPick === 'bright-one'), 'col-12': (colorPick !== 'bright-one') }" 
+             ng-click="changeDetailColor('bright-one')">
+             <div class="box-detail-main" id="bright-one" ng-show="colorPick === 'bright-one'">
+                 <i class="ion-checkmark detail"></i>
+             </div>
         </div>
-         <div class="col-12 box-detail" id="dark-three" ng-click="changeDetailColor('dark-three')">
-          
+
+        <div class="box-detail" id="main-detail-container"
+             ng-class="{'col-25 relative-pick': ( colorPick === 'main-detail'), 'col-12': (colorPick !== 'main-detail') }"
+             ng-click="changeDetailColor('main-detail')">
+            <div class="box-detail-main" id="main-detail" ng-show="colorPick === 'main-detail'">
+                <i class="ion-checkmark detail"></i>
+            </div>
         </div>
+
+        <div class="box-detail" id="dark-one-container" 
+             ng-class="{'col-25 relative-pick': ( colorPick === 'dark-one'), 'col-12': (colorPick !== 'dark-one') }" 
+             ng-click="changeDetailColor('dark-one')"> 
+             <div class="box-detail-main" id="dark-one" ng-show="colorPick === 'dark-one'">
+                 <i class="ion-checkmark detail"></i>
+             </div>         
+        </div>
+
+         <div class="box-detail" id="dark-two-container" 
+              ng-class="{'col-25 relative-pick': ( colorPick === 'dark-two'), 'col-12': (colorPick !== 'dark-two') }" 
+              ng-click="changeDetailColor('dark-two')">  
+              <div class="box-detail-main" id="dark-two" ng-show="colorPick === 'dark-two'">
+                  <i class="ion-checkmark detail"></i>
+              </div>
+        </div>
+
+         <div class="box-detail" id="dark-three-container" 
+              ng-class="{'col-25 relative-pick': ( colorPick === 'dark-three'), 'col-12': (colorPick !== 'dark-three') }" 
+              ng-click="changeDetailColor('dark-three')"> 
+              <div class="box-detail-main" id="dark-three" ng-show="colorPick === 'dark-three'">
+                  <i class="ion-checkmark detail"></i>
+              </div>   
+        </div>
+
+
       </div>
     
-    </div>
+    </dthree
     <!-- end darken brighten color -->
   <!-- </ion-content> -->
 </ion-view>
