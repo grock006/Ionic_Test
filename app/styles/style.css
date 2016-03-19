@@ -7,24 +7,10 @@
 }
 
 @font-face {
-  font-family: 'Dodeca Light Basic';
-  src: url('../fonts/dodeca_light_basic-webfont.ttf'); 
-  src: url('../fonts/dodeca_light_basic.otf'),
-       url('../fonts/dodeca_light_basic-webfont.woff') format('woff')
-}
-
-@font-face {
   font-family: 'Dodeca Reg Basic';
   src: url('../fonts/dodeca_reg_basic-webfont.ttf'); 
   src: url('../fonts/dodeca_reg_basic.otf'),
        url('../fonts/dodeca_reg_basic-webfont.woff') format('woff')
-}
-
-@font-face {
-  font-family: 'Dodeca Semi Basic';
-  src: url('../fonts/dodeca_semi_basic-webfont.ttf'); 
-  src: url('../fonts/dodeca_semi_basic.otf'),
-       url('../fonts/dodeca_semi_basic-webfont.woff') format('woff')
 }
 
 body, .bar, .bar-dark, .bar-stable, .button, h4, h1.title, h1.logo{

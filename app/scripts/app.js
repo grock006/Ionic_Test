@@ -1,5 +1,5 @@
 
-angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova', 'directive.ngColorwheel', 'jrCrop', 'angular-img-cropper'])
+angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova', 'directive.ngColorwheel', 'angular-img-cropper'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
