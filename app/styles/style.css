@@ -284,9 +284,23 @@ a {
 }
 
 h2.wheel-text{
-	font-size:20px;
-	color: #4a4a4a;
-	font-family: 'Dodeca Reg Basic' !important;
+	margin-top: 10px;
+    font-size: 18px;
+    color: #4a4a4a;
+    font-family: 'Dodeca Reg Basic' !important;
+}
+
+h2.wheel-text-bold{
+    font-size: 20px;
+    color: #4a4a4a;
+    font-family: 'Dodeca Bold Basic' !important;
+}
+
+.box-bottom-container-wheel{
+	position: absolute; 
+	bottom: -14px; 
+	width: 100%;
+	height: 20%;
 }
 
 .box-bottom-container{
@@ -295,7 +309,9 @@ h2.wheel-text{
 	width: 100%;
 }
 
-.bar-stable.bar-header, .bar-dark.bar-header, .bar-request.bar-header{
+.bar-stable.bar-header, .bar-dark.bar-header, 
+.bar-request.bar-header,
+.bar-wheel.bar-header{
 	top: -20px;
 }
 
@@ -308,7 +324,16 @@ h2.wheel-text{
 }
 
 .margin-top-wheel{
-	margin-top: 10vh;
+	margin-top: 3.5vh;
+}
+
+.view-details{
+	width: 100%;
+	position: absolute;
+	bottom: 105%;
+	right: 0%;
+	color: #4a4a4a !important;
+	font-family: 'Dodeca Reg Basic' !important;
 }
 
 
@@ -355,6 +380,10 @@ button.ion-images:before {
 
 button.ion-ios-color-filter:before {
     font-size: 50px !important;
+}
+
+.ion-ios-arrow-up:before{
+	font-size: 14px;
 }
 
 .ion-ios-circle-outline:before{

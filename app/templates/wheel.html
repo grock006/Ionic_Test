@@ -1,4 +1,4 @@
-<ion-header-bar class="bar-stable">
+<ion-header-bar class="bar-light bar-wheel">
   <button class="button button-clear ion-ios-arrow-left" ui-sref="logo">
      back
   </button>
@@ -11,10 +11,9 @@
 </ion-header-bar>
 
 <ion-view>
-<!--   <ion-content> -->
   <div class="row row-center text-center margin-top-wheel">
     <div class="col">
-      <h2 class="wheel-text">Choose a Color</h2>
+      <h2 class="wheel-text-bold">Choose a Color</h2>
     </div>
   </div>
 	<div class="row row-center text-center margin-top-wheel">  
@@ -23,45 +22,29 @@
 		</div>
 	</div>
 
-	 <div class="box-bottom-container" ng-show="color.hex" class="ng-hide">
+  <div class="row row-center text-center margin-top-wheel">
+    <div class="col">
+      <h2 class="wheel-text">Select a color from the wheel,<br>
+        then drag the cursor inside the box<br>
+        to expand color range</h2>
+    </div>
+  </div>
 
-      <div class="row no-pad-lr">
-        <div class="col col-30">
-        </div>
-        <div class="col col-25"></div>
-        <div class="col col-45 no-pad">
-             <button class="button-clear no-pad-lr" ng-click="sendWheelDetails();" style="width:100%"> 
-                <img src="images/view-details.png" style="width:100%">
-            </button>
-        </div>
-      </div>
+	 <div class="box-bottom-container-wheel" ng-show="color.hex" class="ng-hide">
 
       <br>
       <div class="row text-center no-pad-lr">  
-        <div class="col-12 box-detail" id="wheel-bright-three">
-          
+        <div class="col col-15"></div>
+        <div class="col col-75 box-detail-main" id="wheel-main" style="position:relative;"
+           ng-click="sendWheelDetails();">
+             <button class="button-clear no-pad-lr view-details" ng-click="sendWheelDetails();"> 
+                View Color Details&nbsp;<i class="ion-ios-arrow-up"></i>
+            </button>
         </div>
-        <div class="col-12 box-detail" id="wheel-bright-two">
-          
-        </div>
-        <div class="col-12 box-detail" id="wheel-bright-one">
-          
-        </div>
-        <div class="col-25 box-detail" style="position:relative">
-          <div class="box-detail-main" id="wheel-main">
-              <i class="ion-checkmark detail"></i>
-          </div>
-        </div>
-        <div class="col-12 box-detail" id="wheel-dark-one">
-          
-        </div>
-         <div class="col-12 box-detail" id="wheel-dark-two">
-          
-        </div>
-         <div class="col-12 box-detail" id="wheel-dark-three">
-          
+        <div class="col col-15">
+          <br>
+          <br>
         </div>
       </div>
     </div>
-	<!-- </ion-content> -->
 </ion-view>

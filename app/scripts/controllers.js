@@ -205,12 +205,6 @@ angular.module('starter.controllers', [])
       $scope.$watch('color.hex', function(newValue, oldValue) {
           rgb = newValue
           document.getElementById('wheel-main').style.backgroundColor = rgb;
-          document.getElementById('wheel-bright-one').style.backgroundColor = chroma(rgb).brighten();
-          document.getElementById('wheel-bright-two').style.backgroundColor = chroma(rgb).brighten(2);
-          document.getElementById('wheel-bright-three').style.backgroundColor = chroma(rgb).brighten(3);
-          document.getElementById('wheel-dark-one').style.backgroundColor = chroma(rgb).darken();
-          document.getElementById('wheel-dark-two').style.backgroundColor = chroma(rgb).darken(2);
-          document.getElementById('wheel-dark-three').style.backgroundColor = chroma(rgb).darken(3);
       }, true);
   })
 
@@ -247,11 +241,16 @@ angular.module('starter.controllers', [])
         $scope.colorPick = 'main-detail';
 
         $scope.changeDetailColor = function(color){
-
             $scope.colorPick = color
             var detailColorSelected = document.getElementById(color).style.backgroundColor 
+            if(detailColorSelected === 'white'){
+              detailColorSelected = 'rgb(255, 255, 255)';
+            }
+            else if(detailColorSelected === 'black'){
+              detailColorSelected = 'rgb(0, 0, 0)';
+            }
             document.getElementById('detail-box').style.backgroundColor = detailColorSelected;
-            $rootScope.colorSelected = detailColorSelected
+            $rootScope.colorSelected = detailColorSelected        
             var rgb = detailColorSelected.replace(/[()]/g, "").replace(/rgb/, "").split(",")
             $scope.red = rgb[0]
             $scope.green = rgb[1]
