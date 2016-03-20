@@ -24,7 +24,6 @@ angular.module('starter.controllers', [])
       $scope.hex = chroma(rgb).hex();
       
       $scope.sending = false;
-      // reset?
       document.getElementById('form-color-selected').style.backgroundColor = colorSelected
 
 
@@ -93,10 +92,9 @@ angular.module('starter.controllers', [])
                   $state.go('confirmation')
                 })
                 .error(function(err){
-                    // it should show error message above the button
-                    //with other text and hide on success?
                     console.log(err)
                     console.log("error")
+                    $state.go('form')
                 })
             }
       
@@ -137,7 +135,7 @@ angular.module('starter.controllers', [])
   .controller('RequestCtrl', function($ionicHistory, $rootScope, $scope) {
 
       $scope.goBack = function() {
-        $rootScope.sendCrop == false
+        $rootScope.sendCrop = false
         $ionicHistory.goBack();
       };
   
@@ -156,11 +154,6 @@ angular.module('starter.controllers', [])
     $scope.cropper = {};
     $scope.cropper.sourceImage = imgURI;
     $scope.cropper.croppedImage = null;
-    $scope.bounds = {};
-    $scope.bounds.left = 0;
-    $scope.bounds.right = 0;
-    $scope.bounds.top = 0;
-    $scope.bounds.bottom = 0;
 
     $scope.sendCrop = function sendCrop(img){
       $rootScope.sendCrop = true;
@@ -206,8 +199,8 @@ angular.module('starter.controllers', [])
           rgb = newValue
           document.getElementById('wheel-main').style.backgroundColor = rgb;
       }, true);
+  
   })
-
 
 
   .controller('DetailCtrl', function($scope, $state, $rootScope, colorSelected, $ionicHistory) {
@@ -274,7 +267,7 @@ angular.module('starter.controllers', [])
             $scope.showCheck = false;
             document.getElementById('main-color').style.background = 'white';
           }
-          if(($rootScope.sendCrop == false) && $rootScope.colorSelected !== mainBox){
+          if(($rootScope.sendCrop === false) && ($rootScope.colorSelected !== mainBox)){
             $scope.showCheck = true;
             document.getElementById('main-color').style.background = $rootScope.colorSelected;
           }
@@ -303,8 +296,9 @@ angular.module('starter.controllers', [])
       }
 
       $scope.sendDetails = function(){
-         $rootScope.sendCrop = false;
+        $rootScope.sendCrop = false;
         var colorSelected = document.getElementById('main-color').style.backgroundColor 
+        
         if(colorSelected){
           $rootScope.colorSelected = colorSelected
           $state.go('detail')
@@ -333,16 +327,16 @@ angular.module('starter.controllers', [])
 
           var palette = colorThief.getPalette(photo, 12);
 
-          var one = "rgb(" + palette[1][0] + ", " + palette[1][1] + ", " + palette[1][2] + ")"
-          var two = "rgb(" + palette[2][0] + ", " + palette[2][1] + ", " + palette[2][2] + ")"
-          var three = "rgb(" + palette[3][0] + ", " + palette[3][1] + ", " + palette[3][2] + ")"
-          var four = "rgb(" + palette[4][0] + ", " + palette[4][1] + ", " + palette[4][2] + ")"
-          var five = "rgb(" + palette[5][0] + ", " + palette[5][1] + ", " + palette[5][2] + ")"
-          var six = "rgb(" + palette[6][0] + ", " + palette[6][1] + ", " + palette[6][2] + ")"
-          var seven = "rgb(" + palette[7][0] + ", " + palette[7][1] + ", " + palette[7][2] + ")"
-          var eight = "rgb(" + palette[8][0] + ", " + palette[8][1] + ", " + palette[8][2] + ")"
-          var nine = "rgb(" + palette[9][0] + ", " + palette[9][1] + ", " + palette[9][2] + ")"
-          var ten = "rgb(" + palette[10][0] + ", " + palette[10][1] + ", " + palette[10][2] + ")"
+          var one = "rgb(" + palette[1][0] + ", " + palette[1][1] + ", " + palette[1][2] + ")";
+          var two = "rgb(" + palette[2][0] + ", " + palette[2][1] + ", " + palette[2][2] + ")";
+          var three = "rgb(" + palette[3][0] + ", " + palette[3][1] + ", " + palette[3][2] + ")";
+          var four = "rgb(" + palette[4][0] + ", " + palette[4][1] + ", " + palette[4][2] + ")";
+          var five = "rgb(" + palette[5][0] + ", " + palette[5][1] + ", " + palette[5][2] + ")";
+          var six = "rgb(" + palette[6][0] + ", " + palette[6][1] + ", " + palette[6][2] + ")";
+          var seven = "rgb(" + palette[7][0] + ", " + palette[7][1] + ", " + palette[7][2] + ")";
+          var eight = "rgb(" + palette[8][0] + ", " + palette[8][1] + ", " + palette[8][2] + ")";
+          var nine = "rgb(" + palette[9][0] + ", " + palette[9][1] + ", " + palette[9][2] + ")";
+          var ten = "rgb(" + palette[10][0] + ", " + palette[10][1] + ", " + palette[10][2] + ")";
 
           document.getElementById('one').style.backgroundColor = one
           document.getElementById('two').style.backgroundColor = two
@@ -380,7 +374,7 @@ angular.module('starter.controllers', [])
             $state.go('photo');
          
         }, function (err) {
-            // An error occured. 
+            $state.go('intro');
         });
     }
               
@@ -401,7 +395,7 @@ angular.module('starter.controllers', [])
             $rootScope.imgURI = "data:image/jpeg;base64," + imageData;
             $state.go('photo')        
         }, function (err) {
-            // An error occured. 
+              $state.go('intro');
         });
     }
 })
@@ -412,15 +406,15 @@ angular.module('starter.controllers', [])
 
    $scope.$on('$ionicView.beforeEnter', function () {
       $scope.lastSlide = false;
-      $ionicSlideBoxDelegate.slide(0)
+      $ionicSlideBoxDelegate.slide(0);
    })
 
    $scope.goLogo = function(){
-     $state.go('logo')
+     $state.go('logo');
    }
 
    $scope.goIntro = function(){
-      $state.go('intro')
+      $state.go('intro');
    }
 
     $scope.next = function () {
@@ -433,7 +427,7 @@ angular.module('starter.controllers', [])
 
     $scope.slideChanged = function (index) {
       if(index === 3){
-        $scope.lastSlide = true
+        $scope.lastSlide = true;
       }
       else{
         $scope.lastSlide = false;
