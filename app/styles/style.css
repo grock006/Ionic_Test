@@ -284,16 +284,17 @@ a {
 }
 
 h2.wheel-text{
-	margin-top: 10px;
-    font-size: 18px;
+	margin-top: 5px;
+    font-size: 16px;
     color: #4a4a4a;
     font-family: 'Dodeca Reg Basic' !important;
 }
 
 h2.wheel-text-bold{
-    font-size: 20px;
+    font-size: 18px;
     color: #4a4a4a;
     font-family: 'Dodeca Bold Basic' !important;
+    margin-bottom: 5px;
 }
 
 .box-bottom-container-wheel{
@@ -324,13 +325,14 @@ h2.wheel-text-bold{
 }
 
 .margin-top-wheel{
-	margin-top: 3.5vh;
+	margin-top: 5.5vh;
 }
 
 .view-details{
 	width: 100%;
 	position: absolute;
-	bottom: 105%;
+	bottom: 100%;
+	font-size: 16px !important;
 	right: 0%;
 	color: #4a4a4a !important;
 	font-family: 'Dodeca Reg Basic' !important;
@@ -388,7 +390,7 @@ button.ion-ios-color-filter:before {
 
 .ion-ios-circle-outline:before{
 	color: #9013fe;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .ion-ios-information:before{
