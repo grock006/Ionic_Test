@@ -35,10 +35,10 @@ angular.module('starter.controllers', [])
           var emailData = {
             'key': 'ZrkOtJ2ahIz4gOgsp8FsvQ',
             'message': {
-              'from_email': 'hello@opticolorinc.com',
+              'from_email': 'help@opticolorinc.com',
               'to': [
                 {
-                  'email': 'hello@opticolorinc.com',
+                  'email': 'help@opticolorinc.com',
                   'name': '',
                   'type': 'to'
                 }
