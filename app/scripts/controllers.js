@@ -35,10 +35,10 @@ angular.module('starter.controllers', [])
           var emailData = {
             'key': 'ZrkOtJ2ahIz4gOgsp8FsvQ',
             'message': {
-              'from_email': 'help@opticolorinc.com',
+              'from_email': 'hello@opticolorinc.com',
               'to': [
                 {
-                  'email': 'help@opticolorinc.com',
+                  'email': 'hello@opticolorinc.com',
                   'name': '',
                   'type': 'to'
                 }
@@ -374,7 +374,7 @@ angular.module('starter.controllers', [])
             $state.go('photo');
          
         }, function (err) {
-            $state.go('intro');
+            $state.go('capture');
         });
     }
               
@@ -395,7 +395,7 @@ angular.module('starter.controllers', [])
             $rootScope.imgURI = "data:image/jpeg;base64," + imageData;
             $state.go('photo')        
         }, function (err) {
-              $state.go('intro');
+              $state.go('capture');
         });
     }
 })
