@@ -83,7 +83,7 @@ angular.module('starter.controllers', [])
 
         $scope.submitted = true;
 
-         // if(form.$valid){
+         if(form.$valid){
             $scope.sending = true;
             $http.post('https://mandrillapp.com/api/1.0/messages/send.json', emailData)
                 .then(function(data){
@@ -99,7 +99,7 @@ angular.module('starter.controllers', [])
                     $scope.errorMessage = true;
                     console.log("send email error callback", err)
                 })
-            // }
+            }
       
       }
 
