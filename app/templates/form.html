@@ -99,7 +99,7 @@
 	  		  	</label>
 	  		  <br>
 	  		  <label class="item item-input" ng-class="{'danger': form.base.$invalid && submitted }">
-	  		    <input type="text" name="base" ng-model="user.base" placeholder="Base Carrier Resin" required>
+	  		    <input type="text" name="base" ng-model="user.base" placeholder="Base Carrier Resin*" required>
 	  		  </label>
 	  		  <br>
 	  		  <label class="item item-input" ng-class="{'danger': form.resin.$invalid && submitted }">
@@ -130,12 +130,12 @@
 	  		    </select>
 	  		  </label>
 	  		    <br>
-	  		  <label class="item item-input item-select" ng-class="{'danger': form.letdown.$invalid && submitted }">
+	  		  <label class="item item-input item-select">
 	  		    <div class="input-label">
 	  		      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
 	  		    </div>
-	  		    <select name="letdown" ng-model="user.letdown" required>
-	  		      <option value="" disabled selected>Requested Letdown %*</option>			
+	  		    <select name="letdown" ng-model="user.letdown">
+	  		      <option value="" disabled selected>Requested Letdown %</option>			
 	  		      <option value="0.5">0.5</option>
 	  		      <option value="1">1</option>
 	  		      <option value="1.5">1.5</option>
@@ -180,19 +180,19 @@
 	  		  </label>
 	  		  <br>
 	  		  <label class="item item-input" ng-class="{'danger': form.thickness.$invalid && submitted }">
-	  		    <input type="text" name="thickness" ng-model="user.thickness" placeholder="Finished Part Thickness" required>
+	  		    <input type="text" name="thickness" ng-model="user.thickness" placeholder="Finished Part Thickness*" required>
 	  		  </label>
 	  		  <br>
-	  		  <label class="item item-input" ng-class="{'danger': form.transmission.$invalid && submitted }">
-	  		    <input type="text" name="transmission" ng-model="user.transmission" placeholder="Light Transmission Target*"required>
+	  		  <label class="item item-input">
+	  		    <input type="text" name="transmission" ng-model="user.transmission" placeholder="Light Transmission Target">
 	  		  </label>
 	  		  <br>
-	  		  <label class="item item-input item-select" ng-class="{'danger': form.source.$invalid && submitted }">
+	  		  <label class="item item-input item-select">
 	  		    <div class="input-label">
 	  		      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
 	  		    </div>
-	  		    <select name="source" ng-model="user.source" required>
-	  		      <option value="" disabled selected>Light Source*</option>			
+	  		    <select name="source" ng-model="user.source">
+	  		      <option value="" disabled selected>Light Source</option>			
 	  		      <option value="D75 Natural Daylight">D75 Natural Daylight</option>
 	  		      <option value="Daylight 6500k">Daylight 6500K</option>
 	  		      <option value="Cool White Florescent">Cool White Fluorescent</option>
@@ -284,6 +284,10 @@
 	  				<h5 class="help-block text-danger" ng-show="form.$invalid && submitted">
 			            Oops! Looks like you forgot a few things.
 			         </h5>
+
+       				<h5 class="help-block text-danger" ng-show="errorMessage">
+     		            Oops! Looks like something went wrong. Please check your internet connection or try again later.
+     		         </h5>
 
 	  				
 	  				<button class="button button-full button-royal" type="submit" 

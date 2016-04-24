@@ -11,10 +11,11 @@ angular.module('starter.controllers', [])
 
   .controller('FormCtrl', function($scope, $state, $rootScope, imgURI, colorSelected, $http) {
 
-      // $watchCollection
+
       $scope.details = false;
       $scope.requirements = false;
       $scope.match = false;
+      $scope.errorMessage = null;
      
       $rootScope.imgURI = imgURI;
       var rgb = colorSelected.replace(/[()]/g, "").replace(/rgb/, "").split(",")
@@ -43,7 +44,7 @@ angular.module('starter.controllers', [])
                   'type': 'to'
                 }
               ],
-              'subject': 'Customer Data from iOS app' + $scope.user.companyName + '/' + $scope.user.contactName,
+              'subject': 'Customer Data from iOS app ' + $scope.user.companyName + '/' + $scope.user.contactName,
               'html': '<body><h3 style="text-decoration:underline"><em>Contact Details</em></h3><' + 
               '<h5>Company Name: ' + $scope.user.companyName + '</h5>' + 
               '<h5>Contact Name: ' + $scope.user.contactName + '</h5>' + 
@@ -82,21 +83,23 @@ angular.module('starter.controllers', [])
 
         $scope.submitted = true;
 
-         if(form.$valid){
+         // if(form.$valid){
             $scope.sending = true;
             $http.post('https://mandrillapp.com/api/1.0/messages/send.json', emailData)
-                .success(function(data){
+                .then(function(data){
+                  console.log("send email success callback", data)
                   $scope.user = null;
                   $scope.sending = false;
                   $scope.submitted = false;
                   $state.go('confirmation')
+                },
+                function(err){
+                    $scope.sending = false;
+                    $scope.submitted = false;
+                    $scope.errorMessage = true;
+                    console.log("send email error callback", err)
                 })
-                .error(function(err){
-                    console.log(err)
-                    console.log("error")
-                    $state.go('form')
-                })
-            }
+            // }
       
       }
 
