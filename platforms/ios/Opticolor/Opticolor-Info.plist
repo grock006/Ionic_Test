@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>NSAppTransportSecurity</key>
+    <dict>
+      <key>NSAllowsArbitraryLoads</key>
+      <true/>
+    </dict>
+    <key>CFBundleDevelopmentRegion</key>
+    <string>English</string>
+    <key>CFBundleDisplayName</key>
+    <string>${PRODUCT_NAME}</string>
+    <key>CFBundleExecutable</key>
+    <string>${EXECUTABLE_NAME}</string>
+    <key>CFBundleIconFile</key>
+    <string>icon.png</string>
+    <key>CFBundleIcons</key>
+    <dict>
+      <key>CFBundlePrimaryIcon</key>
+      <dict>
+        <key>CFBundleIconFiles</key>
+        <array>
+          <string>icon-40</string>
+          <string>icon-small</string>
+          <string>icon-60</string>
+          <string>icon.png</string>
+          <string>icon@2x</string>
+          <string>icon-72</string>
+          <string>icon-72@2x</string>
+        </array>
+        <key>UIPrerenderedIcon</key>
+        <false/>
+      </dict>
+    </dict>
+    <key>[object Object]</key>
+    <string>CFBundleIdentifier</string>
+    <key>com.opticolorinc.opticolor</key>
+    <string>CFBundleInfoDictionaryVersion</string>
+    <key>6.0</key>
+    <string>CFBundleName</string>
+    <key>${PRODUCT_NAME}</key>
+    <string>CFBundlePackageType</string>
+    <key>APPL</key>
+    <string>CFBundleSignature</string>
+    <key>????</key>
+    <string>CFBundleVersion</string>
+    <key>1.0.5</key>
+    <string>LSRequiresIPhoneOS</string>
+    <key>true</key>
+    <string>UIViewControllerBasedStatusBarAppearance</string>
+    <key/>
+    <string>UIRequiresFullScreen</string>
+    <key>false</key>
+    <string>UILaunchImages</string>
+    <key>[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]</key>
+    <string>NSLocationWhenInUseUsageDescription</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string/>
+  </dict>
+</plist>
