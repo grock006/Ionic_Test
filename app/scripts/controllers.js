@@ -169,7 +169,7 @@ angular.module('starter.controllers', [])
 
 
 
-  .controller('WheelCtrl', function($scope, $state, $rootScope, colorSelected) {
+  .controller('WheelCtrl', function($scope, $state, $rootScope, colorSelected, $window) {
 
       $scope.$on('$ionicView.enter', function () {
           if($rootScope.colorSelected){
@@ -180,6 +180,14 @@ angular.module('starter.controllers', [])
 
       // default color
       $scope.color = {hex: "#fc0000"};
+
+
+      if($window.innerHeight < 900 && $window.innerHeight > 490){
+          $scope.colorWheelWidth = 300
+        }
+       if($window.innerHeight > 900 || $window.innerHeight < 490){
+          $scope.colorWheelWidth = 220
+        }
 
       $scope.sendWheelDetails = function(){
         var colorSelected = document.getElementById('wheel-main').style.backgroundColor 

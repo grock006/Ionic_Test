@@ -113,6 +113,11 @@ h5.no-margin{
 
 /*End Intro*/
 
+.logo-margin-top{
+	margin-top:9vh;
+	margin-bottom:4vh;
+}
+
 /* Capture */
 
 .bar-stable .button.button-clear, .bar-light .button.button-clear, .button-clear.button-clear {
@@ -191,7 +196,6 @@ h5.no-margin{
 	top: -10px;
 	border-radius: 5px;
 	text-align: center;
-/*	background: url("../images/choice.png") no-repeat center center;*/
 }
 
 .main-box-color:after {
@@ -224,7 +228,6 @@ h5.no-margin{
     height: 100%;
     padding-top: 15vh;
     border-radius: 5px 5px 0px 0px;
-   /* border: 1px solid darkgray;*/
     position: absolute;
     bottom: 0px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
@@ -326,6 +329,11 @@ h2.wheel-text-bold{
 
 .margin-top-wheel{
 	margin-top: 5.5vh;
+}
+
+.margin-capture-top{
+	margin-top:5vh;
+	margin-bottom:5vh;
 }
 
 .view-details{
@@ -485,3 +493,51 @@ h4.form-header{
 }
 
 /* End Form */
+
+/* Media Query for iPhone on iPad resolution */
+/* NEED TO CHANGE/ADD TO IPAD HEIGHTS 900px and ABOVE*/
+@media screen and (min-height : 320px) and (max-height : 500px) {
+	.logo-margin-top{
+		margin-top: 10%;
+		margin-bottom: 0%;
+	}
+	.margin-top-detail {
+	    margin-top: 55px;
+	}
+	#detail-box{
+		height: 200px
+	}
+	.tablet-correction-request{
+		margin-top: -44px;
+	}
+	.margin-capture-top{
+		margin-top: 0px;
+		margin-bottom: 0px;
+	}
+	.margin-top-wheel {
+	    margin-top: 6vh;
+	}
+}
+
+@media screen and (min-height : 850px) and (max-height : 1050px) {
+	.logo-margin-top{
+		margin-top: 10%;
+		margin-bottom: 0%;
+	}
+	.margin-top-detail {
+	    margin-top: 55px;
+	}
+	#detail-box{
+		height: 200px
+	}
+	.tablet-correction-request{
+		margin-top: -44px;
+	}
+	.margin-capture-top{
+		margin-top: 0px;
+		margin-bottom: 0px;
+	}
+	.margin-top-wheel {
+	    margin-top: 6vh;
+	}
+}
